@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Routine / Medication"
+        android:textColor="#1E234B"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Enter the details of your routine below."
+        android:textColor="#6B7280"
+        android:textSize="14sp" />
+
+    <!-- Name input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Name"
+        android:textColor="#1E234B"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_routine_name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_edittext"
+        android:hint="e.g. Minoxidil"
+        android:inputType="text"
+        android:paddingHorizontal="16dp"
+        android:textColor="#1E234B"
+        android:textColorHint="#9CA3AF"
+        android:textSize="14sp" />
+
+    <!-- Dosage input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Dosage"
+        android:textColor="#1E234B"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_routine_dosage"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_edittext"
+        android:hint="e.g. 1ml or 1 pill"
+        android:inputType="text"
+        android:paddingHorizontal="16dp"
+        android:textColor="#1E234B"
+        android:textColorHint="#9CA3AF"
+        android:textSize="14sp" />
+
+    <!-- Frequency input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Frequency"
+        android:textColor="#1E234B"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_routine_frequency"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_edittext"
+        android:hint="e.g. Once daily"
+        android:inputType="text"
+        android:paddingHorizontal="16dp"
+        android:textColor="#1E234B"
+        android:textColorHint="#9CA3AF"
+        android:textSize="14sp" />
+
+    <!-- Time input -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Timing"
+        android:textColor="#1E234B"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_routine_time"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_edittext"
+        android:hint="e.g. Night or Morning"
+        android:inputType="text"
+        android:paddingHorizontal="16dp"
+        android:textColor="#1E234B"
+        android:textColorHint="#9CA3AF"
+        android:textSize="14sp" />
+
+</LinearLayout>

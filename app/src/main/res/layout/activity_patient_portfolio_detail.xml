@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    tools:context=".PatientPortfolioDetailActivity">
+
+    <!-- Toolbar -->
+    <RelativeLayout
+        android:id="@+id/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_circle_back"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_back"
+                android:contentDescription="Back"
+                app:tint="#4B5563" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Patient Name"
+            android:textColor="#1E234B"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Main Scrollable Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="12dp">
+
+            <!-- Patient Profile Header Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <!-- Initials circle -->
+                    <FrameLayout
+                        android:id="@+id/profile_badge"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/bg_circle_blue">
+                        <TextView
+                            android:id="@+id/tv_header_initials"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="A"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </FrameLayout>
+
+                    <!-- Text details -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@id/layout_compliance"
+                        android:layout_toEndOf="@id/profile_badge"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_header_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Patient Name"
+                            android:textColor="#1E234B"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_header_email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="email@domain.com"
+                            android:textColor="#6B7280"
+                            android:textSize="12sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:src="@drawable/ic_phone"
+                                app:tint="#2563EB" />
+                            <TextView
+                                android:id="@+id/tv_header_phone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:text="1234567890"
+                                android:textColor="#2563EB"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Compliance Circular Progress -->
+                    <LinearLayout
+                        android:id="@+id/layout_compliance"
+                        android:layout_width="64dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <FrameLayout
+                            android:layout_width="48dp"
+                            android:layout_height="48dp">
+                            <ProgressBar
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:indeterminate="false"
+                                android:progress="0"
+                                android:max="100"
+                                android:progressDrawable="@drawable/bg_compliance_ring"
+                                style="?android:attr/progressBarStyleHorizontal" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="0%"
+                                android:textColor="#1E234B"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </FrameLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Compliance"
+                            android:textColor="#9CA3AF"
+                            android:textSize="9sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Horizontal Icon Tabs Bar -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/layout_tabs_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="8dp">
+
+                    <!-- Profile Tab -->
+                    <TextView
+                        android:id="@+id/tab_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="8dp"
+                        android:drawableStart="@drawable/ic_user"
+                        android:drawablePadding="8dp"
+                        android:text="Profile"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_button_blue"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <!-- Quiz Tab -->
+                    <TextView
+                        android:id="@+id/tab_quiz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="8dp"
+                        android:drawableStart="@drawable/ic_reports"
+                        android:drawablePadding="8dp"
+                        android:text=""
+                        android:textColor="#6B7280"
+                        android:textSize="13sp"
+                        android:background="@android:color/transparent"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <!-- Calendar Tab -->
+                    <TextView
+                        android:id="@+id/tab_appts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="8dp"
+                        android:drawableStart="@drawable/ic_calendar"
+                        android:drawablePadding="8dp"
+                        android:text=""
+                        android:textColor="#6B7280"
+                        android:textSize="13sp"
+                        android:background="@android:color/transparent"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <!-- Photos Tab -->
+                    <TextView
+                        android:id="@+id/tab_photos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="8dp"
+                        android:drawableStart="@drawable/ic_images"
+                        android:drawablePadding="8dp"
+                        android:text=""
+                        android:textColor="#6B7280"
+                        android:textSize="13sp"
+                        android:background="@android:color/transparent"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <!-- Rx Tab -->
+                    <TextView
+                        android:id="@+id/tab_rx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="8dp"
+                        android:drawableStart="@drawable/ic_pill"
+                        android:drawablePadding="8dp"
+                        android:text=""
+                        android:textColor="#6B7280"
+                        android:textSize="13sp"
+                        android:background="@android:color/transparent"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <!-- Compliance Tab -->
+                    <TextView
+                        android:id="@+id/tab_water"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="8dp"
+                        android:drawableStart="@drawable/ic_tracker"
+                        android:drawablePadding="8dp"
+                        android:text=""
+                        android:textColor="#6B7280"
+                        android:textSize="13sp"
+                        android:background="@android:color/transparent"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- ================= PROFILE TAB CONTAINER ================= -->
+            <LinearLayout
+                android:id="@+id/container_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <!-- Profile details card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:stretchColumns="1">
+
+                        <!-- Email row -->
+                        <TableRow android:paddingVertical="8dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Email"
+                                android:textColor="#9CA3AF"
+                                android:textSize="14sp"
+                                android:drawableStart="@drawable/ic_email"
+                                android:drawablePadding="8dp"
+                                android:gravity="center_vertical" />
+                            <TextView
+                                android:id="@+id/tv_profile_email"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ajaypujala@gmail.com"
+                                android:textColor="#1E234B"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:gravity="end" />
+                        </TableRow>
+
+                        <!-- Phone row -->
+                        <TableRow android:paddingVertical="8dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Phone"
+                                android:textColor="#9CA3AF"
+                                android:textSize="14sp"
+                                android:drawableStart="@drawable/ic_phone"
+                                android:drawablePadding="8dp"
+                                android:gravity="center_vertical" />
+                            <TextView
+                                android:id="@+id/tv_profile_phone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="7679877890"
+                                android:textColor="#1E234B"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:gravity="end" />
+                        </TableRow>
+
+                        <!-- Place row -->
+                        <TableRow android:paddingVertical="8dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Place"
+                                android:textColor="#9CA3AF"
+                                android:textSize="14sp"
+                                android:drawableStart="@drawable/ic_location"
+                                android:drawablePadding="8dp"
+                                android:gravity="center_vertical" />
+                            <TextView
+                                android:id="@+id/tv_profile_place"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="chennai"
+                                android:textColor="#1E234B"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:gravity="end" />
+                        </TableRow>
+
+                        <!-- DOB row -->
+                        <TableRow android:paddingVertical="8dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="DOB"
+                                android:textColor="#9CA3AF"
+                                android:textSize="14sp"
+                                android:drawableStart="@drawable/ic_calendar"
+                                android:drawablePadding="8dp"
+                                android:gravity="center_vertical" />
+                            <TextView
+                                android:id="@+id/tv_profile_dob"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1997-04-17"
+                                android:textColor="#1E234B"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:gravity="end" />
+                        </TableRow>
+                    </TableLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Statistics Widgets Grid -->
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:columnCount="2"
+                    android:alignmentMode="alignMargins"
+                    android:columnOrderPreserved="false">
+
+                    <!-- Quizzes -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="6dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="2dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_reports"
+                                app:tint="#3B82F6" />
+                            <TextView
+                                android:id="@+id/tv_stat_quizzes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="0"
+                                android:textColor="#1E234B"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Quizzes"
+                                android:textColor="#9CA3AF"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Photos -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="6dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="2dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_images"
+                                app:tint="#E11D48" />
+                            <TextView
+                                android:id="@+id/tv_stat_photos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="0"
+                                android:textColor="#1E234B"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Photos"
+                                android:textColor="#9CA3AF"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Appts -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="6dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="2dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_calendar"
+                                app:tint="#10B981" />
+                            <TextView
+                                android:id="@+id/tv_stat_appts"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="0"
+                                android:textColor="#1E234B"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Appts"
+                                android:textColor="#9CA3AF"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Streak Days -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="6dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="2dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_fire"
+                                app:tint="#F97316" />
+                            <TextView
+                                android:id="@+id/tv_stat_streak"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="0"
+                                android:textColor="#1E234B"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Streak Days"
+                                android:textColor="#9CA3AF"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </GridLayout>
+
+                <!-- Export PDF Button -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_export_pdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/bg_button_blue"
+                    android:text="Export PDF Report"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:drawableStart="@android:drawable/ic_menu_share"
+                    android:paddingHorizontal="24dp"
+                    app:tint="@color/white" />
+            </LinearLayout>
+
+            <!-- ================= QUIZ TAB CONTAINER ================= -->
+            <LinearLayout
+                android:id="@+id/container_quiz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Loaded report contents dynamically loaded -->
+                <LinearLayout
+                    android:id="@+id/layout_quiz_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp">
+                        <TextView
+                            android:id="@+id/tv_quiz_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="May 6, 2026"
+                            android:textColor="#6B7280"
+                            android:textStyle="bold"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:id="@+id/tv_quiz_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="#40"
+                            android:textColor="#9CA3AF"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+                    <!-- AI Result Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:cardBackgroundColor="#F3F7FF"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/ic_stethoscope"
+                                    app:tint="#2563EB" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:text="AI Result Summary"
+                                    android:textColor="#2563EB"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/tv_quiz_summary"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Quiz Completed (Low/Moderate/High risk)"
+                                android:textColor="#1E234B"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Clinical Details Section -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="Clinical Details"
+                        android:textColor="#1E234B"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="2dp">
+                        
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:columnCount="2"
+                            android:padding="16dp">
+
+                            <!-- Scalp Type -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="8dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Scalp Type"
+                                    android:textColor="#9CA3AF"
+                                    android:textSize="11sp"
+                                    android:drawableStart="@drawable/ic_reports"
+                                    android:drawablePadding="6dp" />
+                                <TextView
+                                    android:id="@+id/tv_detail_scalp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Dry"
+                                    android:textColor="#1E234B"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <!-- Hair Texture -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="8dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Hair Texture"
+                                    android:textColor="#9CA3AF"
+                                    android:textSize="11sp"
+                                    android:drawableStart="@drawable/ic_user"
+                                    android:drawablePadding="6dp" />
+                                <TextView
+                                    android:id="@+id/tv_detail_texture"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Medium"
+                                    android:textColor="#1E234B"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <!-- Hair Fall -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="8dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Hair Fall Freq."
+                                    android:textColor="#9CA3AF"
+                                    android:textSize="11sp"
+                                    android:drawableStart="@drawable/ic_target"
+                                    android:drawablePadding="6dp" />
+                                <TextView
+                                    android:id="@+id/tv_detail_fall"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Sometimes"
+                                    android:textColor="#1E234B"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <!-- Sleep -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="8dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sleep (hrs/night)"
+                                    android:textColor="#9CA3AF"
+                                    android:textSize="11sp"
+                                    android:drawableStart="@drawable/ic_clock"
+                                    android:drawablePadding="6dp" />
+                                <TextView
+                                    android:id="@+id/tv_detail_sleep"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="6-8 hours"
+                                    android:textColor="#1E234B"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <!-- Stress -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="8dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Stress Level"
+                                    android:textColor="#9CA3AF"
+                                    android:textSize="11sp"
+                                    android:drawableStart="@drawable/ic_fire"
+                                    android:drawablePadding="6dp" />
+                                <TextView
+                                    android:id="@+id/tv_detail_stress"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Occasionally"
+                                    android:textColor="#1E234B"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <!-- Diet -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="8dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Diet"
+                                    android:textColor="#9CA3AF"
+                                    android:textSize="11sp"
+                                    android:drawableStart="@drawable/ic_med_kit"
+                                    android:drawablePadding="6dp" />
+                                <TextView
+                                    android:id="@+id/tv_detail_diet"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Partially"
+                                    android:textColor="#1E234B"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <!-- Deficiencies -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnSpan="2"
+                                android:layout_margin="8dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Deficiencies"
+                                    android:textColor="#9CA3AF"
+                                    android:textSize="11sp"
+                                    android:drawableStart="@drawable/ic_pill"
+                                    android:drawablePadding="6dp" />
+                                <TextView
+                                    android:id="@+id/tv_detail_deficiencies"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="None"
+                                    android:textColor="#1E234B"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </GridLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Symptom Indicators Section -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Symptom Indicators"
+                        android:textColor="#1E234B"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <!-- Family History -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:id="@+id/iv_sym_family"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_check_circle"
+                                app:tint="#10B981" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="Family History"
+                                android:textColor="#6B7280"
+                                android:textSize="10sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <!-- Sudden Thinning -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:id="@+id/iv_sym_thinning"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_check_circle"
+                                app:tint="#10B981" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="Sudden Thinning"
+                                android:textColor="#6B7280"
+                                android:textSize="10sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <!-- Dandruff -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:id="@+id/iv_sym_dandruff"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_check_circle"
+                                app:tint="#10B981" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="Dandruff"
+                                android:textColor="#6B7280"
+                                android:textSize="10sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                        <!-- Scalp Pain -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:id="@+id/iv_sym_pain"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_check_circle"
+                                app:tint="#10B981" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="Scalp Pain"
+                                android:textColor="#6B7280"
+                                android:textSize="10sp"
+                                android:gravity="center" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- If no quiz reports exist -->
+                <TextView
+                    android:id="@+id/tv_no_quiz_reports"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="32dp"
+                    android:text="No quiz reports found for this patient."
+                    android:textColor="#6B7280"
+                    android:textSize="15sp"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <!-- ================= APPOINTMENTS TAB CONTAINER ================= -->
+            <LinearLayout
+                android:id="@+id/container_appts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- List container -->
+                <LinearLayout
+                    android:id="@+id/layout_appts_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <!-- Empty State Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_no_appts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="#F8FAFF"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="0dp"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="32dp">
+
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/ic_calendar"
+                            app:tint="#CBD5E1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="No appointments found"
+                            android:textColor="#1E234B"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- ================= PHOTOS TAB CONTAINER ================= -->
+            <LinearLayout
+                android:id="@+id/container_photos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Stack of Phases Progress loaded dynamically -->
+                <LinearLayout
+                    android:id="@+id/layout_photos_progress_stack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <TextView
+                    android:id="@+id/tv_no_photos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="32dp"
+                    android:text="No scalp photos uploaded yet."
+                    android:textColor="#6B7280"
+                    android:textSize="15sp"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <!-- ================= RX TAB CONTAINER ================= -->
+            <LinearLayout
+                android:id="@+id/container_rx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Routines"
+                        android:textColor="#1E234B"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_issue_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/bg_button_blue"
+                        android:text="+ Issue New"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:paddingHorizontal="16dp" />
+                </RelativeLayout>
+
+                <!-- Stack of routines -->
+                <LinearLayout
+                    android:id="@+id/layout_rx_stack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical" />
+
+                <!-- Empty State -->
+                <TextView
+                    android:id="@+id/tv_no_routines"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="32dp"
+                    android:text="No active routines issued."
+                    android:textColor="#6B7280"
+                    android:textSize="15sp"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

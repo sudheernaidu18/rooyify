@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    tools:context=".QuizDetailsActivity">
+
+    <!-- Top Navigation -->
+    <LinearLayout
+        android:id="@+id/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_back_blue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/reports_toolbar_title"
+                android:textColor="@color/primary_blue_start"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="60dp"
+            android:gravity="center"
+            android:text="@string/quiz_details_toolbar_title"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/layout_toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Result Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="24dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/assessment_result_label"
+                        android:textColor="@color/text_subtitle"
+                        android:textSize="12sp"
+                        android:textAllCaps="false" />
+                    <TextView
+                        android:id="@+id/tv_risk_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/quiz_completed"
+                        android:textColor="@color/text_title"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Details Container -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:backgroundTint="#F8F9FB"
+                android:padding="20dp">
+
+                <!-- Scalp Type -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_scalp_type"
+                    android:textColor="@color/leaf_grey"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_scalp_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_edittext"
+                    android:backgroundTint="@color/white"
+                    android:padding="14dp"
+                    android:text="Normal"
+                    android:textColor="@color/text_title"
+                    android:textSize="16sp" />
+
+                <!-- Sleep Hours -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_sleep_hours"
+                    android:textColor="@color/leaf_grey"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_sleep_hours"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_edittext"
+                    android:backgroundTint="@color/white"
+                    android:padding="14dp"
+                    android:text="4–6 hours"
+                    android:textColor="@color/text_title"
+                    android:textSize="16sp" />
+
+                <!-- Hair Fall -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_hair_fall"
+                    android:textColor="@color/leaf_grey"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_hair_fall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_edittext"
+                    android:backgroundTint="@color/white"
+                    android:padding="14dp"
+                    android:text="Frequently"
+                    android:textColor="@color/text_title"
+                    android:textSize="16sp" />
+
+                <!-- Family History -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_family_history"
+                    android:textColor="@color/leaf_grey"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_family_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_edittext"
+                    android:backgroundTint="@color/white"
+                    android:padding="14dp"
+                    android:text="One side"
+                    android:textColor="@color/text_title"
+                    android:textSize="16sp" />
+
+                <!-- Stress Level -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_stress_level"
+                    android:textColor="@color/leaf_grey"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_stress_level"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_edittext"
+                    android:backgroundTint="@color/white"
+                    android:padding="14dp"
+                    android:text="Occasionally"
+                    android:textColor="@color/text_title"
+                    android:textSize="16sp" />
+
+                <!-- Diet -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_diet"
+                    android:textColor="@color/leaf_grey"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_diet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_edittext"
+                    android:backgroundTint="@color/white"
+                    android:padding="14dp"
+                    android:text="Rarely"
+                    android:textColor="@color/text_title"
+                    android:textSize="16sp" />
+
+                <!-- Deficiencies -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_deficiencies"
+                    android:textColor="@color/leaf_grey"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_deficiencies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_edittext"
+                    android:backgroundTint="@color/white"
+                    android:padding="14dp"
+                    android:text="Iron deficiency"
+                    android:textColor="@color/text_title"
+                    android:textSize="16sp" />
+
+                <!-- Hair Texture -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_hair_texture"
+                    android:textColor="@color/leaf_grey"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_hair_texture"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_edittext"
+                    android:backgroundTint="@color/white"
+                    android:padding="14dp"
+                    android:text="Thick"
+                    android:textColor="@color/text_title"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

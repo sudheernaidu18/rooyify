@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="6dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Doctor/Stethoscope icon -->
+            <FrameLayout
+                android:id="@+id/iv_doc_icon_bg"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_circle_blue_light"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_stethoscope"
+                    app:tint="#2563EB" />
+            </FrameLayout>
+
+            <!-- Text section -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/iv_doc_icon_bg"
+                android:layout_marginStart="12dp"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Expert"
+                    android:textColor="#1E234B"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_rx_doctor_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(Dr. Ajay Pujala)"
+                    android:textColor="#6B7280"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Date -->
+            <TextView
+                android:id="@+id/tv_rx_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="Apr 17, 2026"
+                android:textColor="#9CA3AF"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <!-- Medication/Routine Capsule Badge -->
+        <TextView
+            android:id="@+id/tv_rx_med_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_circle_blue_light"
+            android:backgroundTint="#EFF6FF"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="6dp"
+            android:text="Minoxidil 5%"
+            android:textColor="#2563EB"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <!-- Frequency and details -->
+        <TextView
+            android:id="@+id/tv_rx_notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Notes: [Frequency: 2x/day, Dosage: 1ml, Timing: Morning]"
+            android:textColor="#4B5563"
+            android:textSize="13sp" />
+
+        <!-- Delete button / action to remove it -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+            <TextView
+                android:id="@+id/btn_delete_rx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="Delete"
+                android:textColor="#EF4444"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="4dp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

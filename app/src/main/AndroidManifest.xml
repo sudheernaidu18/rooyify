@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:usesCleartextTraffic="true"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Rooyify">
+
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateSlotActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MySlotsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AppointmentRequestsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReportsListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuizDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BookAppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MyAppointmentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UploadPhotoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PhotoLibraryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HairImagesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PatientHairImagesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ImageReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProgressTrackerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PatientQuizReportsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PatientPortfoliosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PatientPortfolioDetailActivity"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

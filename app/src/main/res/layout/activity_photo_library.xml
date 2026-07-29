@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".PhotoLibraryActivity">
+
+    <!-- Header -->
+    <RelativeLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_cancel"
+            android:textColor="@color/primary_blue_start"
+            android:textSize="17sp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#F1F5F9"
+            android:padding="2dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="4dp"
+                android:text="@string/tab_photos"
+                android:textColor="@color/text_title"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:elevation="1dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="4dp"
+                android:text="@string/tab_collections"
+                android:textColor="@color/text_subtitle"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Search Bar -->
+    <EditText
+        android:id="@+id/et_search"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_edittext"
+        android:backgroundTint="#F1F5F9"
+        android:drawableStart="@drawable/ic_user"
+        android:drawablePadding="8dp"
+        android:hint="@string/hint_search_library"
+        android:paddingHorizontal="12dp"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/layout_header" />
+
+    <!-- Banner -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#F8F9FB"
+        app:layout_constraintTop_toBottomOf="@id/et_search">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/iv_banner_icon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_images"
+                android:contentDescription="@null" />
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_back"
+                android:rotation="45"
+                android:alpha="0.3"
+                android:contentDescription="@null" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/iv_banner_icon"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/banner_title"
+                    android:textColor="@color/text_title"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/banner_message"
+                    android:textColor="@color/text_subtitle"
+                    android:textSize="12sp"
+                    android:lineSpacingExtra="2dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/link_learn_more"
+                    android:textColor="@color/primary_blue_start"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Photo Grid (Placeholder) -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:columnCount="3"
+        android:padding="2dp"
+        app:layout_constraintBottom_toTopOf="@id/layout_footer"
+        app:layout_constraintTop_toBottomOf="@id/card_banner">
+
+        <!-- Grid items would go here -->
+        <View android:layout_width="0dp" android:layout_height="120dp" android:layout_columnWeight="1" android:layout_margin="1dp" android:background="#000000" />
+        <View android:layout_width="0dp" android:layout_height="120dp" android:layout_columnWeight="1" android:layout_margin="1dp" android:background="#E91E63" />
+        <View android:layout_width="0dp" android:layout_height="120dp" android:layout_columnWeight="1" android:layout_margin="1dp" android:background="#9C27B0" />
+        <View android:layout_width="0dp" android:layout_height="120dp" android:layout_columnWeight="1" android:layout_margin="1dp" android:background="#3F51B5" />
+        <View android:layout_width="0dp" android:layout_height="120dp" android:layout_columnWeight="1" android:layout_margin="1dp" android:background="#00BCD4" />
+        <View android:layout_width="0dp" android:layout_height="120dp" android:layout_columnWeight="1" android:layout_margin="1dp" android:background="#4CAF50" />
+        <View android:layout_width="0dp" android:layout_height="120dp" android:layout_columnWeight="1" android:layout_margin="1dp" android:background="#FFEB3B" />
+    </GridLayout>
+
+    <!-- Footer -->
+    <RelativeLayout
+        android:id="@+id/layout_footer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_tracker"
+            app:tint="@color/primary_blue_start"
+            android:contentDescription="@null" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_location"
+                app:tint="@color/text_subtitle"
+                android:contentDescription="@null" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/location_included"
+                android:textColor="@color/text_subtitle"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_reports"
+            app:tint="@color/primary_blue_start"
+            android:contentDescription="@null" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

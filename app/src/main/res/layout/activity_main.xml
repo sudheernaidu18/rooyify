@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    tools:context=".MainActivity">
+
+    <!-- Center-aligned Logo with Gradient Background -->
+    <View
+        android:id="@+id/logo_bg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/bg_logo_gradient"
+        android:elevation="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo_icon"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:contentDescription="@string/content_desc_logo"
+        android:elevation="7dp"
+        android:src="@drawable/ic_leaf"
+        app:layout_constraintBottom_toBottomOf="@id/logo_bg"
+        app:layout_constraintEnd_toEndOf="@id/logo_bg"
+        app:layout_constraintStart_toStartOf="@id/logo_bg"
+        app:layout_constraintTop_toTopOf="@id/logo_bg" />
+
+    <!-- Title and Tagline -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/title_hair_journey"
+        android:textColor="@color/text_title"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo_bg" />
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/subtitle_tagline"
+        android:textColor="@color/text_subtitle"
+        android:textSize="16sp"
+        android:letterSpacing="0.01"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+    <!-- Action Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="40dp"
+        app:cardCornerRadius="32dp"
+        app:cardElevation="16dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintTop_toBottomOf="@id/tv_subtitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="36dp">
+
+            <!-- Login as User Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_user_login"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:background="@drawable/bg_button_blue"
+                app:backgroundTint="@null"
+                app:icon="@drawable/ic_user"
+                app:iconTint="@color/white"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/btn_login_user"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Login as Doctor Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_doctor_login"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_button_secondary"
+                app:backgroundTint="@null"
+                app:icon="@drawable/ic_stethoscope"
+                app:iconTint="@color/text_title"
+                app:iconGravity="textStart"
+                app:iconPadding="12dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/btn_login_doctor"
+                android:textAllCaps="false"
+                android:textColor="@color/text_title"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Footer -->
+    <TextView
+        android:id="@+id/tv_footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="@string/footer_text"
+        android:textColor="@color/text_subtitle"
+        android:textSize="14sp"
+        android:alpha="0.8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

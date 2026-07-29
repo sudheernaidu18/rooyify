@@ -1,0 +1,269 @@
+<resources>
+    <string name="app_name">HairJourney</string>
+    <string name="title_hair_journey">HairJourney</string>
+    <string name="subtitle_tagline">Smart Hair Care &amp; Growth Tracking</string>
+    <string name="btn_login_user">Login as User</string>
+    <string name="btn_login_doctor">Login as Doctor</string>
+    <string name="footer_text">Your journey to healthier hair starts here</string>
+    <string name="content_desc_logo">Hair Journey Logo</string>
+
+    <!-- Sign Up Screen -->
+    <string name="title_create_account">Create Account</string>
+    <string name="subtitle_create_account">Start your personalized hair care journey</string>
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone">Phone (10 digits)</string>
+    <string name="hint_place">Place</string>
+    <string name="label_dob">Date of Birth</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="btn_create_account">Create Account</string>
+    <string name="back_text">Back</string>
+
+    <!-- Success Dialog -->
+    <string name="dialog_success_title">Success</string>
+    <string name="dialog_success_message">✅ Registration successful!\nPlease login.</string>
+    <string name="dialog_ok">OK</string>
+
+    <!-- Home Screen -->
+    <string name="hello">Hello,</string>
+    <string name="user_name_placeholder">Sudheer</string>
+
+    <string name="title_quiz">Hair Growth Quiz</string>
+    <string name="desc_quiz">Assess your hair health</string>
+
+    <string name="title_reports">Quiz Reports</string>
+    <string name="desc_reports">View your past assessments</string>
+
+    <string name="title_book_appointment">Book Consultation</string>
+    <string name="desc_book_appointment">Schedule an upcoming visit</string>
+
+    <string name="title_my_appointments">My Consultations</string>
+    <string name="desc_my_appointments">Track booking status</string>
+
+    <string name="title_upload_images">Upload Hair Images</string>
+    <string name="desc_upload_images">Track progress with photos</string>
+
+    <string name="title_my_images">My Hair Images</string>
+    <string name="desc_my_images">View uploads &amp; expert feedback</string>
+
+    <string name="title_tracker">Hair Progress Tracker</string>
+    <string name="desc_tracker">Compare before &amp; after growth</string>
+
+    <string name="title_routines">My Routines</string>
+    <string name="desc_routines">View your product recommendations</string>
+
+    <string name="title_calendar">Serum Calendar</string>
+    <string name="desc_calendar">Track usage &amp; compliance score</string>
+
+    <string name="label_weekly_compliance">Weekly\nCompliance</string>
+    <string name="label_day_streak">Day Streak</string>
+    <string name="label_days_logged">Days\nLogged</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Clinical Album Screen -->
+    <string name="title_clinical_album">Clinical Album Upload</string>
+    <string name="subtitle_clinical_album">Upload all 4 angles to form a complete clinical record.</string>
+    <string name="label_tracker_phase">Tracker Phase</string>
+    <string name="phase_baseline">Baseline</string>
+    <string name="phase_3_months">3 Months</string>
+    <string name="phase_6_months">6 Months</string>
+    <string name="label_capture_date">Capture Date</string>
+    <string name="title_capture_angles">Capture all 4 angles</string>
+    <string name="angle_frontal">Frontal</string>
+    <string name="angle_left_lateral">Left Lateral</string>
+    <string name="angle_right_lateral">Right Lateral</string>
+    <string name="angle_vertex">Vertex</string>
+    <string name="text_select">Select</string>
+    <string name="btn_upload_album">Upload Clinical Album</string>
+
+    <!-- Profile Screen -->
+    <string name="btn_update_profile">Update Profile</string>
+    <string name="btn_delete_account">Delete Account</string>
+    <string name="btn_logout">Logout</string>
+    <string name="sample_email">sudheer@gmail.com</string>
+    <string name="sample_phone">1122334455</string>
+    <string name="sample_place">chennai</string>
+    <string name="sample_dob">2005-03-18</string>
+
+    <!-- Quiz Strings -->
+    <string name="title_quiz_assessment">Hair Quiz</string>
+    <string name="quiz_question_count_1">Question 1 of 13</string>
+    <string name="quiz_question_1">What is your scalp type?</string>
+    <string name="quiz_option_oily">Oily</string>
+    <string name="quiz_option_dry">Dry</string>
+    <string name="quiz_option_normal">Normal</string>
+    <string name="quiz_option_itchy">Itchy</string>
+
+    <string name="quiz_question_count_2">Question 2 of 13</string>
+    <string name="quiz_question_2">How many hours of sleep do you get on average?</string>
+    <string name="quiz_option_8plus">8+ hours</string>
+    <string name="quiz_option_6to8">6–8 hours</string>
+    <string name="quiz_option_4to6">4–6 hours</string>
+    <string name="quiz_option_less4">Less than 4 hours</string>
+
+    <string name="quiz_question_count_3">Question 3 of 13</string>
+    <string name="quiz_question_3">How often do you experience hair fall?</string>
+    <string name="quiz_option_rarely">Rarely</string>
+    <string name="quiz_option_sometimes">Sometimes</string>
+    <string name="quiz_option_frequently">Frequently</string>
+    <string name="quiz_option_severe">Severe</string>
+
+    <string name="quiz_question_count_4">Question 4 of 13</string>
+    <string name="quiz_question_4">Is there a history of hair loss in your family?</string>
+    <string name="quiz_option_no">No</string>
+    <string name="quiz_option_maybe">Maybe</string>
+    <string name="quiz_option_one_side">One side of family</string>
+    <string name="quiz_option_both_parents">Both parents</string>
+
+    <string name="quiz_question_count_5">Question 5 of 13</string>
+    <string name="quiz_question_5">How often do you feel stressed?</string>
+    <string name="quiz_option_stress_rarely">Rarely</string>
+    <string name="quiz_option_stress_occasionally">Occasionally</string>
+    <string name="quiz_option_stress_often">Often</string>
+    <string name="quiz_option_stress_constantly">Constantly</string>
+
+    <string name="quiz_question_count_6">Question 6 of 13</string>
+    <string name="quiz_question_6">Do you maintain a balanced diet?</string>
+    <string name="quiz_option_yes">Yes</string>
+    <string name="quiz_option_partially">Partially</string>
+    <string name="quiz_option_rarely_diet">Rarely</string>
+    <string name="quiz_option_no_diet">No</string>
+
+    <string name="quiz_question_count_7">Question 7 of 13</string>
+    <string name="quiz_question_7">Do you have any nutritional deficiencies?</string>
+    <string name="quiz_option_none">None</string>
+    <string name="quiz_option_iron">Iron deficiency</string>
+    <string name="quiz_option_vitamin_d">Vitamin D deficiency</string>
+    <string name="quiz_option_multiple">Multiple deficiencies</string>
+
+    <string name="quiz_question_count_8">Question 8 of 13</string>
+    <string name="quiz_question_8">What is your hair texture?</string>
+    <string name="quiz_option_fine">Fine</string>
+    <string name="quiz_option_medium">Medium</string>
+    <string name="quiz_option_thick">Thick</string>
+    <string name="quiz_option_coarse">Coarse</string>
+
+    <string name="quiz_question_count_9">Question 9 of 13</string>
+    <string name="quiz_question_9">Have you noticed any thinning in your hair?</string>
+    <string name="quiz_option_no_thinning">No thinning</string>
+    <string name="quiz_option_mild">Mild thinning</string>
+    <string name="quiz_option_moderate">Moderate thinning</string>
+    <string name="quiz_option_severe_thinning">Severe thinning</string>
+
+    <string name="quiz_question_count_10">Question 10 of 13</string>
+    <string name="quiz_question_10">Do you have dandruff?</string>
+    <string name="quiz_option_never">Never</string>
+    <string name="quiz_option_sometimes_dandruff">Sometimes</string>
+    <string name="quiz_option_often_dandruff">Often</string>
+    <string name="quiz_option_always">Always</string>
+
+    <string name="quiz_question_count_11">Question 11 of 13</string>
+    <string name="quiz_question_11">How often do you use heat styling tools?</string>
+    <string name="quiz_option_styling_rarely">Rarely</string>
+    <string name="quiz_option_styling_sometimes">Sometimes</string>
+    <string name="quiz_option_styling_often">Often</string>
+    <string name="quiz_option_styling_daily">Daily</string>
+
+    <string name="quiz_question_count_12">Question 12 of 13</string>
+    <string name="quiz_question_12">Do you experience scalp pain or sensitivity?</string>
+    <string name="quiz_option_pain_no">No</string>
+    <string name="quiz_option_pain_slightly">Slightly</string>
+    <string name="quiz_option_pain_moderate">Moderate</string>
+    <string name="quiz_option_pain_severe">Severe</string>
+
+    <string name="quiz_question_count_13">Question 13 of 13</string>
+    <string name="quiz_question_13">What is your primary hair goal?</string>
+    <string name="quiz_option_final_1">Reduce hair fall</string>
+    <string name="quiz_option_final_2">Promote growth</string>
+    <string name="quiz_option_final_3">Improve texture</string>
+    <string name="quiz_option_final_4">Scalp health</string>
+
+    <!-- Report Strings -->
+    <string name="title_hair_report">Hair Assessment Report</string>
+    <string name="label_risk_level">Your Calculated Risk Level</string>
+    <string name="risk_high">High Risk</string>
+    <string name="risk_moderate">Moderate Risk</string>
+    <string name="risk_low">Low Risk</string>
+    <string name="report_disclaimer">This assessment is based on your inputs and is for informational purposes. Please consult with our specialists for a detailed clinical evaluation.</string>
+    <string name="btn_back_dashboard">Back to Dashboard</string>
+
+    <!-- Book Appointment -->
+    <string name="title_book_consultation">Book Consultation</string>
+    <string name="subtitle_book_consultation">Select a preferred slot for your consultation</string>
+    <string name="no_slots_available">No slots available for this date</string>
+    <string name="appointment_success_title">Appointment Booked!</string>
+    <string name="appointment_success_message">Your consultation has been successfully scheduled. You can track the status in \'My Consultations\'.</string>
+
+    <!-- Hair Images Gallery -->
+    <string name="title_hair_progress_gallery">Hair Progress Gallery</string>
+    <string name="subtitle_hair_progress_gallery">View and manage your hair growth photos</string>
+
+    <!-- My Appointments -->
+    <string name="my_appointments_header_title">My Appointments</string>
+    <string name="my_appointments_header_subtitle">Track your upcoming and past visits</string>
+    <string name="doctor_hari">Dr. Hari</string>
+    <string name="appointment_time_display">10:30 AM, 25 Oct 2023</string>
+    <string name="status_pending">Pending</string>
+
+    <!-- Photo Library -->
+    <string name="btn_cancel">Cancel</string>
+    <string name="tab_photos">Photos</string>
+    <string name="tab_collections">Collections</string>
+    <string name="hint_search_library">Search library&#8230;</string>
+    <string name="banner_title">Tips for better photos</string>
+    <string name="banner_message">Ensure good lighting and consistent angles for best results.</string>
+    <string name="link_learn_more">Learn More</string>
+    <string name="location_included">Location info included</string>
+
+    <!-- Progress Tracker (Image 1) -->
+    <string name="toolbar_progress_tracker">Progress Tracker</string>
+    <string name="title_photo_progress">Photo Progress</string>
+    <string name="subtitle_photo_progress">Track your hair transformation</string>
+    <string name="empty_no_images">No images uploaded yet.</string>
+
+    <!-- Reports (Image 2) -->
+    <string name="toolbar_reports">Reports</string>
+    <string name="title_hair_health_reports">Hair Health Reports</string>
+    <string name="subtitle_hair_health_reports">Your previous hair assessments</string>
+    <string name="empty_no_reports">No reports available yet</string>
+
+    <!-- Consultations (Image 3) -->
+    <string name="toolbar_consultations">Consultations</string>
+    <string name="title_consultation_requests">Consultation Requests</string>
+    <string name="subtitle_consultation_requests">Review and manage member bookings</string>
+    <string name="empty_no_consultations">No consultation requests yet</string>
+
+    <!-- My Hair Albums (Image 4) -->
+    <string name="toolbar_my_hair_albums">My Hair Albums</string>
+    <string name="title_hair_progress_albums">Hair Progress Albums</string>
+    <string name="subtitle_hair_progress_albums">Swipe through your 4-view clinical records</string>
+    <string name="empty_no_albums">No albums uploaded yet</string>
+
+    <!-- Progress Tracker Labels -->
+    <string name="title_hair_growth_progress">Hair Growth Progress</string>
+    <string name="subtitle_hair_growth_progress">Track your journey over time</string>
+    <string name="label_before">Before</string>
+    <string name="label_after">After</string>
+    <string name="text_no_image">No image uploaded</string>
+    <string name="compare_disclaimer">Photos are for your personal tracking. For medical evaluation, please use the Clinical Album section.</string>
+
+    <!-- Quiz Details & Reports List -->
+    <string name="reports_toolbar_title">Quiz History</string>
+    <string name="quiz_details_toolbar_title">Assessment Details</string>
+    <string name="assessment_result_label">Calculated Assessment</string>
+    <string name="quiz_completed">Quiz Completed</string>
+    <string name="label_scalp_type">Scalp Type</string>
+    <string name="label_sleep_hours">Sleep Hours</string>
+    <string name="label_hair_fall">Hair Fall</string>
+    <string name="label_family_history">Family History</string>
+    <string name="label_stress_level">Stress Level</string>
+    <string name="label_diet">Diet</string>
+    <string name="label_deficiencies">Deficiencies</string>
+    <string name="label_hair_texture">Hair Texture</string>
+    <string name="reports_header_title">My Quiz Reports</string>
+    <string name="reports_header_subtitle">Track your hair health trends over time</string>
+
+</resources>
