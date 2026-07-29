@@ -7,12 +7,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 import com.google.gson.GsonBuilder
 
 object RetrofitClient {
-    // Local Flask development backend (Wi-Fi network IP for physical device / emulator access)
-    private const val BASE_URL = "http://192.168.31.82:5000/oct/spic_726/hairjourney/"
-    // Emulator loopback IP:
-    // private const val BASE_URL = "http://10.0.2.2:5000/oct/spic_726/hairjourney/"
-    // Remote original URL:
-    // private const val BASE_URL = "http://14.139.187.229:8081/oct/spic_726/hairjourney/"
+    // Hosted production backend URL (Replace this with your deployed Render / PythonAnywhere URL)
+    private const val BASE_URL = "https://rooyify-backend.onrender.com/"
+    
+    // Local development fallback (Wi-Fi network IP / Emulator loopback):
+    // private const val BASE_URL = "http://10.0.2.2:5000/"
+    // private const val BASE_URL = "http://192.168.31.82:5000/"
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
