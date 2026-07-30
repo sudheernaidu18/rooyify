@@ -40,6 +40,11 @@ def make_basic_response(status, message=None):
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
+# Root route to serve the web portal
+@app.route('/')
+def home_portal():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'index.html')
+
 # --- Authentication routes ---
 
 @app.route('/register.php', methods=['POST'])

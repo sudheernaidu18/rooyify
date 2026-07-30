@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooyify - Professional Hair Care Portal</title>
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    
+    <!-- Background Gradients -->
+    <div class="bg-gradient-glow glowing-1"></div>
+    <div class="bg-gradient-glow glowing-2"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-leaf logo-icon"></i>
+                <span>Rooyify</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features" class="nav-item home-only">Features</a>
+                <a href="#about" class="nav-item home-only">About</a>
+                <span id="user-display-name" class="user-display hidden"></span>
+                <button id="btn-login-trigger" class="btn btn-primary btn-auth-only">Sign In / Register</button>
+                <button id="btn-logout" class="btn btn-secondary hidden"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <main class="main-content">
+        
+        <!-- SECTION 1: LANDING PAGE -->
+        <section id="section-landing" class="section">
+            <div class="hero-container">
+                <h1 class="hero-title">
+                    Transform Your <span class="gradient-text">Hair Journey</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Track clinical photos, calculate risk profiles, plan routines, and consult with doctors in real time. Perfect synchronization between Android and Web.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-large btn-cta-login">Get Started Free</button>
+                    <a href="#features" class="btn btn-secondary btn-large">Explore Features</a>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div id="features" class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-camera-retro"></i></div>
+                    <h3>Clinical Tracking</h3>
+                    <p>Log and compare 'before' and 'after' photos to track treatment efficacy objectively over time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-notes-medical"></i></div>
+                    <h3>Interactive Quiz</h3>
+                    <p>Answer dynamic risk questions to generate scientific scalp metrics and check your genetic risk factor.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                    <h3>Doctor Consults</h3>
+                    <p>Book available appointments with verified hair experts and receive personalized clinical prescriptions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: PATIENT DASHBOARD -->
+        <section id="section-patient" class="section hidden">
+            <div class="dashboard-header">
+                <h2>Patient Dashboard</h2>
+                <span class="badge badge-patient">Patient</span>
+            </div>
+            
+            <div class="dashboard-grid">
+                <!-- Left: Routine & Appointments -->
+                <div class="dashboard-col">
+                    <!-- Quiz Card -->
+                    <div class="dashboard-card glassmorphic-card">
+                        <h3><i class="fa-solid fa-clipboard-question"></i> Hair Health Quiz</h3>
+                        <p class="card-desc">Complete the assessment to evaluate your scalp health and calculate sudden thinning risks.</p>
+                        <button class="btn btn-primary w-full" id="btn-quiz-trigger">Take Hair Quiz</button>
+                        <div id="quiz-result-summary" class="hidden">
+                            <hr class="card-divider">
+                            <p><strong>Last Assessment Status:</strong> <span id="lbl-last-risk" class="status-badge status-pending">MODERATE</span></p>
+                            <p class="text-secondary" id="lbl-last-date">Taken on 2026-07-30</p>
+                        </div>
+                    </div>
+
+                    <!-- Routines Card -->
+                    <div class="dashboard-card glassmorphic-card">
+                        <div class="card-header-flex">
+                            <h3><i class="fa-solid fa-pills"></i> Active Hair Routines</h3>
+                            <button id="btn-add-routine-trigger" class="btn btn-icon"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <ul id="list-routines" class="routine-list">
+                            <!-- Injected dynamically -->
+                            <li class="empty-list-msg">No active routines. Add one to start tracking.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right: Clinical Photos & Appointments -->
+                <div class="dashboard-col">
+                    <!-- Photo Log Card -->
+                    <div class="dashboard-card glassmorphic-card">
+                        <div class="card-header-flex">
+                            <h3><i class="fa-solid fa-images"></i> Hair Journey Photos</h3>
+                            <button id="btn-upload-photo-trigger" class="btn btn-icon"><i class="fa-solid fa-camera"></i></button>
+                        </div>
+                        <div id="grid-hair-images" class="hair-images-grid">
+                            <!-- Injected dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Booking Card -->
+                    <div class="dashboard-card glassmorphic-card">
+                        <h3><i class="fa-solid fa-calendar-plus"></i> Book Doctor Consultation</h3>
+                        <div class="form-group">
+                            <label for="select-slot">Select Available Slot</label>
+                            <select id="select-slot" class="form-input">
+                                <option value="">Checking slots...</option>
+                            </select>
+                        </div>
+                        <button id="btn-book-appointment" class="btn btn-primary w-full">Confirm Booking</button>
+                        <hr class="card-divider">
+                        <h4>My Booked Appointments</h4>
+                        <ul id="list-appointments" class="appointment-list">
+                            <!-- Injected dynamically -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: DOCTOR DASHBOARD -->
+        <section id="section-doctor" class="section hidden">
+            <div class="dashboard-header">
+                <h2>Doctor Dashboard</h2>
+                <span class="badge badge-doctor">Doctor</span>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Left: Slots & Bookings -->
+                <div class="dashboard-col">
+                    <!-- Manage Slots Card -->
+                    <div class="dashboard-card glassmorphic-card">
+                        <h3><i class="fa-solid fa-clock"></i> Manage Available Slots</h3>
+                        <form id="form-create-slot">
+                            <div class="form-group">
+                                <label for="slot-date">Date</label>
+                                <input type="date" id="slot-date" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="slot-time">Time</label>
+                                <input type="time" id="slot-time" class="form-input" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-full">Create Slot</button>
+                        </form>
+                    </div>
+
+                    <!-- Appointment Requests Card -->
+                    <div class="dashboard-card glassmorphic-card">
+                        <h3><i class="fa-solid fa-calendar-check"></i> Pending Appointments</h3>
+                        <ul id="list-pending-appointments" class="appointment-list">
+                            <!-- Injected dynamically -->
+                            <li class="empty-list-msg">No pending requests.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right: Patient Portfolios -->
+                <div class="dashboard-col">
+                    <div class="dashboard-card glassmorphic-card">
+                        <h3><i class="fa-solid fa-users"></i> Patient Portfolios</h3>
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                            <input type="text" id="search-patients" placeholder="Search patients by name..." class="form-input search-input">
+                        </div>
+                        <ul id="list-patients" class="patient-list">
+                            <!-- Injected dynamically -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL 1: AUTHENTICATION MODAL (SIGN IN / REGISTER) -->
+    <div id="modal-auth" class="modal">
+        <div class="modal-content glassmorphic-card">
+            <span class="modal-close" id="btn-close-auth-modal">&times;</span>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tab-login">Login</button>
+                <button class="auth-tab" id="tab-register">Register</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="form-login" class="auth-form">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" class="form-input" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" class="form-input" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-full margin-top-md">Sign In</button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="form-register" class="auth-form hidden">
+                <div class="form-group">
+                    <label for="reg-name">Full Name</label>
+                    <input type="text" id="reg-name" class="form-input" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email Address</label>
+                    <input type="email" id="reg-email" class="form-input" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group-row">
+                    <div class="form-group col-6">
+                        <label for="reg-phone">Phone</label>
+                        <input type="tel" id="reg-phone" class="form-input" placeholder="9876543210" required>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="reg-dob">Date of Birth</label>
+                        <input type="date" id="reg-dob" class="form-input" required>
+                    </div>
+                </div>
+                <div class="form-group-row">
+                    <div class="form-group col-6">
+                        <label for="reg-place">Place / City</label>
+                        <input type="text" id="reg-place" class="form-input" placeholder="New York" required>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="reg-role">Account Type</label>
+                        <select id="reg-role" class="form-input">
+                            <option value="user">Patient</option>
+                            <option value="doctor">Doctor</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" class="form-input" placeholder="Create strong password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-full margin-top-md">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: ADD ROUTINE MODAL -->
+    <div id="modal-routine" class="modal">
+        <div class="modal-content glassmorphic-card">
+            <span class="modal-close" id="btn-close-routine-modal">&times;</span>
+            <h3>Add Hair Care Routine</h3>
+            <form id="form-add-routine">
+                <div class="form-group">
+                    <label for="routine-name">Medicine/Product Name</label>
+                    <input type="text" id="routine-name" class="form-input" placeholder="e.g., Minoxidil 5%" required>
+                </div>
+                <div class="form-group">
+                    <label for="routine-dosage">Dosage</label>
+                    <input type="text" id="routine-dosage" class="form-input" placeholder="e.g., 1ml or 1 Tablet" required>
+                </div>
+                <div class="form-group">
+                    <label for="routine-frequency">Frequency</label>
+                    <input type="text" id="routine-frequency" class="form-input" placeholder="e.g., Once Daily or Twice Daily" required>
+                </div>
+                <div class="form-group">
+                    <label for="routine-time">Time</label>
+                    <input type="text" id="routine-time" class="form-input" placeholder="e.g., Night before sleep" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-full margin-top-md">Add Routine</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 3: PHOTO UPLOAD MODAL -->
+    <div id="modal-photo" class="modal">
+        <div class="modal-content glassmorphic-card">
+            <span class="modal-close" id="btn-close-photo-modal">&times;</span>
+            <h3>Upload Progress Photo</h3>
+            <form id="form-upload-photo">
+                <div class="form-group">
+                    <label for="photo-file">Select Image File</label>
+                    <input type="file" id="photo-file" class="form-input" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <label for="photo-tag">Progress Stage</label>
+                    <select id="photo-tag" class="form-input">
+                        <option value="before">Before Treatment</option>
+                        <option value="after">After Treatment</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-full margin-top-md">Upload Photo</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 4: HAIR HEALTH QUIZ MODAL -->
+    <div id="modal-quiz" class="modal">
+        <div class="modal-content glassmorphic-card quiz-modal-content">
+            <span class="modal-close" id="btn-close-quiz-modal">&times;</span>
+            <h3 class="quiz-title">Hair Loss Assessment Quiz</h3>
+            
+            <div id="quiz-slides-container">
+                <!-- Dynamic questions will be rendered here -->
+            </div>
+            
+            <div class="quiz-footer">
+                <button id="btn-quiz-prev" class="btn btn-secondary hidden">Previous</button>
+                <button id="btn-quiz-next" class="btn btn-primary">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 5: PATIENT PORTFOLIO OVERLAY (DOCTOR VIEW) -->
+    <div id="modal-portfolio-detail" class="modal">
+        <div class="modal-content glassmorphic-card portfolio-overlay-content">
+            <span class="modal-close" id="btn-close-portfolio-modal">&times;</span>
+            <div class="patient-detail-header">
+                <h3 id="detail-patient-name">Patient Details</h3>
+                <span class="patient-detail-meta" id="detail-patient-meta">Age 24 • City</span>
+            </div>
+            
+            <div class="detail-tabs">
+                <button class="detail-tab active" id="tab-patient-photos">Photos & Remarks</button>
+                <button class="detail-tab" id="tab-patient-quiz">Quiz Reports</button>
+                <button class="detail-tab" id="tab-patient-routines">Routines</button>
+            </div>
+
+            <!-- Content Area -->
+            <div id="detail-tab-photos" class="detail-tab-content">
+                <div id="detail-grid-photos" class="hair-images-grid">
+                    <!-- Injected dynamically -->
+                </div>
+            </div>
+            
+            <div id="detail-tab-quiz" class="detail-tab-content hidden">
+                <div id="detail-list-quiz" class="quiz-reports-list">
+                    <!-- Injected dynamically -->
+                </div>
+            </div>
+
+            <div id="detail-tab-routines" class="detail-tab-content hidden">
+                <ul id="detail-list-routines" class="routine-list">
+                    <!-- Injected dynamically -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Injection -->
+    <script src="/static/app.js"></script>
+</body>
+</html>
