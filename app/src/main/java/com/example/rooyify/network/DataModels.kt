@@ -171,5 +171,16 @@ data class PatientsResponse(
     val patients: List<User>? = null
 )
 
+// OTP Verification Models
+data class SendOtpRequest(
+    val phone: String
+)
+
+data class OtpResponse(
+    val status: String,
+    val message: String? = null,
+    val otp: String? = null
+)
+
 
 

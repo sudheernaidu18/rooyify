@@ -71,6 +71,27 @@ def register():
     else:
         return make_basic_response("error", message)
 
+@app.route('/send_otp.php', methods=['POST'])
+@app.route('/oct/spic_726/hairjourney/send_otp.php', methods=['POST'])
+def send_otp():
+    import random
+    data = request.get_json(silent=True)
+    if not data:
+        return jsonify({"status": "error", "message": "Invalid JSON body"})
+        
+    phone = data.get("phone")
+    if not phone:
+        return jsonify({"status": "error", "message": "Missing phone parameter"})
+
+    otp = str(random.randint(100000, 999999))
+    print(f"[OTP LOG] Generated OTP {otp} for phone {phone}")
+    
+    return jsonify({
+        "status": "success",
+        "otp": otp,
+        "message": f"OTP successfully generated and sent to {phone}"
+    })
+
 @app.route('/login.php', methods=['POST'])
 @app.route('/oct/spic_726/hairjourney/login.php', methods=['POST'])
 def login():

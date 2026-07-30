@@ -18,6 +18,9 @@ interface ApiService {
     @POST("register.php")
     fun registerUser(@Body request: RegisterRequest): Call<BasicResponse>
 
+    @POST("send_otp.php")
+    fun sendOtp(@Body request: SendOtpRequest): Call<OtpResponse>
+
     @POST("book_appointment.php")
     fun bookAppointment(@Body request: BookAppointmentRequest): Call<BasicResponse>
 

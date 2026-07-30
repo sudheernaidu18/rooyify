@@ -96,25 +96,99 @@ public class SignUpActivity extends AppCompatActivity {
 
             RegisterRequest request = new RegisterRequest(name, email, phone, place, dob, role, password);
 
-            RetrofitClient.INSTANCE.getInstance().registerUser(request).enqueue(new Callback<BasicResponse>() {
-                @Override
-                public void onResponse(Call<BasicResponse> call, Response<BasicResponse> response) {
-                    if (response.isSuccessful() && response.body() != null) {
-                        if ("success".equals(response.body().getStatus())) {
-                            showSuccessDialog();
-                        } else {
-                            Toast.makeText(SignUpActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        Toast.makeText(SignUpActivity.this, "Server error", Toast.LENGTH_SHORT).show();
-                    }
-                }
+            sendOtpAndVerify(phone, request);
+        });
+    }
 
-                @Override
-                public void onFailure(Call<BasicResponse> call, Throwable t) {
-                    Toast.makeText(SignUpActivity.this, "Network error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+    private void sendOtpAndVerify(String phone, RegisterRequest registerRequest) {
+        Toast.makeText(SignUpActivity.this, "Sending OTP...", Toast.LENGTH_SHORT).show();
+        
+        com.example.rooyify.network.SendOtpRequest otpRequest = new com.example.rooyify.network.SendOtpRequest(phone);
+        
+        RetrofitClient.INSTANCE.getInstance().sendOtp(otpRequest).enqueue(new Callback<com.example.rooyify.network.OtpResponse>() {
+            @Override
+            public void onResponse(Call<com.example.rooyify.network.OtpResponse> call, Response<com.example.rooyify.network.OtpResponse> response) {
+                if (response.isSuccessful() && response.body() != null && "success".equals(response.body().getStatus())) {
+                    String generatedOtp = response.body().getOtp();
+                    showOtpVerificationDialog(generatedOtp, registerRequest);
+                } else {
+                    String msg = (response.body() != null) ? response.body().getMessage() : "Failed to send OTP";
+                    Toast.makeText(SignUpActivity.this, msg, Toast.LENGTH_SHORT).show();
                 }
-            });
+            }
+
+            @Override
+            public void onFailure(Call<com.example.rooyify.network.OtpResponse> call, Throwable t) {
+                Toast.makeText(SignUpActivity.this, "Failed to send OTP: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void showOtpVerificationDialog(String correctOtp, RegisterRequest registerRequest) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Verify Mobile Number");
+        builder.setMessage("An OTP code has been generated. For testing, use code: " + correctOtp);
+        builder.setCancelable(false);
+
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setHint("Enter 6-digit OTP");
+        
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        input.setLayoutParams(lp);
+        
+        LinearLayout container = new LinearLayout(this);
+        container.setOrientation(LinearLayout.VERTICAL);
+        int marginPx = (int) (16 * getResources().getDisplayMetrics().density);
+        container.setPadding(marginPx, marginPx, marginPx, marginPx);
+        container.addView(input);
+        
+        builder.setView(container);
+
+        builder.setPositiveButton("Verify", null); 
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
+            String enteredOtp = input.getText().toString().trim();
+            if (enteredOtp.isEmpty()) {
+                input.setError("OTP cannot be empty");
+                return;
+            }
+            if (enteredOtp.equals(correctOtp)) {
+                dialog.dismiss();
+                Toast.makeText(SignUpActivity.this, "OTP Verified Successfully!", Toast.LENGTH_SHORT).show();
+                executeFinalRegistration(registerRequest);
+            } else {
+                input.setError("Invalid OTP. Please check the code.");
+            }
+        });
+    }
+
+    private void executeFinalRegistration(RegisterRequest request) {
+        Toast.makeText(SignUpActivity.this, "Registering account...", Toast.LENGTH_SHORT).show();
+        RetrofitClient.INSTANCE.getInstance().registerUser(request).enqueue(new Callback<BasicResponse>() {
+            @Override
+            public void onResponse(Call<BasicResponse> call, Response<BasicResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    if ("success".equals(response.body().getStatus())) {
+                        showSuccessDialog();
+                    } else {
+                        Toast.makeText(SignUpActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(SignUpActivity.this, "Server error during registration", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BasicResponse> call, Throwable t) {
+                Toast.makeText(SignUpActivity.this, "Registration failed: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

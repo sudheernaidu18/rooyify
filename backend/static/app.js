@@ -163,6 +163,33 @@ function initGlobalEvents() {
         };
 
         try {
+            // Step 1: Request OTP generation
+            const otpResp = await fetch(`${API_BASE}/send_otp.php`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ phone: payload.phone })
+            });
+            const otpData = await otpResp.json();
+            
+            if (otpData.status !== "success") {
+                alert(otpData.message || "Failed to generate OTP. Please try again.");
+                return;
+            }
+
+            // Step 2: Prompt user to enter verification OTP (displays testing code inline)
+            const enteredOtp = prompt(`Verify Mobile Number\nAn OTP has been sent to ${payload.phone}.\nEnter the verification code (For testing, use code: ${otpData.otp}):`);
+            
+            if (!enteredOtp) {
+                alert("Registration cancelled.");
+                return;
+            }
+
+            if (enteredOtp.trim() !== otpData.otp) {
+                alert("Invalid verification code. Registration aborted.");
+                return;
+            }
+
+            // Step 3: Proceed with final registration if verified
             const resp = await fetch(`${API_BASE}/register.php`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -170,7 +197,7 @@ function initGlobalEvents() {
             });
             const data = await resp.json();
             if (data.status === "success") {
-                alert("Account created! Please sign in.");
+                alert("OTP Verified! Account created successfully! Please sign in.");
                 tabLogin.click();
             } else {
                 alert(data.message || "Registration failed");
