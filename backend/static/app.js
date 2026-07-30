@@ -29,7 +29,6 @@ function checkSession() {
 
 function renderGuestUI() {
     currentUser = null;
-    document.getElementById("user-display-name").classList.add("hidden");
     document.getElementById("btn-logout").classList.add("hidden");
     document.getElementById("btn-login-trigger").classList.remove("hidden");
     
@@ -37,44 +36,51 @@ function renderGuestUI() {
     document.getElementById("section-patient").classList.add("hidden");
     document.getElementById("section-doctor").classList.add("hidden");
     
+    document.getElementById("top-navbar").classList.remove("hidden");
     document.querySelectorAll(".home-only").forEach(el => el.classList.remove("hidden"));
 }
 
 function renderAuthenticatedUI() {
-    document.getElementById("user-display-name").textContent = currentUser.name;
-    document.getElementById("user-display-name").classList.remove("hidden");
     document.getElementById("btn-logout").classList.remove("hidden");
     document.getElementById("btn-login-trigger").classList.add("hidden");
     
     document.getElementById("section-landing").classList.add("hidden");
     document.querySelectorAll(".home-only").forEach(el => el.classList.add("hidden"));
 
+    // In app mode, we can hide the top guest navbar to look exactly like the mobile app
+    document.getElementById("top-navbar").classList.add("hidden");
+
     if (currentUser.role === "doctor") {
         document.getElementById("section-patient").classList.add("hidden");
         document.getElementById("section-doctor").classList.remove("hidden");
+        
+        // Populate doctor header
+        document.getElementById("tv-doctor-name").textContent = currentUser.name;
+        document.getElementById("doc-prof-email").textContent = currentUser.email;
+        document.getElementById("doc-prof-phone").textContent = currentUser.phone || "N/A";
+        
         initDoctorDashboard();
+        showDoctorHome();
     } else {
         document.getElementById("section-patient").classList.remove("hidden");
         document.getElementById("section-doctor").classList.add("hidden");
         
-        // Populate profile header
-        document.getElementById("patient-header-name").textContent = currentUser.name;
-        document.getElementById("patient-header-email").textContent = currentUser.email;
-        document.getElementById("patient-header-phone").textContent = currentUser.phone || "N/A";
-        document.getElementById("patient-header-badge").textContent = currentUser.name.charAt(0).toUpperCase();
+        // Populate patient header
+        document.getElementById("tv-user-name").textContent = currentUser.name;
         
         // Populate profile table
-        document.getElementById("tbl-profile-email").textContent = currentUser.email;
-        document.getElementById("tbl-profile-phone").textContent = currentUser.phone || "N/A";
-        document.getElementById("tbl-profile-place").textContent = currentUser.place || "N/A";
-        document.getElementById("tbl-profile-dob").textContent = currentUser.dob || "N/A";
+        document.getElementById("patient-prof-email").textContent = currentUser.email;
+        document.getElementById("patient-prof-phone").textContent = currentUser.phone || "N/A";
+        document.getElementById("patient-prof-place").textContent = currentUser.place || "N/A";
+        document.getElementById("patient-prof-dob").textContent = currentUser.dob || "N/A";
 
         initPatientDashboard();
+        showPatientHome();
     }
 }
 
 // ==========================================
-// AUTHENTICATION EVENTS & GENERAL TABS
+// AUTHENTICATION EVENTS
 // ==========================================
 
 function initGlobalEvents() {
@@ -89,12 +95,16 @@ function initGlobalEvents() {
     const tabRegister = document.getElementById("tab-register");
     const formLogin = document.getElementById("form-login");
     const formRegister = document.getElementById("form-register");
+    const authTitle = document.getElementById("auth-main-title");
+    const authSubtitle = document.getElementById("auth-main-subtitle");
 
     tabLogin.onclick = () => {
         tabLogin.classList.add("active");
         tabRegister.classList.remove("active");
         formLogin.classList.remove("hidden");
         formRegister.classList.add("hidden");
+        authTitle.textContent = "Welcome Back";
+        authSubtitle.textContent = "Login to continue your hair journey";
     };
 
     tabRegister.onclick = () => {
@@ -102,6 +112,8 @@ function initGlobalEvents() {
         tabLogin.classList.remove("active");
         formRegister.classList.remove("hidden");
         formLogin.classList.add("hidden");
+        authTitle.textContent = "Create Account";
+        authSubtitle.textContent = "Join Rooyify to start tracking growth";
     };
 
     // Close modals when clicking outside
@@ -173,22 +185,6 @@ function initGlobalEvents() {
         localStorage.removeItem("user");
         renderGuestUI();
     };
-
-    // Patient Dashboard Horizontal Tabs switching
-    document.querySelectorAll(".app-tab-btn").forEach(btn => {
-        btn.onclick = () => {
-            const tabId = btn.dataset.tab;
-            if (!tabId) return;
-
-            // Remove active classes
-            document.querySelectorAll(".app-tab-btn").forEach(b => b.classList.remove("active"));
-            document.querySelectorAll(".tab-panel-item").forEach(p => p.classList.remove("active"));
-
-            // Add active classes
-            btn.classList.add("active");
-            document.getElementById(tabId).classList.add("active");
-        };
-    });
 }
 
 function showAuthModal(showLogin = true) {
@@ -201,8 +197,32 @@ function showAuthModal(showLogin = true) {
 }
 
 // ==========================================
-// PATIENT DASHBOARD LOGIC
+// PATIENT VIEW NAVIGATION AND WORKFLOWS
 // ==========================================
+
+function showPatientHome() {
+    // Hide all sub panels
+    document.querySelectorAll("#section-patient .sub-panel").forEach(p => p.classList.add("hidden"));
+    // Show patient home menu card grid
+    document.getElementById("panel-patient-home").classList.remove("hidden");
+    
+    // Set capsule active
+    document.querySelectorAll("#bottom-nav-patient .nav-capsule-item").forEach(i => i.classList.remove("active"));
+    document.getElementById("btn-nav-patient-home").classList.add("active");
+}
+
+function showPatientProfile() {
+    document.querySelectorAll("#section-patient .sub-panel").forEach(p => p.classList.add("hidden"));
+    document.getElementById("panel-patient-profile").classList.remove("hidden");
+    
+    document.querySelectorAll("#bottom-nav-patient .nav-capsule-item").forEach(i => i.classList.remove("active"));
+    document.getElementById("btn-nav-patient-profile").classList.add("active");
+}
+
+function showPatientSubPanel(panelId) {
+    document.querySelectorAll("#section-patient .sub-panel").forEach(p => p.classList.add("hidden"));
+    document.getElementById(panelId).classList.remove("hidden");
+}
 
 function initPatientDashboard() {
     loadPatientRoutines();
@@ -221,12 +241,66 @@ function initPatientDashboard() {
     document.getElementById("btn-close-photo-modal").onclick = () => photoModal.style.display = "none";
     document.getElementById("btn-close-quiz-modal").onclick = () => quizModal.style.display = "none";
 
-    // Tab buttons to trigger modals
-    document.getElementById("btn-patient-add-routine").onclick = () => routineModal.style.display = "flex";
-    document.getElementById("btn-patient-upload-photo").onclick = () => photoModal.style.display = "flex";
-    document.getElementById("btn-patient-quiz-trigger").onclick = () => startHairQuiz();
+    // Setup Patient Bottom Nav
+    document.getElementById("btn-nav-patient-home").onclick = () => showPatientHome();
+    document.getElementById("btn-nav-patient-profile").onclick = () => showPatientProfile();
 
-    // Submit New Routine
+    // Setup Menu Cards redirection
+    document.getElementById("menu-card-quiz").onclick = () => startHairQuiz();
+    document.getElementById("menu-card-reports").onclick = () => {
+        showPatientSubPanel("panel-patient-reports-activity");
+    };
+    document.getElementById("menu-card-book").onclick = () => {
+        showPatientSubPanel("panel-patient-book-activity");
+    };
+    document.getElementById("menu-card-consults").onclick = () => {
+        showPatientSubPanel("panel-patient-consults-activity");
+    };
+    document.getElementById("menu-card-upload").onclick = () => {
+        photoModal.style.display = "flex";
+    };
+    document.getElementById("menu-card-gallery").onclick = () => {
+        showPatientSubPanel("panel-patient-gallery-activity");
+    };
+    document.getElementById("menu-card-routines").onclick = () => {
+        showPatientSubPanel("panel-patient-routines-activity");
+    };
+
+    // Confirm book slot button
+    document.getElementById("btn-p-book-confirm").onclick = async () => {
+        const slotSelect = document.getElementById("p-select-slot");
+        const slotId = slotSelect.value;
+        if (!slotId) {
+            alert("Please select an available appointment slot");
+            return;
+        }
+
+        const selectedOption = slotSelect.options[slotSelect.selectedIndex];
+        const doctorId = selectedOption.dataset.doctorId;
+
+        const payload = {
+            user_id: currentUser.id,
+            doctor_id: doctorId,
+            slot_id: slotId
+        };
+
+        const resp = await fetch(`${API_BASE}/book_appointment.php`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        });
+        const data = await resp.json();
+        if (data.status === "success") {
+            alert("Booking request submitted successfully!");
+            loadDoctorsAndSlots();
+            loadBookedAppointments();
+            showPatientSubPanel("panel-patient-consults-activity"); // Route to consultations activity page
+        } else {
+            alert(data.message || "Failed to book slot");
+        }
+    };
+
+    // Submit New Routine Form
     document.getElementById("form-add-routine").onsubmit = async (e) => {
         e.preventDefault();
         const payload = {
@@ -252,7 +326,7 @@ function initPatientDashboard() {
         }
     };
 
-    // Submit Photo Upload
+    // Submit Photo Upload Form
     document.getElementById("form-upload-photo").onsubmit = async (e) => {
         e.preventDefault();
         const fileInput = document.getElementById("photo-file");
@@ -275,6 +349,7 @@ function initPatientDashboard() {
                 photoModal.style.display = "none";
                 document.getElementById("form-upload-photo").reset();
                 loadPatientPhotos();
+                showPatientSubPanel("panel-patient-gallery-activity");
             } else {
                 alert(data.message || "Failed to upload photo");
             }
@@ -282,54 +357,25 @@ function initPatientDashboard() {
             alert("Error uploading image: " + err);
         }
     };
-
-    // Book Appointment
-    document.getElementById("btn-patient-book-appt").onclick = async () => {
-        const slotSelect = document.getElementById("patient-select-slot");
-        const slotId = slotSelect.value;
-        if (!slotId) {
-            alert("Please select an available appointment slot");
-            return;
-        }
-
-        const selectedOption = slotSelect.options[slotSelect.selectedIndex];
-        const doctorId = selectedOption.dataset.doctorId;
-
-        const payload = {
-            user_id: currentUser.id,
-            doctor_id: doctorId,
-            slot_id: slotId
-        };
-
-        const resp = await fetch(`${API_BASE}/book_appointment.php`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-        });
-        const data = await resp.json();
-        if (data.status === "success") {
-            alert("Booking request submitted successfully! Pending doctor approval.");
-            loadDoctorsAndSlots();
-            loadBookedAppointments();
-        } else {
-            alert(data.message || "Failed to book slot");
-        }
-    };
 }
 
-function updateComplianceRing(percent) {
-    document.getElementById("patient-header-compliance").textContent = `${percent}%`;
+function updateStatsProgress(compliancePct, streakDays, loggedDaysCount) {
+    document.getElementById("compliance-pct-text").textContent = `${compliancePct}%`;
+    document.getElementById("streak-days-text").textContent = streakDays;
+    document.getElementById("days-logged-text").textContent = `${loggedDaysCount}/7`;
+
+    // Compute circular ring offset
     const circle = document.querySelector('.progress-ring-circle');
     const radius = circle.r.baseVal.value;
     const circumference = radius * 2 * Math.PI;
     
     circle.style.strokeDasharray = `${circumference} ${circumference}`;
-    const offset = circumference - (percent / 100 * circumference);
+    const offset = circumference - (compliancePct / 100 * circumference);
     circle.style.strokeDashoffset = offset;
 }
 
 async function loadPatientRoutines() {
-    const listEl = document.getElementById("list-patient-routines");
+    const listEl = document.getElementById("list-p-routines");
     listEl.innerHTML = '<li class="empty-list-msg">Loading routines...</li>';
     
     try {
@@ -350,15 +396,15 @@ async function loadPatientRoutines() {
                 `;
                 listEl.appendChild(li);
             });
-            // Update compliance based on routines
-            updateComplianceRing(85);
+            // Update compliance stats
+            updateStatsProgress(85, 3, 2);
         } else {
             listEl.innerHTML = '<li class="empty-list-msg">No active routines. Add one to start tracking.</li>';
-            updateComplianceRing(0);
+            updateStatsProgress(0, 0, 0);
         }
     } catch (e) {
         listEl.innerHTML = '<li class="empty-list-msg">Failed to load routines.</li>';
-        updateComplianceRing(0);
+        updateStatsProgress(0, 0, 0);
     }
 }
 
@@ -376,7 +422,7 @@ async function deleteRoutine(id) {
 }
 
 async function loadPatientPhotos() {
-    const gridEl = document.getElementById("grid-patient-images");
+    const gridEl = document.getElementById("grid-p-gallery");
     gridEl.innerHTML = '<p class="empty-list-msg">Loading photos...</p>';
 
     try {
@@ -397,10 +443,8 @@ async function loadPatientPhotos() {
                 };
                 gridEl.appendChild(card);
             });
-            document.getElementById("stat-photos").textContent = data.images.length;
         } else {
             gridEl.innerHTML = '<p class="empty-list-msg">No progress photos logged yet.</p>';
-            document.getElementById("stat-photos").textContent = "0";
         }
     } catch (e) {
         gridEl.innerHTML = '<p class="empty-list-msg">Failed to load photos.</p>';
@@ -408,7 +452,7 @@ async function loadPatientPhotos() {
 }
 
 async function loadDoctorsAndSlots() {
-    const selectEl = document.getElementById("patient-select-slot");
+    const selectEl = document.getElementById("p-select-slot");
     selectEl.innerHTML = '<option value="">Loading slots...</option>';
 
     try {
@@ -433,7 +477,7 @@ async function loadDoctorsAndSlots() {
 }
 
 async function loadBookedAppointments() {
-    const listEl = document.getElementById("list-patient-appts");
+    const listEl = document.getElementById("list-p-consults");
     listEl.innerHTML = '<li class="empty-list-msg">Loading...</li>';
 
     try {
@@ -454,10 +498,8 @@ async function loadBookedAppointments() {
                 `;
                 listEl.appendChild(li);
             });
-            document.getElementById("stat-appts").textContent = data.appointments.length;
         } else {
             listEl.innerHTML = '<li class="empty-list-msg">No booked consultations.</li>';
-            document.getElementById("stat-appts").textContent = "0";
         }
     } catch (e) {
         listEl.innerHTML = '<li class="empty-list-msg">Failed to load appointments.</li>';
@@ -478,27 +520,20 @@ async function loadQuizStatus() {
                 answers = {};
             }
 
-            document.getElementById("quiz-last-date").textContent = last.created_at.split(" ")[0];
-            document.getElementById("quiz-last-id").textContent = `#${last.id}`;
-            document.getElementById("quiz-last-summary").textContent = `${last.risk_level.toUpperCase()} RISK`;
-            document.getElementById("quiz-last-summary").className = `gradient-text`; // Keep standard header styling
+            document.getElementById("p-quiz-date").textContent = last.created_at.split(" ")[0];
+            document.getElementById("p-quiz-id").textContent = `#${last.id}`;
+            document.getElementById("p-quiz-summary").textContent = `${last.risk_level.toUpperCase()} RISK`;
             
-            document.getElementById("quiz-detail-scalp").textContent = answers.scalp_type || "N/A";
-            document.getElementById("quiz-detail-sleep").textContent = answers.sleep_hours || "N/A";
-            document.getElementById("quiz-detail-stress").textContent = answers.stress_level || "N/A";
-            document.getElementById("quiz-detail-history").textContent = answers.family_history || "N/A";
+            document.getElementById("p-quiz-scalp").textContent = answers.scalp_type || "N/A";
+            document.getElementById("p-quiz-sleep").textContent = answers.sleep_hours || "N/A";
+            document.getElementById("p-quiz-stress").textContent = answers.stress_level || "N/A";
+            document.getElementById("p-quiz-history").textContent = answers.family_history || "N/A";
             
-            document.getElementById("card-last-quiz-container").classList.remove("hidden");
-            document.getElementById("lbl-empty-quiz").classList.add("hidden");
-            
-            // Set dynamic quiz counts
-            document.getElementById("stat-quizzes").textContent = data.reports.length;
-            document.getElementById("stat-streak").textContent = Math.min(data.reports.length * 2, 7); // Mock streak days
+            document.getElementById("panel-quiz-report-card").classList.remove("hidden");
+            document.getElementById("panel-empty-quiz-lbl").classList.add("hidden");
         } else {
-            document.getElementById("card-last-quiz-container").classList.add("hidden");
-            document.getElementById("lbl-empty-quiz").classList.remove("hidden");
-            document.getElementById("stat-quizzes").textContent = "0";
-            document.getElementById("stat-streak").textContent = "0";
+            document.getElementById("panel-quiz-report-card").classList.add("hidden");
+            document.getElementById("panel-empty-quiz-lbl").classList.remove("hidden");
         }
     } catch (e) {}
 }
@@ -628,8 +663,8 @@ document.getElementById("btn-quiz-next").onclick = async () => {
             alert(`Assessment submitted! Risk calculated: ${riskLevel.toUpperCase()}`);
             document.getElementById("modal-quiz").style.display = "none";
             loadQuizStatus();
-            // Switch tabs back to Quiz panel automatically to show result
-            document.querySelector(".app-tab-btn[data-tab='container-quiz']").click();
+            // Redirect to Quiz Reports activity sub-page directly to review results
+            showPatientSubPanel("panel-patient-reports-activity");
         } else {
             alert("Failed to submit assessment.");
         }
@@ -637,13 +672,48 @@ document.getElementById("btn-quiz-next").onclick = async () => {
 };
 
 // ==========================================
-// DOCTOR DASHBOARD LOGIC
+// DOCTOR VIEW NAVIGATION AND WORKFLOWS
 // ==========================================
 
+function showDoctorHome() {
+    document.querySelectorAll("#section-doctor .sub-panel").forEach(p => p.classList.add("hidden"));
+    document.getElementById("panel-doctor-home").classList.remove("hidden");
+    
+    document.querySelectorAll("#bottom-nav-doctor .nav-capsule-item").forEach(i => i.classList.remove("active"));
+    document.getElementById("btn-nav-doctor-home").classList.add("active");
+}
+
+function showDoctorProfile() {
+    document.querySelectorAll("#section-doctor .sub-panel").forEach(p => p.classList.add("hidden"));
+    document.getElementById("panel-doctor-profile").classList.remove("hidden");
+    
+    document.querySelectorAll("#bottom-nav-doctor .nav-capsule-item").forEach(i => i.classList.remove("active"));
+    document.getElementById("btn-nav-doctor-profile").classList.add("active");
+}
+
+function showDoctorSubPanel(panelId) {
+    document.querySelectorAll("#section-doctor .sub-panel").forEach(p => p.classList.add("hidden"));
+    document.getElementById(panelId).classList.remove("hidden");
+}
+
 function initDoctorDashboard() {
-    loadDoctorSlots();
     loadDoctorAppointments();
     loadPatientsList();
+
+    // Doctor Bottom Nav Capsule Setup
+    document.getElementById("btn-nav-doctor-home").onclick = () => showDoctorHome();
+    document.getElementById("btn-nav-doctor-profile").onclick = () => showDoctorProfile();
+
+    // Menu redirection setups
+    document.getElementById("menu-card-doc-patients").onclick = () => {
+        showDoctorSubPanel("panel-doctor-portfolios-activity");
+    };
+    document.getElementById("menu-card-doc-create").onclick = () => {
+        showDoctorSubPanel("panel-doctor-create-activity");
+    };
+    document.getElementById("menu-card-doc-requests").onclick = () => {
+        showDoctorSubPanel("panel-doctor-requests-activity");
+    };
 
     // Create slot form handler
     document.getElementById("form-doctor-create-slot").onsubmit = async (e) => {
@@ -661,9 +731,9 @@ function initDoctorDashboard() {
         });
         const data = await resp.json();
         if (data.status === "success") {
-            alert("Slot created!");
+            alert("Slot created successfully!");
             document.getElementById("form-doctor-create-slot").reset();
-            loadDoctorSlots();
+            showDoctorHome(); // Go back home
         }
     };
 
@@ -698,10 +768,6 @@ function initDoctorDashboard() {
             document.getElementById(panelId).classList.add("active");
         };
     });
-}
-
-async function loadDoctorSlots() {
-    // Optional display or list slots if desired
 }
 
 async function loadDoctorAppointments() {
@@ -785,7 +851,7 @@ async function loadPatientsList() {
 }
 
 // ==========================================
-// DOCTOR PORTFOLIO DETAILS OVERLAY
+// DOCTOR PATIENT DETAIL MODEL VIEW
 // ==========================================
 
 async function openPatientPortfolio(patient) {

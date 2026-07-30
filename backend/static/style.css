@@ -54,6 +54,7 @@ body {
     overflow-x: hidden;
     position: relative;
     line-height: 1.6;
+    padding-bottom: 90px; /* Space for floating bottom nav */
 }
 
 /* ==========================================
@@ -161,16 +162,6 @@ a {
     color: var(--text-primary);
 }
 
-.user-display {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.5);
-    padding: 0.4rem 1rem;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-color);
-}
-
 /* ==========================================
    BUTTONS
    ========================================== */
@@ -217,30 +208,21 @@ a {
     font-size: 1.05rem;
 }
 
-.btn-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    padding: 0;
-    background: #F8F9FB;
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-}
-
-.btn-icon:hover {
-    background: rgba(255, 255, 255, 0.8);
-    transform: rotate(90deg);
-}
-
 /* ==========================================
-   MAIN LAYOUT & HERO
+   MAIN CONTENT
    ========================================== */
 
 .main-content {
-    max-width: 1200px;
+    max-width: 800px; /* Aligned closer to a phone width profile for cleaner visuals */
     margin: 70px auto 0 auto;
-    padding: 3rem 2rem;
+    padding: 2.5rem 1.5rem;
     min-height: calc(100vh - 70px);
+}
+
+/* Landing Page only gets wider grid */
+#section-landing {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .hero-container {
@@ -301,69 +283,71 @@ a {
 }
 
 /* ==========================================
-   PATIENT HEADER CARD (MATCHING APP LOOK)
+   APP HEADER AREA (activity_home.xml)
    ========================================== */
 
-.profile-header-card {
-    padding: 1.5rem;
+.app-header-area {
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.4s ease;
 }
 
-.profile-header-flex {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
+.greeting-lbl {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
 }
 
-.profile-badge-circle {
-    width: 56px;
-    height: 56px;
-    background: var(--primary-gradient);
-    color: #FFFFFF;
-    font-size: 20px;
-    font-weight: 700;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
-}
-
-.profile-header-details {
-    flex: 1;
-}
-
-.profile-header-details h2 {
-    font-size: 1.15rem;
-    margin: 0;
-    color: var(--text-primary);
-}
-
-.profile-phone-row {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
+.tv-user-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #111827;
     margin-top: 4px;
-    font-weight: 700;
-    color: var(--accent-color);
-    font-size: 0.85rem;
 }
 
-.phone-tint {
-    color: var(--accent-color);
+/* ==========================================
+   DASHBOARD STATS CARD (MATCHING MOBILE PROGRESS)
+   ========================================== */
+
+.dashboard-stats-card {
+    background: #F3F7FF;
+    border-radius: 28px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.03);
+    animation: fadeIn 0.5s ease;
 }
 
-/* Circular Compliance Progress Ring */
-.compliance-ring-container {
+.stats-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stats-col {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 64dp;
+    justify-content: center;
 }
 
-.compliance-progress {
+.flex-1 {
+    flex: 1;
+}
+
+.flex-1-2 {
+    flex: 1.2;
+}
+
+.divider-vertical {
+    width: 1px;
+    height: 40px;
+    background: #E5E7EB;
+}
+
+/* Progress circular ring */
+.compliance-ring-wrapper {
     position: relative;
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -376,82 +360,201 @@ a {
 .progress-ring-circle {
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
-    transition: stroke-dashoffset 0.35s;
+    transition: stroke-dashoffset 0.4s ease;
 }
 
 .compliance-percent {
     position: absolute;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #111827;
 }
 
-.compliance-label {
-    font-size: 9px;
-    color: var(--text-muted);
+.streak-value-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.fire-tint {
+    color: #F97316;
+    font-size: 1.25rem;
+}
+
+.streak-number, .days-logged-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #111827;
+}
+
+.stat-meta-label {
+    font-size: 11px;
+    color: #6B7280;
     font-weight: 600;
-    margin-top: 4px;
-    text-transform: uppercase;
+    text-align: center;
+    margin-top: 8px;
+    line-height: 1.2;
 }
 
 /* ==========================================
-   HORIZONTAL TAB NAV BAR (MATCHING APP LOOK)
+   APP MENU CARDS GRID (activity_home.xml)
    ========================================== */
 
-.app-horizontal-tabs {
+.app-menu-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 1rem;
+}
+
+.menu-card-item {
+    background: var(--surface-color);
+    border: 1px solid rgba(30, 35, 75, 0.05);
+    border-radius: 24px;
+    padding: 1rem 1.25rem;
     display: flex;
-    overflow-x: auto;
-    gap: 0.5rem;
-    padding: 8px 0;
-    margin: 1rem 0 2rem 0;
-    scrollbars: none;
-    -ms-overflow-style: none; /* IE/Edge */
-    scrollbar-width: none; /* Firefox */
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(30, 35, 75, 0.02);
+    transition: var(--transition);
 }
 
-.app-horizontal-tabs::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+.menu-card-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(30, 35, 75, 0.07);
+    border-color: rgba(37, 99, 235, 0.1);
 }
 
-.app-tab-btn {
+.menu-card-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.menu-icon-bg {
+    width: 48px;
+    height: 48px;
+    background: #F3F7FF;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2563EB;
+    font-size: 20px;
+}
+
+.menu-card-details h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1E234B;
+    margin: 0;
+}
+
+.menu-card-details p {
+    font-size: 13px;
+    color: #6B7280;
+    margin-top: 2px;
+}
+
+.next-arrow-icon {
+    color: #3B82F6;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.menu-card-item:hover .next-arrow-icon {
+    transform: translateX(4px);
+}
+
+/* ==========================================
+   APP BACK BUTTON (Android Navigation styling)
+   ========================================== */
+
+.app-back-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.55rem 1.15rem;
-    font-size: 13px;
+    gap: 8px;
+    color: var(--primary-color);
     font-weight: 700;
-    background: transparent;
-    color: var(--text-secondary);
-    border: none;
-    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.app-back-btn:hover {
+    transform: translateX(-4px);
+}
+
+/* ==========================================
+   FLOATING BOTTOM NAVIGATION CAPSULE
+   ========================================== */
+
+.bottom-floating-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 24px;
+    z-index: 99;
+    pointer-events: none;
+}
+
+.nav-capsule {
+    background: #E9EEFF;
+    border-radius: 32px;
+    box-shadow: 0 10px 30px rgba(30, 35, 75, 0.12);
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    pointer-events: auto; /* Allow clicks */
+}
+
+.nav-capsule-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 24px;
+    border-radius: 32px;
     cursor: pointer;
     transition: var(--transition);
-    white-space: nowrap;
+    color: #6B7280;
+    font-size: 11px;
 }
 
-.app-tab-btn i {
-    font-size: 14px;
+.nav-capsule-item i {
+    font-size: 18px;
+    margin-bottom: 2px;
 }
 
-.app-tab-btn.active {
-    background: var(--primary-gradient);
-    color: #FFFFFF;
-    box-shadow: 0 4px 10px var(--primary-glow);
+.nav-capsule-item.active {
+    background: #FFFFFF;
+    color: #2563EB;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
 }
 
-/* Panels */
-.tab-panel-item {
-    display: none;
-    animation: fadeIn 0.4s ease;
+/* ==========================================
+   DETAILS TABLES & ASSETS
+   ========================================== */
+
+.glassmorphic-card {
+    background: var(--surface-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(30, 35, 75, 0.05);
+    margin-bottom: 2rem;
+    border: none;
 }
 
-.tab-panel-item.active {
-    display: block;
-}
-
-/* Details Table Card */
 .details-table-card {
     padding: 20px;
+    animation: fadeIn 0.4s ease;
 }
 
 .profile-details-table {
@@ -482,83 +585,8 @@ a {
 }
 
 /* ==========================================
-   STATISTICS WIDGETS GRID
+   QUIZ REPORTS LISTING
    ========================================== */
-
-.stats-widgets-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-@media (max-width: 768px) {
-    .stats-widgets-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-.stat-widget-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.25rem !important;
-    text-align: center;
-    border-radius: 20px !important;
-}
-
-.stat-icon-wrapper {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    margin-bottom: 8px;
-}
-
-.blue-stat {
-    color: #3B82F6;
-    background: rgba(59, 130, 246, 0.1);
-}
-
-.rose-stat {
-    color: #E11D48;
-    background: rgba(225, 29, 72, 0.1);
-}
-
-.green-stat {
-    color: #10B981;
-    background: rgba(16, 185, 129, 0.1);
-}
-
-.orange-stat {
-    color: #F97316;
-    background: rgba(249, 115, 22, 0.1);
-}
-
-.stat-value {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-top: 4px;
-}
-
-.stat-label {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 600;
-    margin-top: 2px;
-}
-
-/* ==========================================
-   QUIZ ASSESSMENT CARDS
-   ========================================== */
-
-.quiz-action-bar {
-    margin-bottom: 1.5rem;
-}
 
 .quiz-card-header {
     display: flex;
@@ -635,77 +663,117 @@ a {
 }
 
 /* ==========================================
-   CARDS & PANELS BASE
+   REDESIGNED AUTH MODAL (MATCHING APP LOOK)
    ========================================== */
 
-.glassmorphic-card {
-    background: var(--surface-color);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(30, 35, 75, 0.05);
-    margin-bottom: 2rem;
+.auth-modal-capsule {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 440px !important;
+}
+
+.auth-logo-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.auth-leaf-circle {
+    width: 80px;
+    height: 80px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #2563EB;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);
+    margin-bottom: 1.25rem;
+}
+
+.auth-logo-header h2 {
+    font-size: 2rem;
+    margin-bottom: 4px;
+    color: #1E234B;
+}
+
+.auth-logo-header p {
+    font-size: 15px;
+    color: #6B7280;
+}
+
+.auth-card-body {
+    background: #FFFFFF !important;
+    border-radius: 24px !important;
+    padding: 24px !important;
+    box-shadow: 0 12px 40px rgba(30, 35, 75, 0.12) !important;
+}
+
+.auth-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
+
+.auth-tab {
+    flex: 1;
+    background: transparent;
     border: none;
-}
-
-.dashboard-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 2.5rem;
-    animation: fadeIn 0.5s ease;
-}
-
-.badge {
-    padding: 0.4rem 1rem;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 750;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-.badge-patient {
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--primary-color);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-}
-
-.badge-doctor {
-    background: rgba(139, 92, 246, 0.1);
-    color: var(--accent-color);
-    border: 1px solid rgba(139, 92, 246, 0.2);
-}
-
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 2.5rem;
-    align-items: start;
-}
-
-@media (max-width: 900px) {
-    .dashboard-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.card-header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.card-desc {
     color: var(--text-secondary);
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
-.card-divider {
-    border: 0;
-    border-top: 1px solid var(--border-color);
-    margin: 1.5rem 0;
+.auth-tab.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* Purple icon inputs */
+.auth-input-container {
+    display: flex;
+    align-items: center;
+    background: #F9FAFB;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0 1rem;
+    height: 56px;
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.auth-input-container:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px var(--primary-glow);
+    background: #FFFFFF;
+}
+
+.auth-field-icon {
+    color: #A855F7; /* Purple icon tint from app */
+    font-size: 16px;
+    margin-right: 12px;
+}
+
+.auth-inner-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.auth-inner-input::placeholder {
+    color: #9CA3AF;
+}
+
+.auth-submit-btn {
+    height: 56px;
+    font-size: 17px;
 }
 
 /* ==========================================
@@ -718,7 +786,7 @@ a {
 
 .form-group-row {
     display: flex;
-    gap: 1.25rem;
+    gap: 1rem;
 }
 
 .col-6 {
