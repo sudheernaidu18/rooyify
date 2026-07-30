@@ -2,7 +2,7 @@
 // ROOYIFY CLIENT-SIDE WEB CONTROLLER
 // ==========================================
 
-const API_BASE = ""; // Relative paths will resolve to the active server (local or deployed)
+const API_BASE = ""; 
 
 let currentUser = null;
 
@@ -37,7 +37,6 @@ function renderGuestUI() {
     document.getElementById("section-patient").classList.add("hidden");
     document.getElementById("section-doctor").classList.add("hidden");
     
-    // Show landing navigation elements
     document.querySelectorAll(".home-only").forEach(el => el.classList.remove("hidden"));
 }
 
@@ -48,8 +47,6 @@ function renderAuthenticatedUI() {
     document.getElementById("btn-login-trigger").classList.add("hidden");
     
     document.getElementById("section-landing").classList.add("hidden");
-    
-    // Hide landing navigation elements
     document.querySelectorAll(".home-only").forEach(el => el.classList.add("hidden"));
 
     if (currentUser.role === "doctor") {
@@ -59,52 +56,63 @@ function renderAuthenticatedUI() {
     } else {
         document.getElementById("section-patient").classList.remove("hidden");
         document.getElementById("section-doctor").classList.add("hidden");
+        
+        // Populate profile header
+        document.getElementById("patient-header-name").textContent = currentUser.name;
+        document.getElementById("patient-header-email").textContent = currentUser.email;
+        document.getElementById("patient-header-phone").textContent = currentUser.phone || "N/A";
+        document.getElementById("patient-header-badge").textContent = currentUser.name.charAt(0).toUpperCase();
+        
+        // Populate profile table
+        document.getElementById("tbl-profile-email").textContent = currentUser.email;
+        document.getElementById("tbl-profile-phone").textContent = currentUser.phone || "N/A";
+        document.getElementById("tbl-profile-place").textContent = currentUser.place || "N/A";
+        document.getElementById("tbl-profile-dob").textContent = currentUser.dob || "N/A";
+
         initPatientDashboard();
     }
 }
 
 // ==========================================
-// AUTHENTICATION EVENTS
+// AUTHENTICATION EVENTS & GENERAL TABS
 // ==========================================
 
 function initGlobalEvents() {
-    // Auth Modal Toggle
     const authModal = document.getElementById("modal-auth");
     const closeAuthBtn = document.getElementById("btn-close-auth-modal");
     
-    document.getElementById("btn-login-trigger").addEventListener("click", () => showAuthModal(true));
-    document.querySelector(".btn-cta-login").addEventListener("click", () => showAuthModal(true));
-    closeAuthBtn.addEventListener("click", () => authModal.style.display = "none");
+    document.getElementById("btn-login-trigger").onclick = () => showAuthModal(true);
+    document.querySelector(".btn-cta-login").onclick = () => showAuthModal(true);
+    closeAuthBtn.onclick = () => authModal.style.display = "none";
     
-    // Tab switching
     const tabLogin = document.getElementById("tab-login");
     const tabRegister = document.getElementById("tab-register");
     const formLogin = document.getElementById("form-login");
     const formRegister = document.getElementById("form-register");
 
-    tabLogin.addEventListener("click", () => {
+    tabLogin.onclick = () => {
         tabLogin.classList.add("active");
         tabRegister.classList.remove("active");
         formLogin.classList.remove("hidden");
         formRegister.classList.add("hidden");
-    });
+    };
 
-    tabRegister.addEventListener("click", () => {
+    tabRegister.onclick = () => {
         tabRegister.classList.add("active");
         tabLogin.classList.remove("active");
         formRegister.classList.remove("hidden");
         formLogin.classList.add("hidden");
-    });
+    };
 
     // Close modals when clicking outside
-    window.addEventListener("click", (e) => {
+    window.onclick = (e) => {
         if (e.target.classList.contains("modal")) {
             e.target.style.display = "none";
         }
-    });
+    };
 
-    // Submit Sign In
-    formLogin.addEventListener("submit", async (e) => {
+    // Login submit
+    formLogin.onsubmit = async (e) => {
         e.preventDefault();
         const email = document.getElementById("login-email").value;
         const password = document.getElementById("login-password").value;
@@ -125,12 +133,12 @@ function initGlobalEvents() {
                 alert(data.message || "Invalid credentials");
             }
         } catch (err) {
-            alert("Connection error. Is backend server running?");
+            alert("Connection error. Server may be down.");
         }
-    });
+    };
 
-    // Submit Registration
-    formRegister.addEventListener("submit", async (e) => {
+    // Register submit
+    formRegister.onsubmit = async (e) => {
         e.preventDefault();
         const payload = {
             name: document.getElementById("reg-name").value,
@@ -150,7 +158,7 @@ function initGlobalEvents() {
             });
             const data = await resp.json();
             if (data.status === "success") {
-                alert("Registration successful! Please login.");
+                alert("Account created! Please sign in.");
                 tabLogin.click();
             } else {
                 alert(data.message || "Registration failed");
@@ -158,12 +166,28 @@ function initGlobalEvents() {
         } catch (err) {
             alert("Connection error: " + err);
         }
-    });
+    };
 
-    // Logout
-    document.getElementById("btn-logout").addEventListener("click", () => {
+    // Logout Button
+    document.getElementById("btn-logout").onclick = () => {
         localStorage.removeItem("user");
         renderGuestUI();
+    };
+
+    // Patient Dashboard Horizontal Tabs switching
+    document.querySelectorAll(".app-tab-btn").forEach(btn => {
+        btn.onclick = () => {
+            const tabId = btn.dataset.tab;
+            if (!tabId) return;
+
+            // Remove active classes
+            document.querySelectorAll(".app-tab-btn").forEach(b => b.classList.remove("active"));
+            document.querySelectorAll(".tab-panel-item").forEach(p => p.classList.remove("active"));
+
+            // Add active classes
+            btn.classList.add("active");
+            document.getElementById(tabId).classList.add("active");
+        };
     });
 }
 
@@ -197,10 +221,10 @@ function initPatientDashboard() {
     document.getElementById("btn-close-photo-modal").onclick = () => photoModal.style.display = "none";
     document.getElementById("btn-close-quiz-modal").onclick = () => quizModal.style.display = "none";
 
-    // Triggers
-    document.getElementById("btn-add-routine-trigger").onclick = () => routineModal.style.display = "flex";
-    document.getElementById("btn-upload-photo-trigger").onclick = () => photoModal.style.display = "flex";
-    document.getElementById("btn-quiz-trigger").onclick = () => startHairQuiz();
+    // Tab buttons to trigger modals
+    document.getElementById("btn-patient-add-routine").onclick = () => routineModal.style.display = "flex";
+    document.getElementById("btn-patient-upload-photo").onclick = () => photoModal.style.display = "flex";
+    document.getElementById("btn-patient-quiz-trigger").onclick = () => startHairQuiz();
 
     // Submit New Routine
     document.getElementById("form-add-routine").onsubmit = async (e) => {
@@ -260,8 +284,8 @@ function initPatientDashboard() {
     };
 
     // Book Appointment
-    document.getElementById("btn-book-appointment").onclick = async () => {
-        const slotSelect = document.getElementById("select-slot");
+    document.getElementById("btn-patient-book-appt").onclick = async () => {
+        const slotSelect = document.getElementById("patient-select-slot");
         const slotId = slotSelect.value;
         if (!slotId) {
             alert("Please select an available appointment slot");
@@ -293,8 +317,19 @@ function initPatientDashboard() {
     };
 }
 
+function updateComplianceRing(percent) {
+    document.getElementById("patient-header-compliance").textContent = `${percent}%`;
+    const circle = document.querySelector('.progress-ring-circle');
+    const radius = circle.r.baseVal.value;
+    const circumference = radius * 2 * Math.PI;
+    
+    circle.style.strokeDasharray = `${circumference} ${circumference}`;
+    const offset = circumference - (percent / 100 * circumference);
+    circle.style.strokeDashoffset = offset;
+}
+
 async function loadPatientRoutines() {
-    const listEl = document.getElementById("list-routines");
+    const listEl = document.getElementById("list-patient-routines");
     listEl.innerHTML = '<li class="empty-list-msg">Loading routines...</li>';
     
     try {
@@ -315,11 +350,15 @@ async function loadPatientRoutines() {
                 `;
                 listEl.appendChild(li);
             });
+            // Update compliance based on routines
+            updateComplianceRing(85);
         } else {
             listEl.innerHTML = '<li class="empty-list-msg">No active routines. Add one to start tracking.</li>';
+            updateComplianceRing(0);
         }
     } catch (e) {
         listEl.innerHTML = '<li class="empty-list-msg">Failed to load routines.</li>';
+        updateComplianceRing(0);
     }
 }
 
@@ -337,7 +376,7 @@ async function deleteRoutine(id) {
 }
 
 async function loadPatientPhotos() {
-    const gridEl = document.getElementById("grid-hair-images");
+    const gridEl = document.getElementById("grid-patient-images");
     gridEl.innerHTML = '<p class="empty-list-msg">Loading photos...</p>';
 
     try {
@@ -358,8 +397,10 @@ async function loadPatientPhotos() {
                 };
                 gridEl.appendChild(card);
             });
+            document.getElementById("stat-photos").textContent = data.images.length;
         } else {
             gridEl.innerHTML = '<p class="empty-list-msg">No progress photos logged yet.</p>';
+            document.getElementById("stat-photos").textContent = "0";
         }
     } catch (e) {
         gridEl.innerHTML = '<p class="empty-list-msg">Failed to load photos.</p>';
@@ -367,7 +408,7 @@ async function loadPatientPhotos() {
 }
 
 async function loadDoctorsAndSlots() {
-    const selectEl = document.getElementById("select-slot");
+    const selectEl = document.getElementById("patient-select-slot");
     selectEl.innerHTML = '<option value="">Loading slots...</option>';
 
     try {
@@ -392,7 +433,7 @@ async function loadDoctorsAndSlots() {
 }
 
 async function loadBookedAppointments() {
-    const listEl = document.getElementById("list-appointments");
+    const listEl = document.getElementById("list-patient-appts");
     listEl.innerHTML = '<li class="empty-list-msg">Loading...</li>';
 
     try {
@@ -413,8 +454,10 @@ async function loadBookedAppointments() {
                 `;
                 listEl.appendChild(li);
             });
+            document.getElementById("stat-appts").textContent = data.appointments.length;
         } else {
             listEl.innerHTML = '<li class="empty-list-msg">No booked consultations.</li>';
+            document.getElementById("stat-appts").textContent = "0";
         }
     } catch (e) {
         listEl.innerHTML = '<li class="empty-list-msg">Failed to load appointments.</li>';
@@ -428,10 +471,34 @@ async function loadQuizStatus() {
         
         if (data.status === "success" && data.reports && data.reports.length > 0) {
             const last = data.reports[0];
-            document.getElementById("lbl-last-risk").textContent = last.risk_level.toUpperCase();
-            document.getElementById("lbl-last-risk").className = `status-badge status-${last.risk_level === 'high' ? 'rejected' : last.risk_level === 'moderate' ? 'pending' : 'approved'}`;
-            document.getElementById("lbl-last-date").textContent = `Taken on ${last.created_at.split(" ")[0]}`;
-            document.getElementById("quiz-result-summary").classList.remove("hidden");
+            let answers = {};
+            try {
+                answers = typeof last.answers === 'string' ? JSON.parse(last.answers) : last.answers;
+            } catch (e) {
+                answers = {};
+            }
+
+            document.getElementById("quiz-last-date").textContent = last.created_at.split(" ")[0];
+            document.getElementById("quiz-last-id").textContent = `#${last.id}`;
+            document.getElementById("quiz-last-summary").textContent = `${last.risk_level.toUpperCase()} RISK`;
+            document.getElementById("quiz-last-summary").className = `gradient-text`; // Keep standard header styling
+            
+            document.getElementById("quiz-detail-scalp").textContent = answers.scalp_type || "N/A";
+            document.getElementById("quiz-detail-sleep").textContent = answers.sleep_hours || "N/A";
+            document.getElementById("quiz-detail-stress").textContent = answers.stress_level || "N/A";
+            document.getElementById("quiz-detail-history").textContent = answers.family_history || "N/A";
+            
+            document.getElementById("card-last-quiz-container").classList.remove("hidden");
+            document.getElementById("lbl-empty-quiz").classList.add("hidden");
+            
+            // Set dynamic quiz counts
+            document.getElementById("stat-quizzes").textContent = data.reports.length;
+            document.getElementById("stat-streak").textContent = Math.min(data.reports.length * 2, 7); // Mock streak days
+        } else {
+            document.getElementById("card-last-quiz-container").classList.add("hidden");
+            document.getElementById("lbl-empty-quiz").classList.remove("hidden");
+            document.getElementById("stat-quizzes").textContent = "0";
+            document.getElementById("stat-streak").textContent = "0";
         }
     } catch (e) {}
 }
@@ -482,14 +549,12 @@ function renderQuizSlide() {
     const container = document.getElementById("quiz-slides-container");
     const q = quizQuestions[quizIndex];
     
-    // Toggle Prev Button
     if (quizIndex === 0) {
         document.getElementById("btn-quiz-prev").classList.add("hidden");
     } else {
         document.getElementById("btn-quiz-prev").classList.remove("hidden");
     }
     
-    // Next/Submit Button text
     if (quizIndex === quizQuestions.length - 1) {
         document.getElementById("btn-quiz-next").textContent = "Submit Quiz";
     } else {
@@ -535,7 +600,6 @@ document.getElementById("btn-quiz-next").onclick = async () => {
         quizIndex++;
         renderQuizSlide();
     } else {
-        // Compute Risk Level dynamically
         let riskScore = 0;
         if (quizAnswers.scalp_type === "Itchy/Flaky") riskScore += 2;
         if (quizAnswers.sleep_hours === "Less than 5 hours") riskScore += 2;
@@ -547,7 +611,6 @@ document.getElementById("btn-quiz-next").onclick = async () => {
         if (riskScore >= 6) riskLevel = "high";
         else if (riskScore >= 3) riskLevel = "moderate";
 
-        // Submit quiz payload
         const payload = {
             user_id: currentUser.id,
             risk_level: riskLevel,
@@ -565,6 +628,8 @@ document.getElementById("btn-quiz-next").onclick = async () => {
             alert(`Assessment submitted! Risk calculated: ${riskLevel.toUpperCase()}`);
             document.getElementById("modal-quiz").style.display = "none";
             loadQuizStatus();
+            // Switch tabs back to Quiz panel automatically to show result
+            document.querySelector(".app-tab-btn[data-tab='container-quiz']").click();
         } else {
             alert("Failed to submit assessment.");
         }
@@ -581,12 +646,12 @@ function initDoctorDashboard() {
     loadPatientsList();
 
     // Create slot form handler
-    document.getElementById("form-create-slot").onsubmit = async (e) => {
+    document.getElementById("form-doctor-create-slot").onsubmit = async (e) => {
         e.preventDefault();
         const payload = {
             doctor_id: currentUser.id,
-            date: document.getElementById("slot-date").value,
-            time: document.getElementById("slot-time").value
+            date: document.getElementById("doc-slot-date").value,
+            time: document.getElementById("doc-slot-time").value
         };
 
         const resp = await fetch(`${API_BASE}/create_slot.php`, {
@@ -597,13 +662,13 @@ function initDoctorDashboard() {
         const data = await resp.json();
         if (data.status === "success") {
             alert("Slot created!");
-            document.getElementById("form-create-slot").reset();
+            document.getElementById("form-doctor-create-slot").reset();
             loadDoctorSlots();
         }
     };
 
     // Patient Search filter
-    document.getElementById("search-patients").oninput = (e) => {
+    document.getElementById("search-patients-list").oninput = (e) => {
         const query = e.target.value.toLowerCase();
         document.querySelectorAll(".patient-item").forEach(item => {
             const name = item.dataset.name;
@@ -619,6 +684,20 @@ function initDoctorDashboard() {
     document.getElementById("btn-close-portfolio-modal").onclick = () => {
         document.getElementById("modal-portfolio-detail").style.display = "none";
     };
+
+    // Bind doctor overlay tabs switching
+    document.querySelectorAll(".doc-tab").forEach(btn => {
+        btn.onclick = () => {
+            const panelId = btn.dataset.detailTab;
+            if (!panelId) return;
+
+            document.querySelectorAll(".doc-tab").forEach(b => b.classList.remove("active"));
+            document.querySelectorAll(".doc-tab-panel").forEach(p => p.classList.remove("active"));
+
+            btn.classList.add("active");
+            document.getElementById(panelId).classList.add("active");
+        };
+    });
 }
 
 async function loadDoctorSlots() {
@@ -626,7 +705,7 @@ async function loadDoctorSlots() {
 }
 
 async function loadDoctorAppointments() {
-    const listEl = document.getElementById("list-pending-appointments");
+    const listEl = document.getElementById("list-doctor-pending-appts");
     listEl.innerHTML = '<li class="empty-list-msg">Loading requests...</li>';
 
     try {
@@ -646,8 +725,8 @@ async function loadDoctorAppointments() {
                             <p>${a.date} at ${a.time}</p>
                         </div>
                         <div style="display: flex; gap: 0.5rem;">
-                            <button class="btn btn-primary" onclick="setAppointmentStatus('${a.id}', 'approved')" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Approve</button>
-                            <button class="btn btn-secondary" onclick="setAppointmentStatus('${a.id}', 'rejected')" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Reject</button>
+                            <button class="btn btn-primary" onclick="setAppointmentStatus('${a.id}', 'approved')" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; border-radius:4px;">Approve</button>
+                            <button class="btn btn-secondary" onclick="setAppointmentStatus('${a.id}', 'rejected')" style="padding: 0.4rem 0.8rem; font-size: 0.8rem; border-radius:4px;">Reject</button>
                         </div>
                     `;
                     listEl.appendChild(li);
@@ -674,7 +753,7 @@ async function setAppointmentStatus(appId, status) {
 }
 
 async function loadPatientsList() {
-    const listEl = document.getElementById("list-patients");
+    const listEl = document.getElementById("list-doctor-patients");
     listEl.innerHTML = '<li class="empty-list-msg">Loading patients...</li>';
 
     try {
@@ -712,29 +791,10 @@ async function loadPatientsList() {
 async function openPatientPortfolio(patient) {
     const modal = document.getElementById("modal-portfolio-detail");
     document.getElementById("detail-patient-name").textContent = patient.name;
-    document.getElementById("detail-patient-meta").textContent = `Location: ${patient.place} • Phone: ${patient.phone || "N/A"} • DOB: ${patient.dob}`;
+    document.getElementById("detail-patient-email").textContent = patient.email;
+    document.getElementById("detail-patient-phone").textContent = patient.phone || "N/A";
+    document.getElementById("detail-patient-badge").textContent = patient.name.charAt(0).toUpperCase();
     modal.style.display = "flex";
-
-    // Tab switcher inside details overlay
-    const tabPhotos = document.getElementById("tab-patient-photos");
-    const tabQuiz = document.getElementById("tab-patient-quiz");
-    const tabRoutines = document.getElementById("tab-patient-routines");
-
-    const contentPhotos = document.getElementById("detail-tab-photos");
-    const contentQuiz = document.getElementById("detail-tab-quiz");
-    const contentRoutines = document.getElementById("detail-tab-routines");
-
-    tabPhotos.onclick = () => {
-        setActiveDetailTab(tabPhotos, contentPhotos);
-    };
-
-    tabQuiz.onclick = () => {
-        setActiveDetailTab(tabQuiz, contentQuiz);
-    };
-
-    tabRoutines.onclick = () => {
-        setActiveDetailTab(tabRoutines, contentRoutines);
-    };
 
     // Load data
     loadPatientPortfolioPhotos(patient.id);
@@ -742,15 +802,7 @@ async function openPatientPortfolio(patient) {
     loadPatientPortfolioRoutines(patient.id);
     
     // Set photos active by default
-    tabPhotos.click();
-}
-
-function setActiveDetailTab(tabBtn, contentEl) {
-    document.querySelectorAll(".detail-tab").forEach(t => t.classList.remove("active"));
-    document.querySelectorAll(".detail-tab-content").forEach(c => c.classList.add("hidden"));
-    
-    tabBtn.classList.add("active");
-    contentEl.classList.remove("hidden");
+    document.querySelector(".doc-tab[data-detail-tab='doc-detail-photos']").click();
 }
 
 async function loadPatientPortfolioPhotos(patientId) {
@@ -775,7 +827,7 @@ async function loadPatientPortfolioPhotos(patientId) {
                     <p style="font-size:0.85rem; margin-bottom: 0.5rem;" id="remark-text-${img.id}"><strong>Remark:</strong> ${img.remark || "None"}</p>
                     <div style="display:flex; gap:0.25rem;">
                         <input type="text" placeholder="Add remark..." class="form-input" id="remark-input-${img.id}" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;">
-                        <button class="btn btn-primary" onclick="saveHairImageRemark('${img.id}', '${patientId}')" style="padding:0 0.5rem; font-size:0.8rem;"><i class="fa-solid fa-check"></i></button>
+                        <button class="btn btn-primary" onclick="saveHairImageRemark('${img.id}', '${patientId}')" style="padding:0 0.5rem; font-size:0.8rem; border-radius:4px;"><i class="fa-solid fa-check"></i></button>
                     </div>
                 </div>
             `;
@@ -815,7 +867,6 @@ async function loadPatientPortfolioQuiz(patientId) {
         data.reports.forEach(r => {
             let answers = {};
             try {
-                // Handle JSON parse if answers are a JSON string
                 answers = typeof r.answers === 'string' ? JSON.parse(r.answers) : r.answers;
             } catch (e) {
                 answers = {};
@@ -827,7 +878,6 @@ async function loadPatientPortfolioQuiz(patientId) {
             item.style.alignItems = "flex-start";
             item.style.marginBottom = "1rem";
             
-            // Format options list
             const optionsHtml = Object.entries(answers).map(([key, val]) => `
                 <li><strong>${key.replace('_', ' ').toUpperCase()}:</strong> ${val}</li>
             `).join('');
