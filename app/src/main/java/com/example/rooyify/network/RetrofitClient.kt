@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitClient {
     // Hosted production backend URL (Exposed via live secure tunnel)
-    private const val BASE_URL = "https://b27432e7e8ab1f.lhr.life/"
+    private const val BASE_URL = "https://04e374d294a84502-180-235-121-242.serveousercontent.com/"
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
