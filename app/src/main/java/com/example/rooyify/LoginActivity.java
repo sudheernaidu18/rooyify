@@ -16,6 +16,8 @@ import com.example.rooyify.network.RetrofitClient;
 import com.example.rooyify.network.User;
 import com.example.rooyify.network.SessionManager;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -76,7 +78,6 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                                 
                                 Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                                // Navigate to Home
                                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                 startActivity(intent);
                                 finish();
@@ -84,13 +85,22 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            Toast.makeText(LoginActivity.this, "Server error", Toast.LENGTH_SHORT).show();
+                            // Enhanced error reporting
+                            String errorMsg = "Server error: " + response.code();
+                            try {
+                                if (response.errorBody() != null) {
+                                    errorMsg += " - " + response.errorBody().string();
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            Toast.makeText(LoginActivity.this, errorMsg, Toast.LENGTH_LONG).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<LoginResponse> call, Throwable t) {
-                        Toast.makeText(LoginActivity.this, "Network error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Network error: " + t.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
             }

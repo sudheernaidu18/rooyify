@@ -5,14 +5,11 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import com.google.gson.GsonBuilder
+import java.util.concurrent.TimeUnit
 
 object RetrofitClient {
-    // Hosted production backend URL (Replace this with your deployed Render / PythonAnywhere URL)
-    private const val BASE_URL = "https://rooyify-backend.onrender.com/"
-    
-    // Local development fallback (Wi-Fi network IP / Emulator loopback):
-    // private const val BASE_URL = "http://10.0.2.2:5000/"
-    // private const val BASE_URL = "http://192.168.31.82:5000/"
+    // Hosted production backend URL (Exposed via live secure tunnel)
+    private const val BASE_URL = "https://b27432e7e8ab1f.lhr.life/"
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
@@ -20,6 +17,9 @@ object RetrofitClient {
 
     private val client = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)
+        .connectTimeout(60, TimeUnit.SECONDS)
+        .readTimeout(60, TimeUnit.SECONDS)
+        .writeTimeout(60, TimeUnit.SECONDS)
         .build()
 
     private val gson = GsonBuilder()
