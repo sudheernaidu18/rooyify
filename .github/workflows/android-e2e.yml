@@ -90,6 +90,7 @@ jobs:
         folder: Test Results/HTML
         target-folder: reports/latest
         branch: gh-pages
+        clean: false
 
     - name: Generate GitHub Actions Summary
       if: always()

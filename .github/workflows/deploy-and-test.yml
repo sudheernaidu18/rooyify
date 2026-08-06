@@ -25,6 +25,7 @@ jobs:
       with:
         folder: backend/static
         branch: gh-pages
+        clean: false
 
     - name: Setup Python
       uses: actions/setup-python@v5

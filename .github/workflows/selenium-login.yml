@@ -38,6 +38,7 @@ jobs:
       with:
         folder: frontend/build
         branch: gh-pages
+        clean: false
 
     - name: Verify Live Deployment Availability
       run: |
