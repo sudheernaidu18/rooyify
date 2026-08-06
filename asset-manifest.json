@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/rooyify/static/css/main.12c866cd.css",
+    "main.js": "/rooyify/static/js/main.743f7c02.js",
+    "index.html": "/rooyify/index.html",
+    "main.12c866cd.css.map": "/rooyify/static/css/main.12c866cd.css.map",
+    "main.743f7c02.js.map": "/rooyify/static/js/main.743f7c02.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.12c866cd.css",
+    "static/js/main.743f7c02.js"
+  ]
+}
