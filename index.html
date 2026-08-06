@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooyify - Professional Hair Care Portal</title>
+    <!-- Google Fonts Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar (Guest / Top Header) -->
+    <nav class="navbar" id="top-navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-leaf logo-icon"></i>
+                <span>Rooyify</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features" class="nav-item home-only">Features</a>
+                <a href="#about" class="nav-item home-only">About</a>
+                <button id="btn-login-trigger" class="btn btn-primary btn-auth-only">Sign In / Register</button>
+                <button id="btn-logout" class="btn btn-secondary hidden"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <main class="main-content">
+        
+        <!-- SECTION 1: LANDING PAGE -->
+        <section id="section-landing" class="section">
+            <div class="hero-container">
+                <h1 class="hero-title">
+                    Transform Your <span class="gradient-text">Hair Journey</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Track clinical photos, calculate risk profiles, plan routines, and consult with doctors in real time. Perfect synchronization between Android and Web.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-large btn-cta-login">Get Started Free</button>
+                    <a href="#features" class="btn btn-secondary btn-large">Explore Features</a>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div id="features" class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-camera-retro"></i></div>
+                    <h3>Clinical Tracking</h3>
+                    <p>Log and compare 'before' and 'after' photos to track treatment efficacy objectively over time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-notes-medical"></i></div>
+                    <h3>Interactive Quiz</h3>
+                    <p>Answer dynamic risk questions to generate scientific scalp metrics and check your genetic risk factor.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                    <h3>Doctor Consults</h3>
+                    <p>Book available appointments with verified hair experts and receive personalized clinical prescriptions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: PATIENT VIEWPORTS -->
+        <section id="section-patient" class="section hidden">
+            
+            <!-- SUB-PAGE: PATIENT HOME/DASHBOARD LANDING (activity_home.xml) -->
+            <div id="panel-patient-home" class="sub-panel">
+                <!-- Header -->
+                <div class="app-header-area">
+                    <span class="greeting-lbl">Hello,</span>
+                    <h1 id="tv-user-name" class="tv-user-title">Sudheer</h1>
+                </div>
+
+                <!-- Dashboard Stats Card (Matches Android Stats Frame) -->
+                <div class="dashboard-stats-card">
+                    <div class="stats-row">
+                        <!-- Compliance Ring -->
+                        <div class="stats-col flex-1-2">
+                            <div class="compliance-ring-wrapper">
+                                <svg class="progress-ring-svg" width="64" height="64">
+                                    <circle class="progress-ring-circle-bg" stroke="#E5E7EB" stroke-width="4.5" fill="transparent" r="28" cx="32" cy="32"/>
+                                    <circle class="progress-ring-circle" stroke="#2563EB" stroke-width="4.5" fill="transparent" r="28" cx="32" cy="32" stroke-dasharray="175.9" stroke-dashoffset="0"/>
+                                </svg>
+                                <span class="compliance-percent" id="compliance-pct-text">0%</span>
+                            </div>
+                            <span class="stat-meta-label">Weekly<br>Compliance</span>
+                        </div>
+                        
+                        <div class="divider-vertical"></div>
+
+                        <!-- Day Streak -->
+                        <div class="stats-col flex-1">
+                            <div class="streak-value-row">
+                                <i class="fa-solid fa-fire fire-tint"></i>
+                                <span class="streak-number" id="streak-days-text">0</span>
+                            </div>
+                            <span class="stat-meta-label">Day Streak</span>
+                        </div>
+
+                        <div class="divider-vertical"></div>
+
+                        <!-- Days Logged -->
+                        <div class="stats-col flex-1">
+                            <span class="days-logged-value" id="days-logged-text">0/7</span>
+                            <span class="stat-meta-label">Days<br>Logged</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Android Menu Cards (activity_home.xml List) -->
+                <div class="app-menu-cards-grid">
+                    <!-- 1. Hair Growth Quiz -->
+                    <div class="menu-card-item" id="menu-card-quiz">
+                        <div class="menu-card-left">
+                            <div class="menu-icon-bg"><i class="fa-solid fa-clipboard-question"></i></div>
+                            <div class="menu-card-details">
+                                <h3>Hair Growth Quiz</h3>
+                                <p>Assess your hair health</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right next-arrow-icon"></i>
+                    </div>
+
+                    <!-- 2. Quiz Reports -->
+                    <div class="menu-card-item" id="menu-card-reports">
+                        <div class="menu-card-left">
+                            <div class="menu-icon-bg"><i class="fa-solid fa-file-invoice"></i></div>
+                            <div class="menu-card-details">
+                                <h3>Quiz Reports</h3>
+                                <p>View your past assessments</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right next-arrow-icon"></i>
+                    </div>
+
+                    <!-- 3. Book Consultation -->
+                    <div class="menu-card-item" id="menu-card-book">
+                        <div class="menu-card-left">
+                            <div class="menu-icon-bg"><i class="fa-solid fa-calendar-plus"></i></div>
+                            <div class="menu-card-details">
+                                <h3>Book Consultation</h3>
+                                <p>Schedule an upcoming visit</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right next-arrow-icon"></i>
+                    </div>
+
+                    <!-- 4. My Consultations -->
+                    <div class="menu-card-item" id="menu-card-consults">
+                        <div class="menu-card-left">
+                            <div class="menu-icon-bg"><i class="fa-solid fa-calendar-days"></i></div>
+                            <div class="menu-card-details">
+                                <h3>My Consultations</h3>
+                                <p>Track booking status</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right next-arrow-icon"></i>
+                    </div>
+
+                    <!-- 5. Upload Hair Images -->
+                    <div class="menu-card-item" id="menu-card-upload">
+                        <div class="menu-card-left">
+                            <div class="menu-icon-bg"><i class="fa-solid fa-camera"></i></div>
+                            <div class="menu-card-details">
+                                <h3>Upload Hair Images</h3>
+                                <p>Track progress with photos</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right next-arrow-icon"></i>
+                    </div>
+
+                    <!-- 6. My Hair Images -->
+                    <div class="menu-card-item" id="menu-card-gallery">
+                        <div class="menu-card-left">
+                            <div class="menu-icon-bg"><i class="fa-solid fa-images"></i></div>
+                            <div class="menu-card-details">
+                                <h3>My Hair Images</h3>
+                                <p>View uploads & expert feedback</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right next-arrow-icon"></i>
+                    </div>
+
+                    <!-- 7. My Routines -->
+                    <div class="menu-card-item" id="menu-card-routines">
+                        <div class="menu-card-left">
+                            <div class="menu-icon-bg"><i class="fa-solid fa-prescription-bottle-medical"></i></div>
+                            <div class="menu-card-details">
+                                <h3>My Routines</h3>
+                                <p>Compare progress and treatments</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right next-arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUB-PAGE: PATIENT PROFILE -->
+            <div id="panel-patient-profile" class="sub-panel hidden">
+                <div class="app-back-btn" onclick="showPatientHome()"><i class="fa-solid fa-arrow-left"></i> Home</div>
+                <div class="app-header-area">
+                    <h1 class="tv-user-title">My Profile</h1>
+                </div>
+                
+                <div class="glassmorphic-card">
+                    <form id="form-patient-profile-update">
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Name</label>
+                            <input type="text" id="patient-prof-name" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Email (Read-only)</label>
+                            <input type="email" id="patient-prof-email" class="form-input" style="width: 100%; background: rgba(0,0,0,0.05); color: #888;" readonly>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Phone</label>
+                            <input type="text" id="patient-prof-phone" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Place</label>
+                            <input type="text" id="patient-prof-place" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Date of Birth</label>
+                            <input type="date" id="patient-prof-dob" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Update Profile</button>
+                    </form>
+                    
+                    <button id="btn-patient-delete-account" class="btn" style="width: 100%; margin-top: 12px; background-color: #EF4444; color: white;">Delete Account</button>
+                </div>
+            </div>
+
+            <!-- SUB-PAGE: QUIZ REPORTS ACTIVITY -->
+            <div id="panel-patient-reports-activity" class="sub-panel hidden">
+                <div class="app-back-btn" onclick="showPatientHome()"><i class="fa-solid fa-arrow-left"></i> Home</div>
+                <div class="app-header-area">
+                    <h1 class="tv-user-title">Quiz Reports</h1>
+                </div>
+
+                <div class="empty-list-msg" id="panel-empty-quiz-lbl">No hair assessments logged yet.</div>
+                
+                <div class="glassmorphic-card last-quiz-card hidden" id="panel-quiz-report-card">
+                    <div class="quiz-card-header">
+                        <span id="p-quiz-date">Date</span>
+                        <span id="p-quiz-id" class="text-muted">#ID</span>
+                    </div>
+                    <!-- AI Result Summary -->
+                    <div class="ai-summary-card">
+                        <div class="ai-title-row">
+                            <i class="fa-solid fa-stethoscope stethoscope-tint"></i>
+                            <span>AI Result Summary</span>
+                        </div>
+                        <h3 id="p-quiz-summary">Low/Moderate/High Risk</h3>
+                    </div>
+                    
+                    <h4 class="section-subtitle">Clinical Details</h4>
+                    <div class="clinical-grid">
+                        <div class="clinical-box">
+                            <span class="box-label"><i class="fa-solid fa-clipboard-list icon-muted"></i> Scalp Type</span>
+                            <span class="box-value" id="p-quiz-scalp">N/A</span>
+                        </div>
+                        <div class="clinical-box">
+                            <span class="box-label"><i class="fa-solid fa-bed icon-muted"></i> Sleep Hours</span>
+                            <span class="box-value" id="p-quiz-sleep">N/A</span>
+                        </div>
+                        <div class="clinical-box">
+                            <span class="box-label"><i class="fa-solid fa-brain icon-muted"></i> Stress Level</span>
+                            <span class="box-value" id="p-quiz-stress">N/A</span>
+                        </div>
+                        <div class="clinical-box">
+                            <span class="box-label"><i class="fa-solid fa-users icon-muted"></i> Family History</span>
+                            <span class="box-value" id="p-quiz-history">N/A</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUB-PAGE: BOOK CONSULTATION ACTIVITY -->
+            <div id="panel-patient-book-activity" class="sub-panel hidden">
+                <div class="app-back-btn" onclick="showPatientHome()"><i class="fa-solid fa-arrow-left"></i> Home</div>
+                <div class="app-header-area">
+                    <h1 class="tv-user-title">Book Consultation</h1>
+                </div>
+                <div class="glassmorphic-card">
+                    <div class="form-group">
+                        <label for="p-select-slot">Select Available Slot</label>
+                        <select id="p-select-slot" class="form-input">
+                            <option value="">Checking slots...</option>
+                        </select>
+                    </div>
+                    <button id="btn-p-book-confirm" class="btn btn-primary w-full">Confirm Appointment</button>
+                </div>
+            </div>
+
+            <!-- SUB-PAGE: MY CONSULTATIONS ACTIVITY -->
+            <div id="panel-patient-consults-activity" class="sub-panel hidden">
+                <div class="app-back-btn" onclick="showPatientHome()"><i class="fa-solid fa-arrow-left"></i> Home</div>
+                <div class="app-header-area">
+                    <h1 class="tv-user-title">My Consultations</h1>
+                </div>
+                <div class="glassmorphic-card">
+                    <ul id="list-p-consults" class="appointment-list">
+                        <!-- Injected dynamically -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SUB-PAGE: PROGRESS PHOTOS GALLERY ACTIVITY -->
+            <div id="panel-patient-gallery-activity" class="sub-panel hidden">
+                <div class="app-back-btn" onclick="showPatientHome()"><i class="fa-solid fa-arrow-left"></i> Home</div>
+                <div class="app-header-area">
+                    <h1 class="tv-user-title">My Hair Images</h1>
+                </div>
+                <div class="glassmorphic-card">
+                    <div id="grid-p-gallery" class="hair-images-grid">
+                        <!-- Injected dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUB-PAGE: ROUTINES ACTIVITY -->
+            <div id="panel-patient-routines-activity" class="sub-panel hidden">
+                <div class="app-back-btn" onclick="showPatientHome()"><i class="fa-solid fa-arrow-left"></i> Home</div>
+                <div class="app-header-area">
+                    <h1 class="tv-user-title">My Routines</h1>
+                </div>
+                <div class="glassmorphic-card">
+                    <ul id="list-p-routines" class="routine-list">
+                        <!-- Injected dynamically -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Floating Bottom Navigation Capsule for Patients (Matches bottom_nav) -->
+            <div class="bottom-floating-nav" id="bottom-nav-patient">
+                <div class="nav-capsule">
+                    <div class="nav-capsule-item active" id="btn-nav-patient-home">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Home</span>
+                    </div>
+                    <div class="nav-capsule-item" id="btn-nav-patient-profile">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Profile</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECTION 3: DOCTOR VIEWPORTS -->
+        <section id="section-doctor" class="section hidden">
+            
+            <!-- SUB-PAGE: DOCTOR HOME/DASHBOARD LANDING (activity_doctor_dashboard.xml) -->
+            <div id="panel-doctor-home" class="sub-panel">
+                <div class="app-header-area">
+                    <span class="greeting-lbl">Welcome Expert,</span>
+                    <h1 id="tv-doctor-name" class="tv-user-title">Doctor Name</h1>
+                </div>
+
+                <div class="app-menu-cards-grid">
+                    <!-- 1. Patient Portfolios -->
+                    <div class="menu-card-item" id="menu-card-doc-patients">
+                        <div class="menu-card-left">
+                            <div class="menu-icon-bg"><i class="fa-solid fa-users"></i></div>
+                            <div class="menu-card-details">
+                                <h3>Patient Portfolios</h3>
+                                <p>Full history, clinical photos & compliance...</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right next-arrow-icon"></i>
+                    </div>
+
+                    <!-- 2. Create Slot -->
+                    <div class="menu-card-item" id="menu-card-doc-create">
+                        <div class="menu-card-left">
+                            <div class="menu-icon-bg"><i class="fa-solid fa-calendar-plus"></i></div>
+                            <div class="menu-card-details">
+                                <h3>Create Slot</h3>
+                                <p>Add appointment times</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right next-arrow-icon"></i>
+                    </div>
+
+                    <!-- 3. Appointment Requests -->
+                    <div class="menu-card-item" id="menu-card-doc-requests">
+                        <div class="menu-card-left">
+                            <div class="menu-icon-bg"><i class="fa-solid fa-circle-check"></i></div>
+                            <div class="menu-card-details">
+                                <h3>Appointment Requests</h3>
+                                <p>Approve or reject bookings</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right next-arrow-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUB-PAGE: DOCTOR PROFILE -->
+            <div id="panel-doctor-profile" class="sub-panel hidden">
+                <div class="app-back-btn" onclick="showDoctorHome()"><i class="fa-solid fa-arrow-left"></i> Dashboard</div>
+                <div class="app-header-area">
+                    <h1 class="tv-user-title">Doctor Profile</h1>
+                </div>
+                
+                <div class="glassmorphic-card">
+                    <form id="form-doctor-profile-update">
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Name</label>
+                            <input type="text" id="doctor-prof-name" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Email (Read-only)</label>
+                            <input type="email" id="doctor-prof-email" class="form-input" style="width: 100%; background: rgba(0,0,0,0.05); color: #888;" readonly>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Phone</label>
+                            <input type="text" id="doctor-prof-phone" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Place</label>
+                            <input type="text" id="doctor-prof-place" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Date of Birth</label>
+                            <input type="date" id="doctor-prof-dob" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Update Profile</button>
+                    </form>
+                    
+                    <button id="btn-doctor-delete-account" class="btn" style="width: 100%; margin-top: 12px; background-color: #EF4444; color: white;">Delete Account</button>
+                </div>
+            </div>
+
+            <!-- SUB-PAGE: DOCTOR PATIENT PORTFOLIOS SEARCH -->
+            <div id="panel-doctor-portfolios-activity" class="sub-panel hidden">
+                <div class="app-back-btn" onclick="showDoctorHome()"><i class="fa-solid fa-arrow-left"></i> Dashboard</div>
+                <div class="app-header-area">
+                    <h1 class="tv-user-title">Patient Portfolios</h1>
+                </div>
+                <div class="glassmorphic-card">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="search-patients-list" placeholder="Search patients by name..." class="form-input search-input">
+                    </div>
+                    <ul id="list-doctor-patients" class="patient-list">
+                        <!-- Injected dynamically -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SUB-PAGE: DOCTOR CREATE SLOT ACTIVITY -->
+            <div id="panel-doctor-create-activity" class="sub-panel hidden">
+                <div class="app-back-btn" onclick="showDoctorHome()"><i class="fa-solid fa-arrow-left"></i> Dashboard</div>
+                <div class="app-header-area">
+                    <h1 class="tv-user-title">Create Slot</h1>
+                </div>
+                <div class="glassmorphic-card">
+                    <form id="form-doctor-create-slot">
+                        <div class="form-group">
+                            <label for="doc-slot-date">Date</label>
+                            <input type="date" id="doc-slot-date" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="doc-slot-time">Time</label>
+                            <input type="time" id="doc-slot-time" class="form-input" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-full">Create Slot</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- SUB-PAGE: DOCTOR APPOINTMENT REQUESTS ACTIVITY -->
+            <div id="panel-doctor-requests-activity" class="sub-panel hidden">
+                <div class="app-back-btn" onclick="showDoctorHome()"><i class="fa-solid fa-arrow-left"></i> Dashboard</div>
+                <div class="app-header-area">
+                    <h1 class="tv-user-title">Requests</h1>
+                </div>
+                <div class="glassmorphic-card">
+                    <ul id="list-doctor-pending-appts" class="appointment-list">
+                        <!-- Injected dynamically -->
+                        <li class="empty-list-msg">No pending requests.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Floating Bottom Navigation Capsule for Doctors -->
+            <div class="bottom-floating-nav" id="bottom-nav-doctor">
+                <div class="nav-capsule">
+                    <div class="nav-capsule-item active" id="btn-nav-doctor-home">
+                        <i class="fa-solid fa-stethoscope"></i>
+                        <span>Dashboard</span>
+                    </div>
+                    <div class="nav-capsule-item" id="btn-nav-doctor-profile">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Profile</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- MODAL 1: AUTHENTICATION (Android Redesign with Leaf Logo and Welcome Cards) -->
+    <div id="modal-auth" class="modal">
+        <div class="modal-content auth-modal-capsule">
+            <span class="modal-close" id="btn-close-auth-modal">&times;</span>
+            
+            <!-- App Leaf Logo Icon -->
+            <div class="auth-logo-header">
+                <div class="auth-leaf-circle">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <h2 id="auth-main-title">Welcome Back</h2>
+                <p id="auth-main-subtitle">Login to continue your hair journey</p>
+            </div>
+
+            <div class="auth-card-body glassmorphic-card">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" id="tab-login">Login</button>
+                    <button class="auth-tab" id="tab-register">Register</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="form-login" class="auth-form">
+                    <div class="auth-input-container">
+                        <i class="fa-solid fa-envelope auth-field-icon"></i>
+                        <input type="email" id="login-email" class="auth-inner-input" placeholder="Email" required>
+                    </div>
+                    <div class="auth-input-container">
+                        <i class="fa-solid fa-lock auth-field-icon"></i>
+                        <input type="password" id="login-password" class="auth-inner-input" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full margin-top-md auth-submit-btn">Login</button>
+                </form>
+
+                <!-- Register Form -->
+                <form id="form-register" class="auth-form hidden">
+                    <div class="auth-input-container">
+                        <i class="fa-solid fa-user auth-field-icon"></i>
+                        <input type="text" id="reg-name" class="auth-inner-input" placeholder="Full Name" required>
+                    </div>
+                    <div class="auth-input-container">
+                        <i class="fa-solid fa-envelope auth-field-icon"></i>
+                        <input type="email" id="reg-email" class="auth-inner-input" placeholder="Email Address" required>
+                    </div>
+                    
+                    <div class="form-group-row">
+                        <div class="auth-input-container col-6">
+                            <i class="fa-solid fa-phone auth-field-icon"></i>
+                            <input type="tel" id="reg-phone" class="auth-inner-input" placeholder="Phone" required>
+                        </div>
+                        <div class="auth-input-container col-6">
+                            <i class="fa-solid fa-calendar auth-field-icon"></i>
+                            <input type="date" id="reg-dob" class="auth-inner-input" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group-row">
+                        <div class="auth-input-container col-6">
+                            <i class="fa-solid fa-location-dot auth-field-icon"></i>
+                            <input type="text" id="reg-place" class="auth-inner-input" placeholder="Place" required>
+                        </div>
+                        <div class="auth-input-container col-6">
+                            <i class="fa-solid fa-user-doctor auth-field-icon"></i>
+                            <select id="reg-role" class="auth-inner-input">
+                                <option value="user">Patient</option>
+                                <option value="doctor">Doctor</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="auth-input-container">
+                        <i class="fa-solid fa-lock auth-field-icon"></i>
+                        <input type="password" id="reg-password" class="auth-inner-input" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full margin-top-md auth-submit-btn">Register</button>
+                </form>
+
+                <!-- OTP Verification Form -->
+                <form id="form-otp-verify" class="auth-form hidden">
+                    <p class="verification-desc text-secondary" style="font-size: 14px; text-align: center; margin-bottom: 1.5rem;">
+                        An OTP code has been generated. Please enter the 6-digit verification code sent to your phone number.
+                    </p>
+                    <div class="otp-input-row">
+                        <input type="text" class="otp-digit-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                        <input type="text" class="otp-digit-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                        <input type="text" class="otp-digit-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                        <input type="text" class="otp-digit-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                        <input type="text" class="otp-digit-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                        <input type="text" class="otp-digit-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                    </div>
+                    <div class="otp-timer-container">
+                        <span id="otp-timer-text">Resend code in 60s</span>
+                        <button type="button" id="btn-otp-resend" class="btn-text hidden">Resend Code</button>
+                    </div>
+                    <div class="otp-test-badge">
+                        <i class="fa-solid fa-flask"></i> Testing Code: <span id="test-otp-code" class="text-bold">######</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full margin-top-md auth-submit-btn">Verify & Create Account</button>
+                    <button type="button" id="btn-otp-back" class="btn btn-secondary w-full margin-top-md">Back to Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: ADD ROUTINE MODAL -->
+    <div id="modal-routine" class="modal">
+        <div class="modal-content glassmorphic-card">
+            <span class="modal-close" id="btn-close-routine-modal">&times;</span>
+            <h3>Add Hair Care Routine</h3>
+            <form id="form-add-routine">
+                <div class="form-group">
+                    <label for="routine-name">Medicine/Product Name</label>
+                    <input type="text" id="routine-name" class="form-input" placeholder="e.g., Minoxidil 5%" required>
+                </div>
+                <div class="form-group">
+                    <label for="routine-dosage">Dosage</label>
+                    <input type="text" id="routine-dosage" class="form-input" placeholder="e.g., 1ml or 1 Tablet" required>
+                </div>
+                <div class="form-group">
+                    <label for="routine-frequency">Frequency</label>
+                    <input type="text" id="routine-frequency" class="form-input" placeholder="e.g., Once Daily or Twice Daily" required>
+                </div>
+                <div class="form-group">
+                    <label for="routine-time">Time</label>
+                    <input type="text" id="routine-time" class="form-input" placeholder="e.g., Night before sleep" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-full margin-top-md">Add Routine</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 3: PHOTO UPLOAD MODAL -->
+    <div id="modal-photo" class="modal">
+        <div class="modal-content glassmorphic-card">
+            <span class="modal-close" id="btn-close-photo-modal">&times;</span>
+            <h3>Upload Progress Photo</h3>
+            <form id="form-upload-photo">
+                <div class="form-group">
+                    <label for="photo-file">Select Image File</label>
+                    <input type="file" id="photo-file" class="form-input" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <label for="photo-tag">Progress Stage</label>
+                    <select id="photo-tag" class="form-input">
+                        <option value="before">Before Treatment</option>
+                        <option value="after">After Treatment</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-full margin-top-md">Upload Photo</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 4: HAIR LOSS ASSESSMENT QUIZ MODAL -->
+    <div id="modal-quiz" class="modal">
+        <div class="modal-content glassmorphic-card quiz-modal-content">
+            <span class="modal-close" id="btn-close-quiz-modal">&times;</span>
+            <h3 class="quiz-title">Hair Loss Assessment Quiz</h3>
+            
+            <div id="quiz-slides-container">
+                <!-- Dynamic questions rendered here -->
+            </div>
+            
+            <div class="quiz-footer">
+                <button id="btn-quiz-prev" class="btn btn-secondary hidden">Previous</button>
+                <button id="btn-quiz-next" class="btn btn-primary">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 5: PATIENT PORTFOLIO OVERLAY (DOCTOR VIEW - MATCHING TABS) -->
+    <div id="modal-portfolio-detail" class="modal">
+        <div class="modal-content glassmorphic-card portfolio-overlay-content">
+            <span class="modal-close" id="btn-close-portfolio-modal">&times;</span>
+            
+            <div class="patient-detail-header-card">
+                <div class="profile-header-flex">
+                    <div class="profile-badge-circle" id="detail-patient-badge">P</div>
+                    <div class="profile-header-details">
+                        <h2 id="detail-patient-name">Patient Name</h2>
+                        <p id="detail-patient-email" class="text-secondary">email@domain.com</p>
+                        <div class="profile-phone-row">
+                            <i class="fa-solid fa-phone phone-tint"></i>
+                            <span id="detail-patient-phone">1234567890</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="app-horizontal-tabs doctor-detail-tabs">
+                <button class="app-tab-btn doc-tab active" data-detail-tab="doc-detail-photos"><i class="fa-solid fa-images"></i> Photos</button>
+                <button class="app-tab-btn doc-tab" data-detail-tab="doc-detail-quiz"><i class="fa-solid fa-file-lines"></i> Quiz Reports</button>
+                <button class="app-tab-btn doc-tab" data-detail-tab="doc-detail-routines"><i class="fa-solid fa-pill"></i> Routines</button>
+            </div>
+
+            <div class="tab-panels-wrapper">
+                <div id="doc-detail-photos" class="doc-tab-panel active">
+                    <div id="detail-grid-photos" class="hair-images-grid">
+                        <!-- Injected dynamically -->
+                    </div>
+                </div>
+                
+                <div id="doc-detail-quiz" class="doc-tab-panel hidden">
+                    <div id="detail-list-quiz" class="quiz-reports-list">
+                        <!-- Injected dynamically -->
+                    </div>
+                </div>
+
+                <div id="doc-detail-routines" class="doc-tab-panel hidden">
+                    <ul id="detail-list-routines" class="routine-list">
+                        <!-- Injected dynamically -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Injection -->
+    <script src="/static/app.js"></script>
+</body>
+</html>
