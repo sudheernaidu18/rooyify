@@ -85,13 +85,17 @@
                             android:src="@drawable/ic_user"
                             app:tint="@color/primary_blue_start" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <EditText
+                            android:id="@+id/et_profile_name"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
                             android:layout_marginStart="16dp"
-                            android:text="@string/user_name_placeholder"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/user_name_placeholder"
                             android:textColor="@color/text_title"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:inputType="textPersonName" />
                     </LinearLayout>
 
                     <!-- Phone Field -->
@@ -111,13 +115,17 @@
                             android:src="@drawable/ic_phone"
                             app:tint="@color/primary_blue_start" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <EditText
+                            android:id="@+id/et_profile_phone"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
                             android:layout_marginStart="16dp"
-                            android:text="@string/sample_phone"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/sample_phone"
                             android:textColor="@color/text_title"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:inputType="phone" />
                     </LinearLayout>
 
                     <!-- Place Field -->
@@ -137,13 +145,17 @@
                             android:src="@drawable/ic_location"
                             app:tint="@color/primary_blue_start" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <EditText
+                            android:id="@+id/et_profile_place"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
                             android:layout_marginStart="16dp"
-                            android:text="@string/sample_place"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/sample_place"
                             android:textColor="@color/text_title"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:inputType="text" />
                     </LinearLayout>
 
                     <!-- DOB Field -->
@@ -163,13 +175,18 @@
                             android:src="@drawable/ic_calendar"
                             app:tint="@color/primary_blue_start" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                        <EditText
+                            android:id="@+id/et_profile_dob"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
                             android:layout_marginStart="16dp"
-                            android:text="@string/sample_dob"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/sample_dob"
                             android:textColor="@color/text_title"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:focusable="false"
+                            android:clickable="true" />
                     </LinearLayout>
 
                     <androidx.appcompat.widget.AppCompatButton

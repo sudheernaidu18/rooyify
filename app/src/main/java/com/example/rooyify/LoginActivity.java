@@ -73,8 +73,12 @@ public class LoginActivity extends AppCompatActivity {
                             if ("success".equals(response.body().getStatus())) {
                                 User user = response.body().getUser();
                                 if (user != null) {
+                                    if ("doctor".equalsIgnoreCase(user.getRole())) {
+                                        Toast.makeText(LoginActivity.this, "This is a doctor account. Please use Doctor Login.", Toast.LENGTH_LONG).show();
+                                        return;
+                                    }
                                     SessionManager sm = new SessionManager(LoginActivity.this);
-                                    sm.saveUserSession(user.getId(), user.getName(), user.getEmail(), user.getRole());
+                                    sm.saveUserSession(user.getId(), user.getName(), user.getEmail(), user.getRole(), user.getPhone(), user.getPlace(), user.getDob());
                                 }
                                 
                                 Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();

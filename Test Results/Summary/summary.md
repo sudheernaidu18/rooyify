@@ -1,0 +1,1538 @@
+# Android Mobile & Web E2E Execution Summary
+
+- **Execution Date:** 2026-08-06
+- **Total Test Cases:** 1480
+- **Passed:** 1470
+- **Failed:** 9
+- **Skipped:** 1
+- **Pass Percentage:** 99.32%
+
+## Execution Details
+
+### PASSED TESTS
+- ✓ TC_MOB_AUTH_001 - Validate Authentication action item #1 on Android client
+- ✓ TC_MOB_AUTH_002 - Validate Authentication action item #2 on Android client
+- ✓ TC_MOB_AUTH_003 - Validate Authentication action item #3 on Android client
+- ✓ TC_MOB_AUTH_004 - Validate Authentication action item #4 on Android client
+- ✓ TC_MOB_AUTH_005 - Validate Authentication action item #5 on Android client
+- ✓ TC_MOB_AUTH_006 - Validate Authentication action item #6 on Android client
+- ✓ TC_MOB_AUTH_007 - Validate Authentication action item #7 on Android client
+- ✓ TC_MOB_AUTH_008 - Validate Authentication action item #8 on Android client
+- ✓ TC_MOB_AUTH_009 - Validate Authentication action item #9 on Android client
+- ✓ TC_MOB_AUTH_011 - Validate Authentication action item #11 on Android client
+- ✓ TC_MOB_AUTH_012 - Validate Authentication action item #12 on Android client
+- ✓ TC_MOB_AUTH_013 - Validate Authentication action item #13 on Android client
+- ✓ TC_MOB_AUTH_014 - Validate Authentication action item #14 on Android client
+- ✓ TC_MOB_AUTH_015 - Validate Authentication action item #15 on Android client
+- ✓ TC_MOB_AUTH_016 - Validate Authentication action item #16 on Android client
+- ✓ TC_MOB_AUTH_017 - Validate Authentication action item #17 on Android client
+- ✓ TC_MOB_AUTH_018 - Validate Authentication action item #18 on Android client
+- ✓ TC_MOB_AUTH_019 - Validate Authentication action item #19 on Android client
+- ✓ TC_MOB_AUTH_020 - Validate Authentication action item #20 on Android client
+- ✓ TC_MOB_AUTH_021 - Validate Authentication action item #21 on Android client
+- ✓ TC_MOB_AUTH_022 - Validate Authentication action item #22 on Android client
+- ✓ TC_MOB_AUTH_023 - Validate Authentication action item #23 on Android client
+- ✓ TC_MOB_AUTH_024 - Validate Authentication action item #24 on Android client
+- ✓ TC_MOB_AUTH_025 - Validate Authentication action item #25 on Android client
+- ✓ TC_MOB_AUTH_026 - Validate Authentication action item #26 on Android client
+- ✓ TC_MOB_AUTH_027 - Validate Authentication action item #27 on Android client
+- ✓ TC_MOB_AUTH_028 - Validate Authentication action item #28 on Android client
+- ✓ TC_MOB_AUTH_029 - Validate Authentication action item #29 on Android client
+- ✓ TC_MOB_AUTH_030 - Validate Authentication action item #30 on Android client
+- ✓ TC_MOB_AUTH_031 - Validate Authentication action item #31 on Android client
+- ✓ TC_MOB_AUTH_032 - Validate Authentication action item #32 on Android client
+- ✓ TC_MOB_AUTH_033 - Validate Authentication action item #33 on Android client
+- ✓ TC_MOB_AUTH_034 - Validate Authentication action item #34 on Android client
+- ✓ TC_MOB_AUTH_035 - Validate Authentication action item #35 on Android client
+- ✓ TC_MOB_AUTH_036 - Validate Authentication action item #36 on Android client
+- ✓ TC_MOB_AUTH_037 - Validate Authentication action item #37 on Android client
+- ✓ TC_MOB_AUTH_038 - Validate Authentication action item #38 on Android client
+- ✓ TC_MOB_AUTH_039 - Validate Authentication action item #39 on Android client
+- ✓ TC_MOB_AUTH_040 - Validate Authentication action item #40 on Android client
+- ✓ TC_MOB_AUTH_001 - Validate Authorization action item #1 on Android client
+- ✓ TC_MOB_AUTH_002 - Validate Authorization action item #2 on Android client
+- ✓ TC_MOB_AUTH_003 - Validate Authorization action item #3 on Android client
+- ✓ TC_MOB_AUTH_004 - Validate Authorization action item #4 on Android client
+- ✓ TC_MOB_AUTH_005 - Validate Authorization action item #5 on Android client
+- ✓ TC_MOB_AUTH_006 - Validate Authorization action item #6 on Android client
+- ✓ TC_MOB_AUTH_007 - Validate Authorization action item #7 on Android client
+- ✓ TC_MOB_AUTH_008 - Validate Authorization action item #8 on Android client
+- ✓ TC_MOB_AUTH_009 - Validate Authorization action item #9 on Android client
+- ✓ TC_MOB_AUTH_011 - Validate Authorization action item #11 on Android client
+- ✓ TC_MOB_AUTH_012 - Validate Authorization action item #12 on Android client
+- ✓ TC_MOB_AUTH_013 - Validate Authorization action item #13 on Android client
+- ✓ TC_MOB_AUTH_014 - Validate Authorization action item #14 on Android client
+- ✓ TC_MOB_AUTH_015 - Validate Authorization action item #15 on Android client
+- ✓ TC_MOB_AUTH_016 - Validate Authorization action item #16 on Android client
+- ✓ TC_MOB_AUTH_017 - Validate Authorization action item #17 on Android client
+- ✓ TC_MOB_AUTH_018 - Validate Authorization action item #18 on Android client
+- ✓ TC_MOB_AUTH_019 - Validate Authorization action item #19 on Android client
+- ✓ TC_MOB_AUTH_020 - Validate Authorization action item #20 on Android client
+- ✓ TC_MOB_AUTH_021 - Validate Authorization action item #21 on Android client
+- ✓ TC_MOB_AUTH_022 - Validate Authorization action item #22 on Android client
+- ✓ TC_MOB_AUTH_023 - Validate Authorization action item #23 on Android client
+- ✓ TC_MOB_AUTH_024 - Validate Authorization action item #24 on Android client
+- ✓ TC_MOB_AUTH_025 - Validate Authorization action item #25 on Android client
+- ✓ TC_MOB_AUTH_026 - Validate Authorization action item #26 on Android client
+- ✓ TC_MOB_AUTH_027 - Validate Authorization action item #27 on Android client
+- ✓ TC_MOB_AUTH_028 - Validate Authorization action item #28 on Android client
+- ✓ TC_MOB_AUTH_029 - Validate Authorization action item #29 on Android client
+- ✓ TC_MOB_AUTH_030 - Validate Authorization action item #30 on Android client
+- ✓ TC_MOB_REGI_001 - Validate Registration action item #1 on Android client
+- ✓ TC_MOB_REGI_002 - Validate Registration action item #2 on Android client
+- ✓ TC_MOB_REGI_003 - Validate Registration action item #3 on Android client
+- ✓ TC_MOB_REGI_004 - Validate Registration action item #4 on Android client
+- ✓ TC_MOB_REGI_005 - Validate Registration action item #5 on Android client
+- ✓ TC_MOB_REGI_006 - Validate Registration action item #6 on Android client
+- ✓ TC_MOB_REGI_007 - Validate Registration action item #7 on Android client
+- ✓ TC_MOB_REGI_008 - Validate Registration action item #8 on Android client
+- ✓ TC_MOB_REGI_009 - Validate Registration action item #9 on Android client
+- ✓ TC_MOB_REGI_010 - Validate Registration action item #10 on Android client
+- ✓ TC_MOB_REGI_011 - Validate Registration action item #11 on Android client
+- ✓ TC_MOB_REGI_012 - Validate Registration action item #12 on Android client
+- ✓ TC_MOB_REGI_013 - Validate Registration action item #13 on Android client
+- ✓ TC_MOB_REGI_014 - Validate Registration action item #14 on Android client
+- ✓ TC_MOB_REGI_015 - Validate Registration action item #15 on Android client
+- ✓ TC_MOB_REGI_016 - Validate Registration action item #16 on Android client
+- ✓ TC_MOB_REGI_017 - Validate Registration action item #17 on Android client
+- ✓ TC_MOB_REGI_018 - Validate Registration action item #18 on Android client
+- ✓ TC_MOB_REGI_019 - Validate Registration action item #19 on Android client
+- ✓ TC_MOB_REGI_020 - Validate Registration action item #20 on Android client
+- ✓ TC_MOB_PROF_001 - Validate Profile Management action item #1 on Android client
+- ✓ TC_MOB_PROF_002 - Validate Profile Management action item #2 on Android client
+- ✓ TC_MOB_PROF_003 - Validate Profile Management action item #3 on Android client
+- ✓ TC_MOB_PROF_004 - Validate Profile Management action item #4 on Android client
+- ✓ TC_MOB_PROF_005 - Validate Profile Management action item #5 on Android client
+- ✓ TC_MOB_PROF_006 - Validate Profile Management action item #6 on Android client
+- ✓ TC_MOB_PROF_007 - Validate Profile Management action item #7 on Android client
+- ✓ TC_MOB_PROF_008 - Validate Profile Management action item #8 on Android client
+- ✓ TC_MOB_PROF_009 - Validate Profile Management action item #9 on Android client
+- ✓ TC_MOB_PROF_010 - Validate Profile Management action item #10 on Android client
+- ✓ TC_MOB_PROF_011 - Validate Profile Management action item #11 on Android client
+- ✓ TC_MOB_PROF_012 - Validate Profile Management action item #12 on Android client
+- ✓ TC_MOB_PROF_013 - Validate Profile Management action item #13 on Android client
+- ✓ TC_MOB_PROF_014 - Validate Profile Management action item #14 on Android client
+- ✓ TC_MOB_PROF_015 - Validate Profile Management action item #15 on Android client
+- ✓ TC_MOB_PROF_016 - Validate Profile Management action item #16 on Android client
+- ✓ TC_MOB_PROF_017 - Validate Profile Management action item #17 on Android client
+- ✓ TC_MOB_PROF_018 - Validate Profile Management action item #18 on Android client
+- ✓ TC_MOB_PROF_019 - Validate Profile Management action item #19 on Android client
+- ✓ TC_MOB_PROF_020 - Validate Profile Management action item #20 on Android client
+- ✓ TC_MOB_NAVI_001 - Validate Navigation action item #1 on Android client
+- ✓ TC_MOB_NAVI_002 - Validate Navigation action item #2 on Android client
+- ✓ TC_MOB_NAVI_003 - Validate Navigation action item #3 on Android client
+- ✓ TC_MOB_NAVI_004 - Validate Navigation action item #4 on Android client
+- ✓ TC_MOB_NAVI_005 - Validate Navigation action item #5 on Android client
+- ✓ TC_MOB_NAVI_006 - Validate Navigation action item #6 on Android client
+- ✓ TC_MOB_NAVI_007 - Validate Navigation action item #7 on Android client
+- ✓ TC_MOB_NAVI_008 - Validate Navigation action item #8 on Android client
+- ✓ TC_MOB_NAVI_009 - Validate Navigation action item #9 on Android client
+- ✓ TC_MOB_NAVI_010 - Validate Navigation action item #10 on Android client
+- ✓ TC_MOB_NAVI_011 - Validate Navigation action item #11 on Android client
+- ✓ TC_MOB_NAVI_012 - Validate Navigation action item #12 on Android client
+- ✓ TC_MOB_NAVI_013 - Validate Navigation action item #13 on Android client
+- ✓ TC_MOB_NAVI_014 - Validate Navigation action item #14 on Android client
+- ✓ TC_MOB_NAVI_015 - Validate Navigation action item #15 on Android client
+- ✓ TC_MOB_NAVI_016 - Validate Navigation action item #16 on Android client
+- ✓ TC_MOB_NAVI_017 - Validate Navigation action item #17 on Android client
+- ✓ TC_MOB_NAVI_018 - Validate Navigation action item #18 on Android client
+- ✓ TC_MOB_NAVI_019 - Validate Navigation action item #19 on Android client
+- ✓ TC_MOB_NAVI_020 - Validate Navigation action item #20 on Android client
+- ✓ TC_MOB_NAVI_021 - Validate Navigation action item #21 on Android client
+- ✓ TC_MOB_NAVI_022 - Validate Navigation action item #22 on Android client
+- ✓ TC_MOB_NAVI_023 - Validate Navigation action item #23 on Android client
+- ✓ TC_MOB_NAVI_024 - Validate Navigation action item #24 on Android client
+- ✓ TC_MOB_NAVI_025 - Validate Navigation action item #25 on Android client
+- ✓ TC_MOB_NAVI_026 - Validate Navigation action item #26 on Android client
+- ✓ TC_MOB_NAVI_027 - Validate Navigation action item #27 on Android client
+- ✓ TC_MOB_NAVI_028 - Validate Navigation action item #28 on Android client
+- ✓ TC_MOB_NAVI_029 - Validate Navigation action item #29 on Android client
+- ✓ TC_MOB_NAVI_030 - Validate Navigation action item #30 on Android client
+- ✓ TC_MOB_DASH_001 - Validate Dashboard action item #1 on Android client
+- ✓ TC_MOB_DASH_002 - Validate Dashboard action item #2 on Android client
+- ✓ TC_MOB_DASH_003 - Validate Dashboard action item #3 on Android client
+- ✓ TC_MOB_DASH_004 - Validate Dashboard action item #4 on Android client
+- ✓ TC_MOB_DASH_005 - Validate Dashboard action item #5 on Android client
+- ✓ TC_MOB_DASH_006 - Validate Dashboard action item #6 on Android client
+- ✓ TC_MOB_DASH_007 - Validate Dashboard action item #7 on Android client
+- ✓ TC_MOB_DASH_008 - Validate Dashboard action item #8 on Android client
+- ✓ TC_MOB_DASH_009 - Validate Dashboard action item #9 on Android client
+- ✓ TC_MOB_DASH_010 - Validate Dashboard action item #10 on Android client
+- ✓ TC_MOB_DASH_011 - Validate Dashboard action item #11 on Android client
+- ✓ TC_MOB_DASH_012 - Validate Dashboard action item #12 on Android client
+- ✓ TC_MOB_DASH_013 - Validate Dashboard action item #13 on Android client
+- ✓ TC_MOB_DASH_014 - Validate Dashboard action item #14 on Android client
+- ✓ TC_MOB_DASH_015 - Validate Dashboard action item #15 on Android client
+- ✓ TC_MOB_DASH_016 - Validate Dashboard action item #16 on Android client
+- ✓ TC_MOB_DASH_017 - Validate Dashboard action item #17 on Android client
+- ✓ TC_MOB_DASH_018 - Validate Dashboard action item #18 on Android client
+- ✓ TC_MOB_DASH_019 - Validate Dashboard action item #19 on Android client
+- ✓ TC_MOB_DASH_020 - Validate Dashboard action item #20 on Android client
+- ✓ TC_MOB_FORM_001 - Validate Forms action item #1 on Android client
+- ✓ TC_MOB_FORM_002 - Validate Forms action item #2 on Android client
+- ✓ TC_MOB_FORM_003 - Validate Forms action item #3 on Android client
+- ✓ TC_MOB_FORM_004 - Validate Forms action item #4 on Android client
+- ✓ TC_MOB_FORM_005 - Validate Forms action item #5 on Android client
+- ✓ TC_MOB_FORM_006 - Validate Forms action item #6 on Android client
+- ✓ TC_MOB_FORM_007 - Validate Forms action item #7 on Android client
+- ✓ TC_MOB_FORM_009 - Validate Forms action item #9 on Android client
+- ✓ TC_MOB_FORM_010 - Validate Forms action item #10 on Android client
+- ✓ TC_MOB_FORM_011 - Validate Forms action item #11 on Android client
+- ✓ TC_MOB_FORM_012 - Validate Forms action item #12 on Android client
+- ✓ TC_MOB_FORM_013 - Validate Forms action item #13 on Android client
+- ✓ TC_MOB_FORM_014 - Validate Forms action item #14 on Android client
+- ✓ TC_MOB_FORM_015 - Validate Forms action item #15 on Android client
+- ✓ TC_MOB_FORM_016 - Validate Forms action item #16 on Android client
+- ✓ TC_MOB_FORM_017 - Validate Forms action item #17 on Android client
+- ✓ TC_MOB_FORM_018 - Validate Forms action item #18 on Android client
+- ✓ TC_MOB_FORM_019 - Validate Forms action item #19 on Android client
+- ✓ TC_MOB_FORM_020 - Validate Forms action item #20 on Android client
+- ✓ TC_MOB_FORM_021 - Validate Forms action item #21 on Android client
+- ✓ TC_MOB_FORM_022 - Validate Forms action item #22 on Android client
+- ✓ TC_MOB_FORM_023 - Validate Forms action item #23 on Android client
+- ✓ TC_MOB_FORM_024 - Validate Forms action item #24 on Android client
+- ✓ TC_MOB_FORM_025 - Validate Forms action item #25 on Android client
+- ✓ TC_MOB_FORM_026 - Validate Forms action item #26 on Android client
+- ✓ TC_MOB_FORM_027 - Validate Forms action item #27 on Android client
+- ✓ TC_MOB_FORM_028 - Validate Forms action item #28 on Android client
+- ✓ TC_MOB_FORM_029 - Validate Forms action item #29 on Android client
+- ✓ TC_MOB_FORM_030 - Validate Forms action item #30 on Android client
+- ✓ TC_MOB_FORM_031 - Validate Forms action item #31 on Android client
+- ✓ TC_MOB_FORM_032 - Validate Forms action item #32 on Android client
+- ✓ TC_MOB_FORM_033 - Validate Forms action item #33 on Android client
+- ✓ TC_MOB_FORM_034 - Validate Forms action item #34 on Android client
+- ✓ TC_MOB_FORM_035 - Validate Forms action item #35 on Android client
+- ✓ TC_MOB_FORM_036 - Validate Forms action item #36 on Android client
+- ✓ TC_MOB_FORM_037 - Validate Forms action item #37 on Android client
+- ✓ TC_MOB_FORM_038 - Validate Forms action item #38 on Android client
+- ✓ TC_MOB_FORM_039 - Validate Forms action item #39 on Android client
+- ✓ TC_MOB_FORM_040 - Validate Forms action item #40 on Android client
+- ✓ TC_MOB_CRUD_001 - Validate CRUD Operations action item #1 on Android client
+- ✓ TC_MOB_CRUD_002 - Validate CRUD Operations action item #2 on Android client
+- ✓ TC_MOB_CRUD_003 - Validate CRUD Operations action item #3 on Android client
+- ✓ TC_MOB_CRUD_004 - Validate CRUD Operations action item #4 on Android client
+- ✓ TC_MOB_CRUD_005 - Validate CRUD Operations action item #5 on Android client
+- ✓ TC_MOB_CRUD_006 - Validate CRUD Operations action item #6 on Android client
+- ✓ TC_MOB_CRUD_007 - Validate CRUD Operations action item #7 on Android client
+- ✓ TC_MOB_CRUD_008 - Validate CRUD Operations action item #8 on Android client
+- ✓ TC_MOB_CRUD_009 - Validate CRUD Operations action item #9 on Android client
+- ✓ TC_MOB_CRUD_010 - Validate CRUD Operations action item #10 on Android client
+- ✓ TC_MOB_CRUD_011 - Validate CRUD Operations action item #11 on Android client
+- ✓ TC_MOB_CRUD_012 - Validate CRUD Operations action item #12 on Android client
+- ✓ TC_MOB_CRUD_013 - Validate CRUD Operations action item #13 on Android client
+- ✓ TC_MOB_CRUD_014 - Validate CRUD Operations action item #14 on Android client
+- ✓ TC_MOB_CRUD_015 - Validate CRUD Operations action item #15 on Android client
+- ✓ TC_MOB_CRUD_016 - Validate CRUD Operations action item #16 on Android client
+- ✓ TC_MOB_CRUD_017 - Validate CRUD Operations action item #17 on Android client
+- ✓ TC_MOB_CRUD_018 - Validate CRUD Operations action item #18 on Android client
+- ✓ TC_MOB_CRUD_019 - Validate CRUD Operations action item #19 on Android client
+- ✓ TC_MOB_CRUD_020 - Validate CRUD Operations action item #20 on Android client
+- ✓ TC_MOB_CRUD_021 - Validate CRUD Operations action item #21 on Android client
+- ✓ TC_MOB_CRUD_022 - Validate CRUD Operations action item #22 on Android client
+- ✓ TC_MOB_CRUD_023 - Validate CRUD Operations action item #23 on Android client
+- ✓ TC_MOB_CRUD_024 - Validate CRUD Operations action item #24 on Android client
+- ✓ TC_MOB_CRUD_025 - Validate CRUD Operations action item #25 on Android client
+- ✓ TC_MOB_CRUD_026 - Validate CRUD Operations action item #26 on Android client
+- ✓ TC_MOB_CRUD_027 - Validate CRUD Operations action item #27 on Android client
+- ✓ TC_MOB_CRUD_028 - Validate CRUD Operations action item #28 on Android client
+- ✓ TC_MOB_CRUD_029 - Validate CRUD Operations action item #29 on Android client
+- ✓ TC_MOB_CRUD_030 - Validate CRUD Operations action item #30 on Android client
+- ✓ TC_MOB_CRUD_031 - Validate CRUD Operations action item #31 on Android client
+- ✓ TC_MOB_CRUD_032 - Validate CRUD Operations action item #32 on Android client
+- ✓ TC_MOB_CRUD_033 - Validate CRUD Operations action item #33 on Android client
+- ✓ TC_MOB_CRUD_034 - Validate CRUD Operations action item #34 on Android client
+- ✓ TC_MOB_CRUD_035 - Validate CRUD Operations action item #35 on Android client
+- ✓ TC_MOB_CRUD_036 - Validate CRUD Operations action item #36 on Android client
+- ✓ TC_MOB_CRUD_037 - Validate CRUD Operations action item #37 on Android client
+- ✓ TC_MOB_CRUD_038 - Validate CRUD Operations action item #38 on Android client
+- ✓ TC_MOB_CRUD_039 - Validate CRUD Operations action item #39 on Android client
+- ✓ TC_MOB_CRUD_040 - Validate CRUD Operations action item #40 on Android client
+- ✓ TC_MOB_SEAR_001 - Validate Search action item #1 on Android client
+- ✓ TC_MOB_SEAR_002 - Validate Search action item #2 on Android client
+- ✓ TC_MOB_SEAR_003 - Validate Search action item #3 on Android client
+- ✓ TC_MOB_SEAR_004 - Validate Search action item #4 on Android client
+- ✓ TC_MOB_SEAR_005 - Validate Search action item #5 on Android client
+- ✓ TC_MOB_SEAR_006 - Validate Search action item #6 on Android client
+- ✓ TC_MOB_SEAR_007 - Validate Search action item #7 on Android client
+- ✓ TC_MOB_SEAR_008 - Validate Search action item #8 on Android client
+- ✓ TC_MOB_SEAR_009 - Validate Search action item #9 on Android client
+- ✓ TC_MOB_SEAR_010 - Validate Search action item #10 on Android client
+- ✓ TC_MOB_SEAR_011 - Validate Search action item #11 on Android client
+- ✓ TC_MOB_SEAR_012 - Validate Search action item #12 on Android client
+- ✓ TC_MOB_SEAR_013 - Validate Search action item #13 on Android client
+- ✓ TC_MOB_SEAR_014 - Validate Search action item #14 on Android client
+- ✓ TC_MOB_SEAR_015 - Validate Search action item #15 on Android client
+- ✓ TC_MOB_SEAR_016 - Validate Search action item #16 on Android client
+- ✓ TC_MOB_SEAR_017 - Validate Search action item #17 on Android client
+- ✓ TC_MOB_SEAR_018 - Validate Search action item #18 on Android client
+- ✓ TC_MOB_SEAR_019 - Validate Search action item #19 on Android client
+- ✓ TC_MOB_SEAR_020 - Validate Search action item #20 on Android client
+- ✓ TC_MOB_FILT_001 - Validate Filters action item #1 on Android client
+- ✓ TC_MOB_FILT_002 - Validate Filters action item #2 on Android client
+- ✓ TC_MOB_FILT_003 - Validate Filters action item #3 on Android client
+- ✓ TC_MOB_FILT_004 - Validate Filters action item #4 on Android client
+- ✓ TC_MOB_FILT_005 - Validate Filters action item #5 on Android client
+- ✓ TC_MOB_FILT_006 - Validate Filters action item #6 on Android client
+- ✓ TC_MOB_FILT_007 - Validate Filters action item #7 on Android client
+- ✓ TC_MOB_FILT_008 - Validate Filters action item #8 on Android client
+- ✓ TC_MOB_FILT_009 - Validate Filters action item #9 on Android client
+- ✓ TC_MOB_FILT_010 - Validate Filters action item #10 on Android client
+- ✓ TC_MOB_FILT_011 - Validate Filters action item #11 on Android client
+- ✓ TC_MOB_FILT_012 - Validate Filters action item #12 on Android client
+- ✓ TC_MOB_FILT_013 - Validate Filters action item #13 on Android client
+- ✓ TC_MOB_FILT_014 - Validate Filters action item #14 on Android client
+- ✓ TC_MOB_FILT_015 - Validate Filters action item #15 on Android client
+- ✓ TC_MOB_FILT_016 - Validate Filters action item #16 on Android client
+- ✓ TC_MOB_FILT_017 - Validate Filters action item #17 on Android client
+- ✓ TC_MOB_FILT_018 - Validate Filters action item #18 on Android client
+- ✓ TC_MOB_FILT_019 - Validate Filters action item #19 on Android client
+- ✓ TC_MOB_FILT_020 - Validate Filters action item #20 on Android client
+- ✓ TC_MOB_INPU_001 - Validate Input Validation action item #1 on Android client
+- ✓ TC_MOB_INPU_002 - Validate Input Validation action item #2 on Android client
+- ✓ TC_MOB_INPU_003 - Validate Input Validation action item #3 on Android client
+- ✓ TC_MOB_INPU_004 - Validate Input Validation action item #4 on Android client
+- ✓ TC_MOB_INPU_005 - Validate Input Validation action item #5 on Android client
+- ✓ TC_MOB_INPU_006 - Validate Input Validation action item #6 on Android client
+- ✓ TC_MOB_INPU_007 - Validate Input Validation action item #7 on Android client
+- ✓ TC_MOB_INPU_008 - Validate Input Validation action item #8 on Android client
+- ✓ TC_MOB_INPU_009 - Validate Input Validation action item #9 on Android client
+- ✓ TC_MOB_INPU_010 - Validate Input Validation action item #10 on Android client
+- ✓ TC_MOB_INPU_011 - Validate Input Validation action item #11 on Android client
+- ✓ TC_MOB_INPU_012 - Validate Input Validation action item #12 on Android client
+- ✓ TC_MOB_INPU_013 - Validate Input Validation action item #13 on Android client
+- ✓ TC_MOB_INPU_014 - Validate Input Validation action item #14 on Android client
+- ✓ TC_MOB_INPU_015 - Validate Input Validation action item #15 on Android client
+- ✓ TC_MOB_INPU_016 - Validate Input Validation action item #16 on Android client
+- ✓ TC_MOB_INPU_017 - Validate Input Validation action item #17 on Android client
+- ✓ TC_MOB_INPU_018 - Validate Input Validation action item #18 on Android client
+- ✓ TC_MOB_INPU_019 - Validate Input Validation action item #19 on Android client
+- ✓ TC_MOB_INPU_020 - Validate Input Validation action item #20 on Android client
+- ✓ TC_MOB_INPU_021 - Validate Input Validation action item #21 on Android client
+- ✓ TC_MOB_INPU_022 - Validate Input Validation action item #22 on Android client
+- ✓ TC_MOB_INPU_023 - Validate Input Validation action item #23 on Android client
+- ✓ TC_MOB_INPU_024 - Validate Input Validation action item #24 on Android client
+- ✓ TC_MOB_INPU_025 - Validate Input Validation action item #25 on Android client
+- ✓ TC_MOB_INPU_026 - Validate Input Validation action item #26 on Android client
+- ✓ TC_MOB_INPU_027 - Validate Input Validation action item #27 on Android client
+- ✓ TC_MOB_INPU_028 - Validate Input Validation action item #28 on Android client
+- ✓ TC_MOB_INPU_029 - Validate Input Validation action item #29 on Android client
+- ✓ TC_MOB_INPU_030 - Validate Input Validation action item #30 on Android client
+- ✓ TC_MOB_INPU_031 - Validate Input Validation action item #31 on Android client
+- ✓ TC_MOB_INPU_032 - Validate Input Validation action item #32 on Android client
+- ✓ TC_MOB_INPU_033 - Validate Input Validation action item #33 on Android client
+- ✓ TC_MOB_INPU_034 - Validate Input Validation action item #34 on Android client
+- ✓ TC_MOB_INPU_035 - Validate Input Validation action item #35 on Android client
+- ✓ TC_MOB_INPU_036 - Validate Input Validation action item #36 on Android client
+- ✓ TC_MOB_INPU_037 - Validate Input Validation action item #37 on Android client
+- ✓ TC_MOB_INPU_038 - Validate Input Validation action item #38 on Android client
+- ✓ TC_MOB_INPU_039 - Validate Input Validation action item #39 on Android client
+- ✓ TC_MOB_INPU_040 - Validate Input Validation action item #40 on Android client
+- ✓ TC_MOB_ERRO_001 - Validate Error Handling action item #1 on Android client
+- ✓ TC_MOB_ERRO_002 - Validate Error Handling action item #2 on Android client
+- ✓ TC_MOB_ERRO_003 - Validate Error Handling action item #3 on Android client
+- ✓ TC_MOB_ERRO_004 - Validate Error Handling action item #4 on Android client
+- ✓ TC_MOB_ERRO_005 - Validate Error Handling action item #5 on Android client
+- ✓ TC_MOB_ERRO_006 - Validate Error Handling action item #6 on Android client
+- ✓ TC_MOB_ERRO_007 - Validate Error Handling action item #7 on Android client
+- ✓ TC_MOB_ERRO_008 - Validate Error Handling action item #8 on Android client
+- ✓ TC_MOB_ERRO_009 - Validate Error Handling action item #9 on Android client
+- ✓ TC_MOB_ERRO_010 - Validate Error Handling action item #10 on Android client
+- ✓ TC_MOB_ERRO_011 - Validate Error Handling action item #11 on Android client
+- ✓ TC_MOB_ERRO_012 - Validate Error Handling action item #12 on Android client
+- ✓ TC_MOB_ERRO_013 - Validate Error Handling action item #13 on Android client
+- ✓ TC_MOB_ERRO_014 - Validate Error Handling action item #14 on Android client
+- ✓ TC_MOB_ERRO_015 - Validate Error Handling action item #15 on Android client
+- ✓ TC_MOB_ERRO_016 - Validate Error Handling action item #16 on Android client
+- ✓ TC_MOB_ERRO_017 - Validate Error Handling action item #17 on Android client
+- ✓ TC_MOB_ERRO_018 - Validate Error Handling action item #18 on Android client
+- ✓ TC_MOB_ERRO_019 - Validate Error Handling action item #19 on Android client
+- ✓ TC_MOB_ERRO_020 - Validate Error Handling action item #20 on Android client
+- ✓ TC_MOB_SESS_001 - Validate Session Management action item #1 on Android client
+- ✓ TC_MOB_SESS_002 - Validate Session Management action item #2 on Android client
+- ✓ TC_MOB_SESS_003 - Validate Session Management action item #3 on Android client
+- ✓ TC_MOB_SESS_004 - Validate Session Management action item #4 on Android client
+- ✓ TC_MOB_SESS_005 - Validate Session Management action item #5 on Android client
+- ✓ TC_MOB_SESS_006 - Validate Session Management action item #6 on Android client
+- ✓ TC_MOB_SESS_007 - Validate Session Management action item #7 on Android client
+- ✓ TC_MOB_SESS_008 - Validate Session Management action item #8 on Android client
+- ✓ TC_MOB_SESS_009 - Validate Session Management action item #9 on Android client
+- ✓ TC_MOB_SESS_010 - Validate Session Management action item #10 on Android client
+- ✓ TC_MOB_SESS_011 - Validate Session Management action item #11 on Android client
+- ✓ TC_MOB_SESS_012 - Validate Session Management action item #12 on Android client
+- ✓ TC_MOB_SESS_013 - Validate Session Management action item #13 on Android client
+- ✓ TC_MOB_SESS_014 - Validate Session Management action item #14 on Android client
+- ✓ TC_MOB_SESS_015 - Validate Session Management action item #15 on Android client
+- ✓ TC_MOB_SESS_016 - Validate Session Management action item #16 on Android client
+- ✓ TC_MOB_SESS_017 - Validate Session Management action item #17 on Android client
+- ✓ TC_MOB_SESS_018 - Validate Session Management action item #18 on Android client
+- ✓ TC_MOB_SESS_019 - Validate Session Management action item #19 on Android client
+- ✓ TC_MOB_SESS_020 - Validate Session Management action item #20 on Android client
+- ✓ TC_MOB_NOTI_001 - Validate Notifications action item #1 on Android client
+- ✓ TC_MOB_NOTI_002 - Validate Notifications action item #2 on Android client
+- ✓ TC_MOB_NOTI_003 - Validate Notifications action item #3 on Android client
+- ✓ TC_MOB_NOTI_005 - Validate Notifications action item #5 on Android client
+- ✓ TC_MOB_NOTI_006 - Validate Notifications action item #6 on Android client
+- ✓ TC_MOB_NOTI_007 - Validate Notifications action item #7 on Android client
+- ✓ TC_MOB_NOTI_008 - Validate Notifications action item #8 on Android client
+- ✓ TC_MOB_NOTI_009 - Validate Notifications action item #9 on Android client
+- ✓ TC_MOB_NOTI_010 - Validate Notifications action item #10 on Android client
+- ✓ TC_MOB_NOTI_011 - Validate Notifications action item #11 on Android client
+- ✓ TC_MOB_NOTI_012 - Validate Notifications action item #12 on Android client
+- ✓ TC_MOB_NOTI_013 - Validate Notifications action item #13 on Android client
+- ✓ TC_MOB_NOTI_014 - Validate Notifications action item #14 on Android client
+- ✓ TC_MOB_NOTI_015 - Validate Notifications action item #15 on Android client
+- ✓ TC_MOB_NOTI_016 - Validate Notifications action item #16 on Android client
+- ✓ TC_MOB_NOTI_017 - Validate Notifications action item #17 on Android client
+- ✓ TC_MOB_NOTI_018 - Validate Notifications action item #18 on Android client
+- ✓ TC_MOB_NOTI_019 - Validate Notifications action item #19 on Android client
+- ✓ TC_MOB_NOTI_020 - Validate Notifications action item #20 on Android client
+- ✓ TC_MOB_FILE_001 - Validate File Upload action item #1 on Android client
+- ✓ TC_MOB_FILE_003 - Validate File Upload action item #3 on Android client
+- ✓ TC_MOB_FILE_004 - Validate File Upload action item #4 on Android client
+- ✓ TC_MOB_FILE_005 - Validate File Upload action item #5 on Android client
+- ✓ TC_MOB_FILE_006 - Validate File Upload action item #6 on Android client
+- ✓ TC_MOB_FILE_007 - Validate File Upload action item #7 on Android client
+- ✓ TC_MOB_FILE_008 - Validate File Upload action item #8 on Android client
+- ✓ TC_MOB_FILE_009 - Validate File Upload action item #9 on Android client
+- ✓ TC_MOB_FILE_010 - Validate File Upload action item #10 on Android client
+- ✓ TC_MOB_FILE_011 - Validate File Upload action item #11 on Android client
+- ✓ TC_MOB_FILE_012 - Validate File Upload action item #12 on Android client
+- ✓ TC_MOB_FILE_013 - Validate File Upload action item #13 on Android client
+- ✓ TC_MOB_FILE_014 - Validate File Upload action item #14 on Android client
+- ✓ TC_MOB_FILE_015 - Validate File Upload action item #15 on Android client
+- ✓ TC_MOB_FILE_016 - Validate File Upload action item #16 on Android client
+- ✓ TC_MOB_FILE_017 - Validate File Upload action item #17 on Android client
+- ✓ TC_MOB_FILE_018 - Validate File Upload action item #18 on Android client
+- ✓ TC_MOB_FILE_019 - Validate File Upload action item #19 on Android client
+- ✓ TC_MOB_FILE_020 - Validate File Upload action item #20 on Android client
+- ✓ TC_MOB_OFFL_001 - Validate Offline Handling action item #1 on Android client
+- ✓ TC_MOB_OFFL_002 - Validate Offline Handling action item #2 on Android client
+- ✓ TC_MOB_OFFL_003 - Validate Offline Handling action item #3 on Android client
+- ✓ TC_MOB_OFFL_004 - Validate Offline Handling action item #4 on Android client
+- ✓ TC_MOB_OFFL_005 - Validate Offline Handling action item #5 on Android client
+- ✓ TC_MOB_OFFL_006 - Validate Offline Handling action item #6 on Android client
+- ✓ TC_MOB_OFFL_007 - Validate Offline Handling action item #7 on Android client
+- ✓ TC_MOB_OFFL_008 - Validate Offline Handling action item #8 on Android client
+- ✓ TC_MOB_OFFL_009 - Validate Offline Handling action item #9 on Android client
+- ✓ TC_MOB_OFFL_010 - Validate Offline Handling action item #10 on Android client
+- ✓ TC_MOB_ACCE_001 - Validate Accessibility action item #1 on Android client
+- ✓ TC_MOB_ACCE_002 - Validate Accessibility action item #2 on Android client
+- ✓ TC_MOB_ACCE_003 - Validate Accessibility action item #3 on Android client
+- ✓ TC_MOB_ACCE_004 - Validate Accessibility action item #4 on Android client
+- ✓ TC_MOB_ACCE_005 - Validate Accessibility action item #5 on Android client
+- ✓ TC_MOB_ACCE_006 - Validate Accessibility action item #6 on Android client
+- ✓ TC_MOB_ACCE_007 - Validate Accessibility action item #7 on Android client
+- ✓ TC_MOB_ACCE_008 - Validate Accessibility action item #8 on Android client
+- ✓ TC_MOB_ACCE_009 - Validate Accessibility action item #9 on Android client
+- ✓ TC_MOB_ACCE_010 - Validate Accessibility action item #10 on Android client
+- ✓ TC_MOB_ACCE_011 - Validate Accessibility action item #11 on Android client
+- ✓ TC_MOB_ACCE_012 - Validate Accessibility action item #12 on Android client
+- ✓ TC_MOB_ACCE_013 - Validate Accessibility action item #13 on Android client
+- ✓ TC_MOB_ACCE_014 - Validate Accessibility action item #14 on Android client
+- ✓ TC_MOB_ACCE_015 - Validate Accessibility action item #15 on Android client
+- ✓ TC_MOB_ACCE_016 - Validate Accessibility action item #16 on Android client
+- ✓ TC_MOB_ACCE_017 - Validate Accessibility action item #17 on Android client
+- ✓ TC_MOB_ACCE_018 - Validate Accessibility action item #18 on Android client
+- ✓ TC_MOB_ACCE_019 - Validate Accessibility action item #19 on Android client
+- ✓ TC_MOB_ACCE_020 - Validate Accessibility action item #20 on Android client
+- ✓ TC_MOB_RESP_001 - Validate Responsive UI action item #1 on Android client
+- ✓ TC_MOB_RESP_002 - Validate Responsive UI action item #2 on Android client
+- ✓ TC_MOB_RESP_003 - Validate Responsive UI action item #3 on Android client
+- ✓ TC_MOB_RESP_004 - Validate Responsive UI action item #4 on Android client
+- ✓ TC_MOB_RESP_005 - Validate Responsive UI action item #5 on Android client
+- ✓ TC_MOB_RESP_006 - Validate Responsive UI action item #6 on Android client
+- ✓ TC_MOB_RESP_007 - Validate Responsive UI action item #7 on Android client
+- ✓ TC_MOB_RESP_008 - Validate Responsive UI action item #8 on Android client
+- ✓ TC_MOB_RESP_009 - Validate Responsive UI action item #9 on Android client
+- ✓ TC_MOB_RESP_010 - Validate Responsive UI action item #10 on Android client
+- ✓ TC_MOB_PERF_001 - Validate Performance Smoke Tests action item #1 on Android client
+- ✓ TC_MOB_PERF_002 - Validate Performance Smoke Tests action item #2 on Android client
+- ✓ TC_MOB_PERF_003 - Validate Performance Smoke Tests action item #3 on Android client
+- ✓ TC_MOB_PERF_004 - Validate Performance Smoke Tests action item #4 on Android client
+- ✓ TC_MOB_PERF_005 - Validate Performance Smoke Tests action item #5 on Android client
+- ✓ TC_MOB_PERF_006 - Validate Performance Smoke Tests action item #6 on Android client
+- ✓ TC_MOB_PERF_007 - Validate Performance Smoke Tests action item #7 on Android client
+- ✓ TC_MOB_PERF_008 - Validate Performance Smoke Tests action item #8 on Android client
+- ✓ TC_MOB_PERF_009 - Validate Performance Smoke Tests action item #9 on Android client
+- ✓ TC_MOB_PERF_010 - Validate Performance Smoke Tests action item #10 on Android client
+- ✓ TC_MOB_PERF_011 - Validate Performance Smoke Tests action item #11 on Android client
+- ✓ TC_MOB_PERF_012 - Validate Performance Smoke Tests action item #12 on Android client
+- ✓ TC_MOB_PERF_013 - Validate Performance Smoke Tests action item #13 on Android client
+- ✓ TC_MOB_PERF_014 - Validate Performance Smoke Tests action item #14 on Android client
+- ✓ TC_MOB_PERF_015 - Validate Performance Smoke Tests action item #15 on Android client
+- ✓ TC_MOB_PERF_016 - Validate Performance Smoke Tests action item #16 on Android client
+- ✓ TC_MOB_PERF_017 - Validate Performance Smoke Tests action item #17 on Android client
+- ✓ TC_MOB_PERF_018 - Validate Performance Smoke Tests action item #18 on Android client
+- ✓ TC_MOB_PERF_019 - Validate Performance Smoke Tests action item #19 on Android client
+- ✓ TC_MOB_PERF_020 - Validate Performance Smoke Tests action item #20 on Android client
+- ✓ TC_MOB_REGR_001 - Validate Regression Suite action item #1 on Android client
+- ✓ TC_MOB_REGR_002 - Validate Regression Suite action item #2 on Android client
+- ✓ TC_MOB_REGR_003 - Validate Regression Suite action item #3 on Android client
+- ✓ TC_MOB_REGR_004 - Validate Regression Suite action item #4 on Android client
+- ✓ TC_MOB_REGR_005 - Validate Regression Suite action item #5 on Android client
+- ✓ TC_MOB_REGR_006 - Validate Regression Suite action item #6 on Android client
+- ✓ TC_MOB_REGR_007 - Validate Regression Suite action item #7 on Android client
+- ✓ TC_MOB_REGR_008 - Validate Regression Suite action item #8 on Android client
+- ✓ TC_MOB_REGR_009 - Validate Regression Suite action item #9 on Android client
+- ✓ TC_MOB_REGR_010 - Validate Regression Suite action item #10 on Android client
+- ✓ TC_MOB_REGR_011 - Validate Regression Suite action item #11 on Android client
+- ✓ TC_MOB_REGR_012 - Validate Regression Suite action item #12 on Android client
+- ✓ TC_MOB_REGR_013 - Validate Regression Suite action item #13 on Android client
+- ✓ TC_MOB_REGR_014 - Validate Regression Suite action item #14 on Android client
+- ✓ TC_MOB_REGR_015 - Validate Regression Suite action item #15 on Android client
+- ✓ TC_MOB_REGR_016 - Validate Regression Suite action item #16 on Android client
+- ✓ TC_MOB_REGR_017 - Validate Regression Suite action item #17 on Android client
+- ✓ TC_MOB_REGR_018 - Validate Regression Suite action item #18 on Android client
+- ✓ TC_MOB_REGR_019 - Validate Regression Suite action item #19 on Android client
+- ✓ TC_MOB_REGR_020 - Validate Regression Suite action item #20 on Android client
+- ✓ TC_MOB_REGR_021 - Validate Regression Suite action item #21 on Android client
+- ✓ TC_MOB_REGR_022 - Validate Regression Suite action item #22 on Android client
+- ✓ TC_MOB_REGR_023 - Validate Regression Suite action item #23 on Android client
+- ✓ TC_MOB_REGR_024 - Validate Regression Suite action item #24 on Android client
+- ✓ TC_MOB_REGR_025 - Validate Regression Suite action item #25 on Android client
+- ✓ TC_MOB_REGR_026 - Validate Regression Suite action item #26 on Android client
+- ✓ TC_MOB_REGR_027 - Validate Regression Suite action item #27 on Android client
+- ✓ TC_MOB_REGR_028 - Validate Regression Suite action item #28 on Android client
+- ✓ TC_MOB_REGR_029 - Validate Regression Suite action item #29 on Android client
+- ✓ TC_MOB_REGR_030 - Validate Regression Suite action item #30 on Android client
+- ✓ TC_MOB_REGR_031 - Validate Regression Suite action item #31 on Android client
+- ✓ TC_MOB_REGR_032 - Validate Regression Suite action item #32 on Android client
+- ✓ TC_MOB_REGR_033 - Validate Regression Suite action item #33 on Android client
+- ✓ TC_MOB_REGR_034 - Validate Regression Suite action item #34 on Android client
+- ✓ TC_MOB_REGR_035 - Validate Regression Suite action item #35 on Android client
+- ✓ TC_MOB_REGR_036 - Validate Regression Suite action item #36 on Android client
+- ✓ TC_MOB_REGR_037 - Validate Regression Suite action item #37 on Android client
+- ✓ TC_MOB_REGR_038 - Validate Regression Suite action item #38 on Android client
+- ✓ TC_MOB_REGR_039 - Validate Regression Suite action item #39 on Android client
+- ✓ TC_MOB_REGR_040 - Validate Regression Suite action item #40 on Android client
+- ✓ TC_MOB_REGR_041 - Validate Regression Suite action item #41 on Android client
+- ✓ TC_MOB_REGR_042 - Validate Regression Suite action item #42 on Android client
+- ✓ TC_MOB_REGR_043 - Validate Regression Suite action item #43 on Android client
+- ✓ TC_MOB_REGR_044 - Validate Regression Suite action item #44 on Android client
+- ✓ TC_MOB_REGR_045 - Validate Regression Suite action item #45 on Android client
+- ✓ TC_MOB_REGR_046 - Validate Regression Suite action item #46 on Android client
+- ✓ TC_MOB_REGR_047 - Validate Regression Suite action item #47 on Android client
+- ✓ TC_MOB_REGR_048 - Validate Regression Suite action item #48 on Android client
+- ✓ TC_MOB_REGR_049 - Validate Regression Suite action item #49 on Android client
+- ✓ TC_MOB_REGR_050 - Validate Regression Suite action item #50 on Android client
+- ✓ TC_WEB_AUTH_002 - Verify Authentication behavior #2 on Web browser portal
+- ✓ TC_WEB_AUTH_003 - Verify Authentication behavior #3 on Web browser portal
+- ✓ TC_WEB_AUTH_004 - Verify Authentication behavior #4 on Web browser portal
+- ✓ TC_WEB_AUTH_005 - Verify Authentication behavior #5 on Web browser portal
+- ✓ TC_WEB_AUTH_006 - Verify Authentication behavior #6 on Web browser portal
+- ✓ TC_WEB_AUTH_007 - Verify Authentication behavior #7 on Web browser portal
+- ✓ TC_WEB_AUTH_008 - Verify Authentication behavior #8 on Web browser portal
+- ✓ TC_WEB_AUTH_009 - Verify Authentication behavior #9 on Web browser portal
+- ✓ TC_WEB_AUTH_010 - Verify Authentication behavior #10 on Web browser portal
+- ✓ TC_WEB_AUTH_011 - Verify Authentication behavior #11 on Web browser portal
+- ✓ TC_WEB_AUTH_012 - Verify Authentication behavior #12 on Web browser portal
+- ✓ TC_WEB_AUTH_013 - Verify Authentication behavior #13 on Web browser portal
+- ✓ TC_WEB_AUTH_014 - Verify Authentication behavior #14 on Web browser portal
+- ✓ TC_WEB_AUTH_015 - Verify Authentication behavior #15 on Web browser portal
+- ✓ TC_WEB_AUTH_016 - Verify Authentication behavior #16 on Web browser portal
+- ✓ TC_WEB_AUTH_017 - Verify Authentication behavior #17 on Web browser portal
+- ✓ TC_WEB_AUTH_018 - Verify Authentication behavior #18 on Web browser portal
+- ✓ TC_WEB_AUTH_019 - Verify Authentication behavior #19 on Web browser portal
+- ✓ TC_WEB_AUTH_020 - Verify Authentication behavior #20 on Web browser portal
+- ✓ TC_WEB_AUTH_021 - Verify Authentication behavior #21 on Web browser portal
+- ✓ TC_WEB_AUTH_022 - Verify Authentication behavior #22 on Web browser portal
+- ✓ TC_WEB_AUTH_023 - Verify Authentication behavior #23 on Web browser portal
+- ✓ TC_WEB_AUTH_024 - Verify Authentication behavior #24 on Web browser portal
+- ✓ TC_WEB_AUTH_025 - Verify Authentication behavior #25 on Web browser portal
+- ✓ TC_WEB_AUTH_026 - Verify Authentication behavior #26 on Web browser portal
+- ✓ TC_WEB_AUTH_027 - Verify Authentication behavior #27 on Web browser portal
+- ✓ TC_WEB_AUTH_028 - Verify Authentication behavior #28 on Web browser portal
+- ✓ TC_WEB_AUTH_029 - Verify Authentication behavior #29 on Web browser portal
+- ✓ TC_WEB_AUTH_030 - Verify Authentication behavior #30 on Web browser portal
+- ✓ TC_WEB_AUTH_031 - Verify Authentication behavior #31 on Web browser portal
+- ✓ TC_WEB_AUTH_032 - Verify Authentication behavior #32 on Web browser portal
+- ✓ TC_WEB_AUTH_033 - Verify Authentication behavior #33 on Web browser portal
+- ✓ TC_WEB_AUTH_034 - Verify Authentication behavior #34 on Web browser portal
+- ✓ TC_WEB_AUTH_035 - Verify Authentication behavior #35 on Web browser portal
+- ✓ TC_WEB_AUTH_036 - Verify Authentication behavior #36 on Web browser portal
+- ✓ TC_WEB_AUTH_037 - Verify Authentication behavior #37 on Web browser portal
+- ✓ TC_WEB_AUTH_038 - Verify Authentication behavior #38 on Web browser portal
+- ✓ TC_WEB_AUTH_039 - Verify Authentication behavior #39 on Web browser portal
+- ✓ TC_WEB_AUTH_040 - Verify Authentication behavior #40 on Web browser portal
+- ✓ TC_WEB_AUTH_002 - Verify Authorization behavior #2 on Web browser portal
+- ✓ TC_WEB_AUTH_003 - Verify Authorization behavior #3 on Web browser portal
+- ✓ TC_WEB_AUTH_004 - Verify Authorization behavior #4 on Web browser portal
+- ✓ TC_WEB_AUTH_005 - Verify Authorization behavior #5 on Web browser portal
+- ✓ TC_WEB_AUTH_006 - Verify Authorization behavior #6 on Web browser portal
+- ✓ TC_WEB_AUTH_007 - Verify Authorization behavior #7 on Web browser portal
+- ✓ TC_WEB_AUTH_008 - Verify Authorization behavior #8 on Web browser portal
+- ✓ TC_WEB_AUTH_009 - Verify Authorization behavior #9 on Web browser portal
+- ✓ TC_WEB_AUTH_010 - Verify Authorization behavior #10 on Web browser portal
+- ✓ TC_WEB_AUTH_011 - Verify Authorization behavior #11 on Web browser portal
+- ✓ TC_WEB_AUTH_012 - Verify Authorization behavior #12 on Web browser portal
+- ✓ TC_WEB_AUTH_013 - Verify Authorization behavior #13 on Web browser portal
+- ✓ TC_WEB_AUTH_014 - Verify Authorization behavior #14 on Web browser portal
+- ✓ TC_WEB_AUTH_015 - Verify Authorization behavior #15 on Web browser portal
+- ✓ TC_WEB_AUTH_016 - Verify Authorization behavior #16 on Web browser portal
+- ✓ TC_WEB_AUTH_017 - Verify Authorization behavior #17 on Web browser portal
+- ✓ TC_WEB_AUTH_018 - Verify Authorization behavior #18 on Web browser portal
+- ✓ TC_WEB_AUTH_019 - Verify Authorization behavior #19 on Web browser portal
+- ✓ TC_WEB_AUTH_020 - Verify Authorization behavior #20 on Web browser portal
+- ✓ TC_WEB_AUTH_021 - Verify Authorization behavior #21 on Web browser portal
+- ✓ TC_WEB_AUTH_022 - Verify Authorization behavior #22 on Web browser portal
+- ✓ TC_WEB_AUTH_023 - Verify Authorization behavior #23 on Web browser portal
+- ✓ TC_WEB_AUTH_024 - Verify Authorization behavior #24 on Web browser portal
+- ✓ TC_WEB_AUTH_025 - Verify Authorization behavior #25 on Web browser portal
+- ✓ TC_WEB_AUTH_026 - Verify Authorization behavior #26 on Web browser portal
+- ✓ TC_WEB_AUTH_027 - Verify Authorization behavior #27 on Web browser portal
+- ✓ TC_WEB_AUTH_028 - Verify Authorization behavior #28 on Web browser portal
+- ✓ TC_WEB_AUTH_029 - Verify Authorization behavior #29 on Web browser portal
+- ✓ TC_WEB_AUTH_030 - Verify Authorization behavior #30 on Web browser portal
+- ✓ TC_WEB_AUTH_031 - Verify Authorization behavior #31 on Web browser portal
+- ✓ TC_WEB_AUTH_032 - Verify Authorization behavior #32 on Web browser portal
+- ✓ TC_WEB_AUTH_033 - Verify Authorization behavior #33 on Web browser portal
+- ✓ TC_WEB_AUTH_034 - Verify Authorization behavior #34 on Web browser portal
+- ✓ TC_WEB_AUTH_035 - Verify Authorization behavior #35 on Web browser portal
+- ✓ TC_WEB_AUTH_036 - Verify Authorization behavior #36 on Web browser portal
+- ✓ TC_WEB_AUTH_037 - Verify Authorization behavior #37 on Web browser portal
+- ✓ TC_WEB_AUTH_038 - Verify Authorization behavior #38 on Web browser portal
+- ✓ TC_WEB_AUTH_039 - Verify Authorization behavior #39 on Web browser portal
+- ✓ TC_WEB_AUTH_040 - Verify Authorization behavior #40 on Web browser portal
+- ✓ TC_WEB_NAVI_001 - Verify Navigation behavior #1 on Web browser portal
+- ✓ TC_WEB_NAVI_002 - Verify Navigation behavior #2 on Web browser portal
+- ✓ TC_WEB_NAVI_003 - Verify Navigation behavior #3 on Web browser portal
+- ✓ TC_WEB_NAVI_004 - Verify Navigation behavior #4 on Web browser portal
+- ✓ TC_WEB_NAVI_005 - Verify Navigation behavior #5 on Web browser portal
+- ✓ TC_WEB_NAVI_006 - Verify Navigation behavior #6 on Web browser portal
+- ✓ TC_WEB_NAVI_007 - Verify Navigation behavior #7 on Web browser portal
+- ✓ TC_WEB_NAVI_008 - Verify Navigation behavior #8 on Web browser portal
+- ✓ TC_WEB_NAVI_009 - Verify Navigation behavior #9 on Web browser portal
+- ✓ TC_WEB_NAVI_010 - Verify Navigation behavior #10 on Web browser portal
+- ✓ TC_WEB_NAVI_011 - Verify Navigation behavior #11 on Web browser portal
+- ✓ TC_WEB_NAVI_012 - Verify Navigation behavior #12 on Web browser portal
+- ✓ TC_WEB_NAVI_013 - Verify Navigation behavior #13 on Web browser portal
+- ✓ TC_WEB_NAVI_014 - Verify Navigation behavior #14 on Web browser portal
+- ✓ TC_WEB_NAVI_015 - Verify Navigation behavior #15 on Web browser portal
+- ✓ TC_WEB_NAVI_016 - Verify Navigation behavior #16 on Web browser portal
+- ✓ TC_WEB_NAVI_017 - Verify Navigation behavior #17 on Web browser portal
+- ✓ TC_WEB_NAVI_018 - Verify Navigation behavior #18 on Web browser portal
+- ✓ TC_WEB_NAVI_019 - Verify Navigation behavior #19 on Web browser portal
+- ✓ TC_WEB_NAVI_020 - Verify Navigation behavior #20 on Web browser portal
+- ✓ TC_WEB_NAVI_021 - Verify Navigation behavior #21 on Web browser portal
+- ✓ TC_WEB_NAVI_022 - Verify Navigation behavior #22 on Web browser portal
+- ✓ TC_WEB_NAVI_023 - Verify Navigation behavior #23 on Web browser portal
+- ✓ TC_WEB_NAVI_024 - Verify Navigation behavior #24 on Web browser portal
+- ✓ TC_WEB_NAVI_025 - Verify Navigation behavior #25 on Web browser portal
+- ✓ TC_WEB_NAVI_026 - Verify Navigation behavior #26 on Web browser portal
+- ✓ TC_WEB_NAVI_027 - Verify Navigation behavior #27 on Web browser portal
+- ✓ TC_WEB_NAVI_028 - Verify Navigation behavior #28 on Web browser portal
+- ✓ TC_WEB_NAVI_029 - Verify Navigation behavior #29 on Web browser portal
+- ✓ TC_WEB_NAVI_030 - Verify Navigation behavior #30 on Web browser portal
+- ✓ TC_WEB_UI_V_001 - Verify UI Validation behavior #1 on Web browser portal
+- ✓ TC_WEB_UI_V_002 - Verify UI Validation behavior #2 on Web browser portal
+- ✓ TC_WEB_UI_V_003 - Verify UI Validation behavior #3 on Web browser portal
+- ✓ TC_WEB_UI_V_004 - Verify UI Validation behavior #4 on Web browser portal
+- ✓ TC_WEB_UI_V_005 - Verify UI Validation behavior #5 on Web browser portal
+- ✓ TC_WEB_UI_V_006 - Verify UI Validation behavior #6 on Web browser portal
+- ✓ TC_WEB_UI_V_007 - Verify UI Validation behavior #7 on Web browser portal
+- ✓ TC_WEB_UI_V_008 - Verify UI Validation behavior #8 on Web browser portal
+- ✓ TC_WEB_UI_V_009 - Verify UI Validation behavior #9 on Web browser portal
+- ✓ TC_WEB_UI_V_010 - Verify UI Validation behavior #10 on Web browser portal
+- ✓ TC_WEB_UI_V_011 - Verify UI Validation behavior #11 on Web browser portal
+- ✓ TC_WEB_UI_V_012 - Verify UI Validation behavior #12 on Web browser portal
+- ✓ TC_WEB_UI_V_013 - Verify UI Validation behavior #13 on Web browser portal
+- ✓ TC_WEB_UI_V_014 - Verify UI Validation behavior #14 on Web browser portal
+- ✓ TC_WEB_UI_V_015 - Verify UI Validation behavior #15 on Web browser portal
+- ✓ TC_WEB_UI_V_016 - Verify UI Validation behavior #16 on Web browser portal
+- ✓ TC_WEB_UI_V_017 - Verify UI Validation behavior #17 on Web browser portal
+- ✓ TC_WEB_UI_V_018 - Verify UI Validation behavior #18 on Web browser portal
+- ✓ TC_WEB_UI_V_019 - Verify UI Validation behavior #19 on Web browser portal
+- ✓ TC_WEB_UI_V_020 - Verify UI Validation behavior #20 on Web browser portal
+- ✓ TC_WEB_UI_V_021 - Verify UI Validation behavior #21 on Web browser portal
+- ✓ TC_WEB_UI_V_022 - Verify UI Validation behavior #22 on Web browser portal
+- ✓ TC_WEB_UI_V_023 - Verify UI Validation behavior #23 on Web browser portal
+- ✓ TC_WEB_UI_V_024 - Verify UI Validation behavior #24 on Web browser portal
+- ✓ TC_WEB_UI_V_025 - Verify UI Validation behavior #25 on Web browser portal
+- ✓ TC_WEB_UI_V_026 - Verify UI Validation behavior #26 on Web browser portal
+- ✓ TC_WEB_UI_V_027 - Verify UI Validation behavior #27 on Web browser portal
+- ✓ TC_WEB_UI_V_028 - Verify UI Validation behavior #28 on Web browser portal
+- ✓ TC_WEB_UI_V_029 - Verify UI Validation behavior #29 on Web browser portal
+- ✓ TC_WEB_UI_V_030 - Verify UI Validation behavior #30 on Web browser portal
+- ✓ TC_WEB_UI_V_031 - Verify UI Validation behavior #31 on Web browser portal
+- ✓ TC_WEB_UI_V_032 - Verify UI Validation behavior #32 on Web browser portal
+- ✓ TC_WEB_UI_V_033 - Verify UI Validation behavior #33 on Web browser portal
+- ✓ TC_WEB_UI_V_034 - Verify UI Validation behavior #34 on Web browser portal
+- ✓ TC_WEB_UI_V_035 - Verify UI Validation behavior #35 on Web browser portal
+- ✓ TC_WEB_UI_V_036 - Verify UI Validation behavior #36 on Web browser portal
+- ✓ TC_WEB_UI_V_037 - Verify UI Validation behavior #37 on Web browser portal
+- ✓ TC_WEB_UI_V_038 - Verify UI Validation behavior #38 on Web browser portal
+- ✓ TC_WEB_UI_V_039 - Verify UI Validation behavior #39 on Web browser portal
+- ✓ TC_WEB_UI_V_040 - Verify UI Validation behavior #40 on Web browser portal
+- ✓ TC_WEB_UI_V_041 - Verify UI Validation behavior #41 on Web browser portal
+- ✓ TC_WEB_UI_V_042 - Verify UI Validation behavior #42 on Web browser portal
+- ✓ TC_WEB_UI_V_043 - Verify UI Validation behavior #43 on Web browser portal
+- ✓ TC_WEB_UI_V_044 - Verify UI Validation behavior #44 on Web browser portal
+- ✓ TC_WEB_UI_V_045 - Verify UI Validation behavior #45 on Web browser portal
+- ✓ TC_WEB_UI_V_046 - Verify UI Validation behavior #46 on Web browser portal
+- ✓ TC_WEB_UI_V_047 - Verify UI Validation behavior #47 on Web browser portal
+- ✓ TC_WEB_UI_V_048 - Verify UI Validation behavior #48 on Web browser portal
+- ✓ TC_WEB_UI_V_049 - Verify UI Validation behavior #49 on Web browser portal
+- ✓ TC_WEB_UI_V_050 - Verify UI Validation behavior #50 on Web browser portal
+- ✓ TC_WEB_FORM_001 - Verify Forms behavior #1 on Web browser portal
+- ✓ TC_WEB_FORM_002 - Verify Forms behavior #2 on Web browser portal
+- ✓ TC_WEB_FORM_003 - Verify Forms behavior #3 on Web browser portal
+- ✓ TC_WEB_FORM_004 - Verify Forms behavior #4 on Web browser portal
+- ✓ TC_WEB_FORM_005 - Verify Forms behavior #5 on Web browser portal
+- ✓ TC_WEB_FORM_006 - Verify Forms behavior #6 on Web browser portal
+- ✓ TC_WEB_FORM_007 - Verify Forms behavior #7 on Web browser portal
+- ✓ TC_WEB_FORM_008 - Verify Forms behavior #8 on Web browser portal
+- ✓ TC_WEB_FORM_009 - Verify Forms behavior #9 on Web browser portal
+- ✓ TC_WEB_FORM_010 - Verify Forms behavior #10 on Web browser portal
+- ✓ TC_WEB_FORM_011 - Verify Forms behavior #11 on Web browser portal
+- ✓ TC_WEB_FORM_013 - Verify Forms behavior #13 on Web browser portal
+- ✓ TC_WEB_FORM_014 - Verify Forms behavior #14 on Web browser portal
+- ✓ TC_WEB_FORM_015 - Verify Forms behavior #15 on Web browser portal
+- ✓ TC_WEB_FORM_016 - Verify Forms behavior #16 on Web browser portal
+- ✓ TC_WEB_FORM_017 - Verify Forms behavior #17 on Web browser portal
+- ✓ TC_WEB_FORM_018 - Verify Forms behavior #18 on Web browser portal
+- ✓ TC_WEB_FORM_019 - Verify Forms behavior #19 on Web browser portal
+- ✓ TC_WEB_FORM_020 - Verify Forms behavior #20 on Web browser portal
+- ✓ TC_WEB_FORM_021 - Verify Forms behavior #21 on Web browser portal
+- ✓ TC_WEB_FORM_022 - Verify Forms behavior #22 on Web browser portal
+- ✓ TC_WEB_FORM_023 - Verify Forms behavior #23 on Web browser portal
+- ✓ TC_WEB_FORM_024 - Verify Forms behavior #24 on Web browser portal
+- ✓ TC_WEB_FORM_025 - Verify Forms behavior #25 on Web browser portal
+- ✓ TC_WEB_FORM_026 - Verify Forms behavior #26 on Web browser portal
+- ✓ TC_WEB_FORM_027 - Verify Forms behavior #27 on Web browser portal
+- ✓ TC_WEB_FORM_028 - Verify Forms behavior #28 on Web browser portal
+- ✓ TC_WEB_FORM_029 - Verify Forms behavior #29 on Web browser portal
+- ✓ TC_WEB_FORM_030 - Verify Forms behavior #30 on Web browser portal
+- ✓ TC_WEB_FORM_031 - Verify Forms behavior #31 on Web browser portal
+- ✓ TC_WEB_FORM_032 - Verify Forms behavior #32 on Web browser portal
+- ✓ TC_WEB_FORM_033 - Verify Forms behavior #33 on Web browser portal
+- ✓ TC_WEB_FORM_034 - Verify Forms behavior #34 on Web browser portal
+- ✓ TC_WEB_FORM_035 - Verify Forms behavior #35 on Web browser portal
+- ✓ TC_WEB_FORM_036 - Verify Forms behavior #36 on Web browser portal
+- ✓ TC_WEB_FORM_037 - Verify Forms behavior #37 on Web browser portal
+- ✓ TC_WEB_FORM_038 - Verify Forms behavior #38 on Web browser portal
+- ✓ TC_WEB_FORM_039 - Verify Forms behavior #39 on Web browser portal
+- ✓ TC_WEB_FORM_040 - Verify Forms behavior #40 on Web browser portal
+- ✓ TC_WEB_FORM_041 - Verify Forms behavior #41 on Web browser portal
+- ✓ TC_WEB_FORM_042 - Verify Forms behavior #42 on Web browser portal
+- ✓ TC_WEB_FORM_043 - Verify Forms behavior #43 on Web browser portal
+- ✓ TC_WEB_FORM_044 - Verify Forms behavior #44 on Web browser portal
+- ✓ TC_WEB_FORM_045 - Verify Forms behavior #45 on Web browser portal
+- ✓ TC_WEB_FORM_046 - Verify Forms behavior #46 on Web browser portal
+- ✓ TC_WEB_FORM_047 - Verify Forms behavior #47 on Web browser portal
+- ✓ TC_WEB_FORM_048 - Verify Forms behavior #48 on Web browser portal
+- ✓ TC_WEB_FORM_049 - Verify Forms behavior #49 on Web browser portal
+- ✓ TC_WEB_FORM_050 - Verify Forms behavior #50 on Web browser portal
+- ✓ TC_WEB_CRUD_001 - Verify CRUD Operations behavior #1 on Web browser portal
+- ✓ TC_WEB_CRUD_002 - Verify CRUD Operations behavior #2 on Web browser portal
+- ✓ TC_WEB_CRUD_003 - Verify CRUD Operations behavior #3 on Web browser portal
+- ✓ TC_WEB_CRUD_004 - Verify CRUD Operations behavior #4 on Web browser portal
+- ✓ TC_WEB_CRUD_005 - Verify CRUD Operations behavior #5 on Web browser portal
+- ✓ TC_WEB_CRUD_006 - Verify CRUD Operations behavior #6 on Web browser portal
+- ✓ TC_WEB_CRUD_007 - Verify CRUD Operations behavior #7 on Web browser portal
+- ✓ TC_WEB_CRUD_008 - Verify CRUD Operations behavior #8 on Web browser portal
+- ✓ TC_WEB_CRUD_009 - Verify CRUD Operations behavior #9 on Web browser portal
+- ✓ TC_WEB_CRUD_010 - Verify CRUD Operations behavior #10 on Web browser portal
+- ✓ TC_WEB_CRUD_011 - Verify CRUD Operations behavior #11 on Web browser portal
+- ✓ TC_WEB_CRUD_012 - Verify CRUD Operations behavior #12 on Web browser portal
+- ✓ TC_WEB_CRUD_013 - Verify CRUD Operations behavior #13 on Web browser portal
+- ✓ TC_WEB_CRUD_014 - Verify CRUD Operations behavior #14 on Web browser portal
+- ✓ TC_WEB_CRUD_015 - Verify CRUD Operations behavior #15 on Web browser portal
+- ✓ TC_WEB_CRUD_016 - Verify CRUD Operations behavior #16 on Web browser portal
+- ✓ TC_WEB_CRUD_017 - Verify CRUD Operations behavior #17 on Web browser portal
+- ✓ TC_WEB_CRUD_018 - Verify CRUD Operations behavior #18 on Web browser portal
+- ✓ TC_WEB_CRUD_019 - Verify CRUD Operations behavior #19 on Web browser portal
+- ✓ TC_WEB_CRUD_020 - Verify CRUD Operations behavior #20 on Web browser portal
+- ✓ TC_WEB_CRUD_021 - Verify CRUD Operations behavior #21 on Web browser portal
+- ✓ TC_WEB_CRUD_022 - Verify CRUD Operations behavior #22 on Web browser portal
+- ✓ TC_WEB_CRUD_023 - Verify CRUD Operations behavior #23 on Web browser portal
+- ✓ TC_WEB_CRUD_024 - Verify CRUD Operations behavior #24 on Web browser portal
+- ✓ TC_WEB_CRUD_025 - Verify CRUD Operations behavior #25 on Web browser portal
+- ✓ TC_WEB_CRUD_026 - Verify CRUD Operations behavior #26 on Web browser portal
+- ✓ TC_WEB_CRUD_027 - Verify CRUD Operations behavior #27 on Web browser portal
+- ✓ TC_WEB_CRUD_028 - Verify CRUD Operations behavior #28 on Web browser portal
+- ✓ TC_WEB_CRUD_029 - Verify CRUD Operations behavior #29 on Web browser portal
+- ✓ TC_WEB_CRUD_030 - Verify CRUD Operations behavior #30 on Web browser portal
+- ✓ TC_WEB_CRUD_031 - Verify CRUD Operations behavior #31 on Web browser portal
+- ✓ TC_WEB_CRUD_032 - Verify CRUD Operations behavior #32 on Web browser portal
+- ✓ TC_WEB_CRUD_033 - Verify CRUD Operations behavior #33 on Web browser portal
+- ✓ TC_WEB_CRUD_034 - Verify CRUD Operations behavior #34 on Web browser portal
+- ✓ TC_WEB_CRUD_035 - Verify CRUD Operations behavior #35 on Web browser portal
+- ✓ TC_WEB_CRUD_036 - Verify CRUD Operations behavior #36 on Web browser portal
+- ✓ TC_WEB_CRUD_037 - Verify CRUD Operations behavior #37 on Web browser portal
+- ✓ TC_WEB_CRUD_038 - Verify CRUD Operations behavior #38 on Web browser portal
+- ✓ TC_WEB_CRUD_039 - Verify CRUD Operations behavior #39 on Web browser portal
+- ✓ TC_WEB_CRUD_040 - Verify CRUD Operations behavior #40 on Web browser portal
+- ✓ TC_WEB_CRUD_041 - Verify CRUD Operations behavior #41 on Web browser portal
+- ✓ TC_WEB_CRUD_042 - Verify CRUD Operations behavior #42 on Web browser portal
+- ✓ TC_WEB_CRUD_043 - Verify CRUD Operations behavior #43 on Web browser portal
+- ✓ TC_WEB_CRUD_044 - Verify CRUD Operations behavior #44 on Web browser portal
+- ✓ TC_WEB_CRUD_045 - Verify CRUD Operations behavior #45 on Web browser portal
+- ✓ TC_WEB_CRUD_046 - Verify CRUD Operations behavior #46 on Web browser portal
+- ✓ TC_WEB_CRUD_047 - Verify CRUD Operations behavior #47 on Web browser portal
+- ✓ TC_WEB_CRUD_048 - Verify CRUD Operations behavior #48 on Web browser portal
+- ✓ TC_WEB_CRUD_049 - Verify CRUD Operations behavior #49 on Web browser portal
+- ✓ TC_WEB_CRUD_050 - Verify CRUD Operations behavior #50 on Web browser portal
+- ✓ TC_WEB_INPU_001 - Verify Input Validation behavior #1 on Web browser portal
+- ✓ TC_WEB_INPU_002 - Verify Input Validation behavior #2 on Web browser portal
+- ✓ TC_WEB_INPU_003 - Verify Input Validation behavior #3 on Web browser portal
+- ✓ TC_WEB_INPU_004 - Verify Input Validation behavior #4 on Web browser portal
+- ✓ TC_WEB_INPU_006 - Verify Input Validation behavior #6 on Web browser portal
+- ✓ TC_WEB_INPU_007 - Verify Input Validation behavior #7 on Web browser portal
+- ✓ TC_WEB_INPU_008 - Verify Input Validation behavior #8 on Web browser portal
+- ✓ TC_WEB_INPU_009 - Verify Input Validation behavior #9 on Web browser portal
+- ✓ TC_WEB_INPU_010 - Verify Input Validation behavior #10 on Web browser portal
+- ✓ TC_WEB_INPU_011 - Verify Input Validation behavior #11 on Web browser portal
+- ✓ TC_WEB_INPU_012 - Verify Input Validation behavior #12 on Web browser portal
+- ✓ TC_WEB_INPU_013 - Verify Input Validation behavior #13 on Web browser portal
+- ✓ TC_WEB_INPU_014 - Verify Input Validation behavior #14 on Web browser portal
+- ✓ TC_WEB_INPU_015 - Verify Input Validation behavior #15 on Web browser portal
+- ✓ TC_WEB_INPU_016 - Verify Input Validation behavior #16 on Web browser portal
+- ✓ TC_WEB_INPU_017 - Verify Input Validation behavior #17 on Web browser portal
+- ✓ TC_WEB_INPU_018 - Verify Input Validation behavior #18 on Web browser portal
+- ✓ TC_WEB_INPU_019 - Verify Input Validation behavior #19 on Web browser portal
+- ✓ TC_WEB_INPU_020 - Verify Input Validation behavior #20 on Web browser portal
+- ✓ TC_WEB_INPU_021 - Verify Input Validation behavior #21 on Web browser portal
+- ✓ TC_WEB_INPU_022 - Verify Input Validation behavior #22 on Web browser portal
+- ✓ TC_WEB_INPU_023 - Verify Input Validation behavior #23 on Web browser portal
+- ✓ TC_WEB_INPU_024 - Verify Input Validation behavior #24 on Web browser portal
+- ✓ TC_WEB_INPU_025 - Verify Input Validation behavior #25 on Web browser portal
+- ✓ TC_WEB_INPU_026 - Verify Input Validation behavior #26 on Web browser portal
+- ✓ TC_WEB_INPU_027 - Verify Input Validation behavior #27 on Web browser portal
+- ✓ TC_WEB_INPU_028 - Verify Input Validation behavior #28 on Web browser portal
+- ✓ TC_WEB_INPU_029 - Verify Input Validation behavior #29 on Web browser portal
+- ✓ TC_WEB_INPU_030 - Verify Input Validation behavior #30 on Web browser portal
+- ✓ TC_WEB_INPU_031 - Verify Input Validation behavior #31 on Web browser portal
+- ✓ TC_WEB_INPU_032 - Verify Input Validation behavior #32 on Web browser portal
+- ✓ TC_WEB_INPU_033 - Verify Input Validation behavior #33 on Web browser portal
+- ✓ TC_WEB_INPU_034 - Verify Input Validation behavior #34 on Web browser portal
+- ✓ TC_WEB_INPU_035 - Verify Input Validation behavior #35 on Web browser portal
+- ✓ TC_WEB_INPU_036 - Verify Input Validation behavior #36 on Web browser portal
+- ✓ TC_WEB_INPU_037 - Verify Input Validation behavior #37 on Web browser portal
+- ✓ TC_WEB_INPU_038 - Verify Input Validation behavior #38 on Web browser portal
+- ✓ TC_WEB_INPU_039 - Verify Input Validation behavior #39 on Web browser portal
+- ✓ TC_WEB_INPU_040 - Verify Input Validation behavior #40 on Web browser portal
+- ✓ TC_WEB_ERRO_001 - Verify Error Handling behavior #1 on Web browser portal
+- ✓ TC_WEB_ERRO_002 - Verify Error Handling behavior #2 on Web browser portal
+- ✓ TC_WEB_ERRO_003 - Verify Error Handling behavior #3 on Web browser portal
+- ✓ TC_WEB_ERRO_004 - Verify Error Handling behavior #4 on Web browser portal
+- ✓ TC_WEB_ERRO_005 - Verify Error Handling behavior #5 on Web browser portal
+- ✓ TC_WEB_ERRO_006 - Verify Error Handling behavior #6 on Web browser portal
+- ✓ TC_WEB_ERRO_007 - Verify Error Handling behavior #7 on Web browser portal
+- ✓ TC_WEB_ERRO_008 - Verify Error Handling behavior #8 on Web browser portal
+- ✓ TC_WEB_ERRO_009 - Verify Error Handling behavior #9 on Web browser portal
+- ✓ TC_WEB_ERRO_010 - Verify Error Handling behavior #10 on Web browser portal
+- ✓ TC_WEB_ERRO_011 - Verify Error Handling behavior #11 on Web browser portal
+- ✓ TC_WEB_ERRO_012 - Verify Error Handling behavior #12 on Web browser portal
+- ✓ TC_WEB_ERRO_013 - Verify Error Handling behavior #13 on Web browser portal
+- ✓ TC_WEB_ERRO_014 - Verify Error Handling behavior #14 on Web browser portal
+- ✓ TC_WEB_ERRO_015 - Verify Error Handling behavior #15 on Web browser portal
+- ✓ TC_WEB_ERRO_016 - Verify Error Handling behavior #16 on Web browser portal
+- ✓ TC_WEB_ERRO_017 - Verify Error Handling behavior #17 on Web browser portal
+- ✓ TC_WEB_ERRO_018 - Verify Error Handling behavior #18 on Web browser portal
+- ✓ TC_WEB_ERRO_019 - Verify Error Handling behavior #19 on Web browser portal
+- ✓ TC_WEB_ERRO_020 - Verify Error Handling behavior #20 on Web browser portal
+- ✓ TC_WEB_SESS_001 - Verify Session Management behavior #1 on Web browser portal
+- ✓ TC_WEB_SESS_002 - Verify Session Management behavior #2 on Web browser portal
+- ✓ TC_WEB_SESS_003 - Verify Session Management behavior #3 on Web browser portal
+- ✓ TC_WEB_SESS_004 - Verify Session Management behavior #4 on Web browser portal
+- ✓ TC_WEB_SESS_005 - Verify Session Management behavior #5 on Web browser portal
+- ✓ TC_WEB_SESS_006 - Verify Session Management behavior #6 on Web browser portal
+- ✓ TC_WEB_SESS_007 - Verify Session Management behavior #7 on Web browser portal
+- ✓ TC_WEB_SESS_008 - Verify Session Management behavior #8 on Web browser portal
+- ✓ TC_WEB_SESS_009 - Verify Session Management behavior #9 on Web browser portal
+- ✓ TC_WEB_SESS_010 - Verify Session Management behavior #10 on Web browser portal
+- ✓ TC_WEB_SESS_011 - Verify Session Management behavior #11 on Web browser portal
+- ✓ TC_WEB_SESS_012 - Verify Session Management behavior #12 on Web browser portal
+- ✓ TC_WEB_SESS_013 - Verify Session Management behavior #13 on Web browser portal
+- ✓ TC_WEB_SESS_014 - Verify Session Management behavior #14 on Web browser portal
+- ✓ TC_WEB_SESS_015 - Verify Session Management behavior #15 on Web browser portal
+- ✓ TC_WEB_SESS_016 - Verify Session Management behavior #16 on Web browser portal
+- ✓ TC_WEB_SESS_017 - Verify Session Management behavior #17 on Web browser portal
+- ✓ TC_WEB_SESS_018 - Verify Session Management behavior #18 on Web browser portal
+- ✓ TC_WEB_SESS_019 - Verify Session Management behavior #19 on Web browser portal
+- ✓ TC_WEB_SESS_020 - Verify Session Management behavior #20 on Web browser portal
+- ✓ TC_WEB_FILE_001 - Verify File Upload behavior #1 on Web browser portal
+- ✓ TC_WEB_FILE_002 - Verify File Upload behavior #2 on Web browser portal
+- ✓ TC_WEB_FILE_003 - Verify File Upload behavior #3 on Web browser portal
+- ✓ TC_WEB_FILE_004 - Verify File Upload behavior #4 on Web browser portal
+- ✓ TC_WEB_FILE_005 - Verify File Upload behavior #5 on Web browser portal
+- ✓ TC_WEB_FILE_006 - Verify File Upload behavior #6 on Web browser portal
+- ✓ TC_WEB_FILE_007 - Verify File Upload behavior #7 on Web browser portal
+- ✓ TC_WEB_FILE_008 - Verify File Upload behavior #8 on Web browser portal
+- ✓ TC_WEB_FILE_009 - Verify File Upload behavior #9 on Web browser portal
+- ✓ TC_WEB_FILE_010 - Verify File Upload behavior #10 on Web browser portal
+- ✓ TC_WEB_FILE_011 - Verify File Upload behavior #11 on Web browser portal
+- ✓ TC_WEB_FILE_012 - Verify File Upload behavior #12 on Web browser portal
+- ✓ TC_WEB_FILE_013 - Verify File Upload behavior #13 on Web browser portal
+- ✓ TC_WEB_FILE_014 - Verify File Upload behavior #14 on Web browser portal
+- ✓ TC_WEB_FILE_015 - Verify File Upload behavior #15 on Web browser portal
+- ✓ TC_WEB_FILE_016 - Verify File Upload behavior #16 on Web browser portal
+- ✓ TC_WEB_FILE_017 - Verify File Upload behavior #17 on Web browser portal
+- ✓ TC_WEB_FILE_018 - Verify File Upload behavior #18 on Web browser portal
+- ✓ TC_WEB_FILE_019 - Verify File Upload behavior #19 on Web browser portal
+- ✓ TC_WEB_FILE_020 - Verify File Upload behavior #20 on Web browser portal
+- ✓ TC_WEB_ACCE_001 - Verify Accessibility behavior #1 on Web browser portal
+- ✓ TC_WEB_ACCE_002 - Verify Accessibility behavior #2 on Web browser portal
+- ✓ TC_WEB_ACCE_003 - Verify Accessibility behavior #3 on Web browser portal
+- ✓ TC_WEB_ACCE_004 - Verify Accessibility behavior #4 on Web browser portal
+- ✓ TC_WEB_ACCE_005 - Verify Accessibility behavior #5 on Web browser portal
+- ✓ TC_WEB_ACCE_006 - Verify Accessibility behavior #6 on Web browser portal
+- ✓ TC_WEB_ACCE_007 - Verify Accessibility behavior #7 on Web browser portal
+- ✓ TC_WEB_ACCE_008 - Verify Accessibility behavior #8 on Web browser portal
+- ✓ TC_WEB_ACCE_009 - Verify Accessibility behavior #9 on Web browser portal
+- ✓ TC_WEB_ACCE_010 - Verify Accessibility behavior #10 on Web browser portal
+- ✓ TC_WEB_ACCE_011 - Verify Accessibility behavior #11 on Web browser portal
+- ✓ TC_WEB_ACCE_012 - Verify Accessibility behavior #12 on Web browser portal
+- ✓ TC_WEB_ACCE_013 - Verify Accessibility behavior #13 on Web browser portal
+- ✓ TC_WEB_ACCE_014 - Verify Accessibility behavior #14 on Web browser portal
+- ✓ TC_WEB_ACCE_015 - Verify Accessibility behavior #15 on Web browser portal
+- ✓ TC_WEB_ACCE_016 - Verify Accessibility behavior #16 on Web browser portal
+- ✓ TC_WEB_ACCE_017 - Verify Accessibility behavior #17 on Web browser portal
+- ✓ TC_WEB_ACCE_018 - Verify Accessibility behavior #18 on Web browser portal
+- ✓ TC_WEB_ACCE_019 - Verify Accessibility behavior #19 on Web browser portal
+- ✓ TC_WEB_ACCE_020 - Verify Accessibility behavior #20 on Web browser portal
+- ✓ TC_WEB_RESP_001 - Verify Responsive Design behavior #1 on Web browser portal
+- ✓ TC_WEB_RESP_002 - Verify Responsive Design behavior #2 on Web browser portal
+- ✓ TC_WEB_RESP_003 - Verify Responsive Design behavior #3 on Web browser portal
+- ✓ TC_WEB_RESP_004 - Verify Responsive Design behavior #4 on Web browser portal
+- ✓ TC_WEB_RESP_005 - Verify Responsive Design behavior #5 on Web browser portal
+- ✓ TC_WEB_RESP_006 - Verify Responsive Design behavior #6 on Web browser portal
+- ✓ TC_WEB_RESP_007 - Verify Responsive Design behavior #7 on Web browser portal
+- ✓ TC_WEB_RESP_008 - Verify Responsive Design behavior #8 on Web browser portal
+- ✓ TC_WEB_RESP_009 - Verify Responsive Design behavior #9 on Web browser portal
+- ✓ TC_WEB_RESP_010 - Verify Responsive Design behavior #10 on Web browser portal
+- ✓ TC_WEB_RESP_011 - Verify Responsive Design behavior #11 on Web browser portal
+- ✓ TC_WEB_RESP_012 - Verify Responsive Design behavior #12 on Web browser portal
+- ✓ TC_WEB_RESP_013 - Verify Responsive Design behavior #13 on Web browser portal
+- ✓ TC_WEB_RESP_014 - Verify Responsive Design behavior #14 on Web browser portal
+- ✓ TC_WEB_RESP_015 - Verify Responsive Design behavior #15 on Web browser portal
+- ✓ TC_WEB_RESP_016 - Verify Responsive Design behavior #16 on Web browser portal
+- ✓ TC_WEB_RESP_017 - Verify Responsive Design behavior #17 on Web browser portal
+- ✓ TC_WEB_RESP_018 - Verify Responsive Design behavior #18 on Web browser portal
+- ✓ TC_WEB_RESP_019 - Verify Responsive Design behavior #19 on Web browser portal
+- ✓ TC_WEB_RESP_020 - Verify Responsive Design behavior #20 on Web browser portal
+- ✓ TC_WEB_PERF_001 - Verify Performance Smoke Tests behavior #1 on Web browser portal
+- ✓ TC_WEB_PERF_002 - Verify Performance Smoke Tests behavior #2 on Web browser portal
+- ✓ TC_WEB_PERF_003 - Verify Performance Smoke Tests behavior #3 on Web browser portal
+- ✓ TC_WEB_PERF_004 - Verify Performance Smoke Tests behavior #4 on Web browser portal
+- ✓ TC_WEB_PERF_005 - Verify Performance Smoke Tests behavior #5 on Web browser portal
+- ✓ TC_WEB_PERF_006 - Verify Performance Smoke Tests behavior #6 on Web browser portal
+- ✓ TC_WEB_PERF_007 - Verify Performance Smoke Tests behavior #7 on Web browser portal
+- ✓ TC_WEB_PERF_008 - Verify Performance Smoke Tests behavior #8 on Web browser portal
+- ✓ TC_WEB_PERF_009 - Verify Performance Smoke Tests behavior #9 on Web browser portal
+- ✓ TC_WEB_PERF_010 - Verify Performance Smoke Tests behavior #10 on Web browser portal
+- ✓ TC_WEB_PERF_011 - Verify Performance Smoke Tests behavior #11 on Web browser portal
+- ✓ TC_WEB_PERF_012 - Verify Performance Smoke Tests behavior #12 on Web browser portal
+- ✓ TC_WEB_PERF_013 - Verify Performance Smoke Tests behavior #13 on Web browser portal
+- ✓ TC_WEB_PERF_014 - Verify Performance Smoke Tests behavior #14 on Web browser portal
+- ✓ TC_WEB_PERF_015 - Verify Performance Smoke Tests behavior #15 on Web browser portal
+- ✓ TC_WEB_PERF_016 - Verify Performance Smoke Tests behavior #16 on Web browser portal
+- ✓ TC_WEB_PERF_017 - Verify Performance Smoke Tests behavior #17 on Web browser portal
+- ✓ TC_WEB_PERF_018 - Verify Performance Smoke Tests behavior #18 on Web browser portal
+- ✓ TC_WEB_PERF_019 - Verify Performance Smoke Tests behavior #19 on Web browser portal
+- ✓ TC_WEB_PERF_020 - Verify Performance Smoke Tests behavior #20 on Web browser portal
+- ✓ TC_WEB_REGR_001 - Verify Regression behavior #1 on Web browser portal
+- ✓ TC_WEB_REGR_002 - Verify Regression behavior #2 on Web browser portal
+- ✓ TC_WEB_REGR_003 - Verify Regression behavior #3 on Web browser portal
+- ✓ TC_WEB_REGR_004 - Verify Regression behavior #4 on Web browser portal
+- ✓ TC_WEB_REGR_005 - Verify Regression behavior #5 on Web browser portal
+- ✓ TC_WEB_REGR_006 - Verify Regression behavior #6 on Web browser portal
+- ✓ TC_WEB_REGR_007 - Verify Regression behavior #7 on Web browser portal
+- ✓ TC_WEB_REGR_008 - Verify Regression behavior #8 on Web browser portal
+- ✓ TC_WEB_REGR_009 - Verify Regression behavior #9 on Web browser portal
+- ✓ TC_WEB_REGR_010 - Verify Regression behavior #10 on Web browser portal
+- ✓ TC_WEB_REGR_011 - Verify Regression behavior #11 on Web browser portal
+- ✓ TC_WEB_REGR_012 - Verify Regression behavior #12 on Web browser portal
+- ✓ TC_WEB_REGR_013 - Verify Regression behavior #13 on Web browser portal
+- ✓ TC_WEB_REGR_014 - Verify Regression behavior #14 on Web browser portal
+- ✓ TC_WEB_REGR_015 - Verify Regression behavior #15 on Web browser portal
+- ✓ TC_WEB_REGR_016 - Verify Regression behavior #16 on Web browser portal
+- ✓ TC_WEB_REGR_017 - Verify Regression behavior #17 on Web browser portal
+- ✓ TC_WEB_REGR_018 - Verify Regression behavior #18 on Web browser portal
+- ✓ TC_WEB_REGR_019 - Verify Regression behavior #19 on Web browser portal
+- ✓ TC_WEB_REGR_020 - Verify Regression behavior #20 on Web browser portal
+- ✓ TC_WEB_REGR_021 - Verify Regression behavior #21 on Web browser portal
+- ✓ TC_WEB_REGR_022 - Verify Regression behavior #22 on Web browser portal
+- ✓ TC_WEB_REGR_023 - Verify Regression behavior #23 on Web browser portal
+- ✓ TC_WEB_REGR_024 - Verify Regression behavior #24 on Web browser portal
+- ✓ TC_WEB_REGR_025 - Verify Regression behavior #25 on Web browser portal
+- ✓ TC_WEB_REGR_026 - Verify Regression behavior #26 on Web browser portal
+- ✓ TC_WEB_REGR_027 - Verify Regression behavior #27 on Web browser portal
+- ✓ TC_WEB_REGR_028 - Verify Regression behavior #28 on Web browser portal
+- ✓ TC_WEB_REGR_029 - Verify Regression behavior #29 on Web browser portal
+- ✓ TC_WEB_REGR_030 - Verify Regression behavior #30 on Web browser portal
+- ✓ TC_WEB_REGR_031 - Verify Regression behavior #31 on Web browser portal
+- ✓ TC_WEB_REGR_032 - Verify Regression behavior #32 on Web browser portal
+- ✓ TC_WEB_REGR_033 - Verify Regression behavior #33 on Web browser portal
+- ✓ TC_WEB_REGR_034 - Verify Regression behavior #34 on Web browser portal
+- ✓ TC_WEB_REGR_035 - Verify Regression behavior #35 on Web browser portal
+- ✓ TC_WEB_REGR_036 - Verify Regression behavior #36 on Web browser portal
+- ✓ TC_WEB_REGR_037 - Verify Regression behavior #37 on Web browser portal
+- ✓ TC_WEB_REGR_038 - Verify Regression behavior #38 on Web browser portal
+- ✓ TC_WEB_REGR_039 - Verify Regression behavior #39 on Web browser portal
+- ✓ TC_WEB_REGR_040 - Verify Regression behavior #40 on Web browser portal
+- ✓ TC_WEB_REGR_041 - Verify Regression behavior #41 on Web browser portal
+- ✓ TC_WEB_REGR_042 - Verify Regression behavior #42 on Web browser portal
+- ✓ TC_WEB_REGR_043 - Verify Regression behavior #43 on Web browser portal
+- ✓ TC_WEB_REGR_044 - Verify Regression behavior #44 on Web browser portal
+- ✓ TC_WEB_REGR_045 - Verify Regression behavior #45 on Web browser portal
+- ✓ TC_WEB_REGR_046 - Verify Regression behavior #46 on Web browser portal
+- ✓ TC_WEB_REGR_047 - Verify Regression behavior #47 on Web browser portal
+- ✓ TC_WEB_REGR_048 - Verify Regression behavior #48 on Web browser portal
+- ✓ TC_WEB_REGR_049 - Verify Regression behavior #49 on Web browser portal
+- ✓ TC_WEB_REGR_050 - Verify Regression behavior #50 on Web browser portal
+- ✓ TC_SEC_AUTH_001 - Scan for Authentication Tests vulnerabilities - Check #1 (OWASP-A2/CWE-101)
+- ✓ TC_SEC_AUTH_002 - Scan for Authentication Tests vulnerabilities - Check #2 (OWASP-A3/CWE-102)
+- ✓ TC_SEC_AUTH_003 - Scan for Authentication Tests vulnerabilities - Check #3 (OWASP-A4/CWE-103)
+- ✓ TC_SEC_AUTH_004 - Scan for Authentication Tests vulnerabilities - Check #4 (OWASP-A5/CWE-104)
+- ✓ TC_SEC_AUTH_005 - Scan for Authentication Tests vulnerabilities - Check #5 (OWASP-A6/CWE-105)
+- ✓ TC_SEC_AUTH_006 - Scan for Authentication Tests vulnerabilities - Check #6 (OWASP-A7/CWE-106)
+- ✓ TC_SEC_AUTH_007 - Scan for Authentication Tests vulnerabilities - Check #7 (OWASP-A8/CWE-107)
+- ✓ TC_SEC_AUTH_008 - Scan for Authentication Tests vulnerabilities - Check #8 (OWASP-A9/CWE-108)
+- ✓ TC_SEC_AUTH_009 - Scan for Authentication Tests vulnerabilities - Check #9 (OWASP-A10/CWE-109)
+- ✓ TC_SEC_AUTH_010 - Scan for Authentication Tests vulnerabilities - Check #10 (OWASP-A1/CWE-110)
+- ✓ TC_SEC_AUTH_011 - Scan for Authentication Tests vulnerabilities - Check #11 (OWASP-A2/CWE-111)
+- ✓ TC_SEC_AUTH_012 - Scan for Authentication Tests vulnerabilities - Check #12 (OWASP-A3/CWE-112)
+- ✓ TC_SEC_AUTH_013 - Scan for Authentication Tests vulnerabilities - Check #13 (OWASP-A4/CWE-113)
+- ✓ TC_SEC_AUTH_014 - Scan for Authentication Tests vulnerabilities - Check #14 (OWASP-A5/CWE-114)
+- ✓ TC_SEC_AUTH_015 - Scan for Authentication Tests vulnerabilities - Check #15 (OWASP-A6/CWE-115)
+- ✓ TC_SEC_AUTH_016 - Scan for Authentication Tests vulnerabilities - Check #16 (OWASP-A7/CWE-116)
+- ✓ TC_SEC_AUTH_017 - Scan for Authentication Tests vulnerabilities - Check #17 (OWASP-A8/CWE-117)
+- ✓ TC_SEC_AUTH_018 - Scan for Authentication Tests vulnerabilities - Check #18 (OWASP-A9/CWE-118)
+- ✓ TC_SEC_AUTH_019 - Scan for Authentication Tests vulnerabilities - Check #19 (OWASP-A10/CWE-119)
+- ✓ TC_SEC_AUTH_020 - Scan for Authentication Tests vulnerabilities - Check #20 (OWASP-A1/CWE-120)
+- ✓ TC_SEC_AUTH_021 - Scan for Authentication Tests vulnerabilities - Check #21 (OWASP-A2/CWE-121)
+- ✓ TC_SEC_AUTH_022 - Scan for Authentication Tests vulnerabilities - Check #22 (OWASP-A3/CWE-122)
+- ✓ TC_SEC_AUTH_023 - Scan for Authentication Tests vulnerabilities - Check #23 (OWASP-A4/CWE-123)
+- ✓ TC_SEC_AUTH_024 - Scan for Authentication Tests vulnerabilities - Check #24 (OWASP-A5/CWE-124)
+- ✓ TC_SEC_AUTH_025 - Scan for Authentication Tests vulnerabilities - Check #25 (OWASP-A6/CWE-125)
+- ✓ TC_SEC_AUTH_026 - Scan for Authentication Tests vulnerabilities - Check #26 (OWASP-A7/CWE-126)
+- ✓ TC_SEC_AUTH_027 - Scan for Authentication Tests vulnerabilities - Check #27 (OWASP-A8/CWE-127)
+- ✓ TC_SEC_AUTH_028 - Scan for Authentication Tests vulnerabilities - Check #28 (OWASP-A9/CWE-128)
+- ✓ TC_SEC_AUTH_029 - Scan for Authentication Tests vulnerabilities - Check #29 (OWASP-A10/CWE-129)
+- ✓ TC_SEC_AUTH_030 - Scan for Authentication Tests vulnerabilities - Check #30 (OWASP-A1/CWE-130)
+- ✓ TC_SEC_AUTH_031 - Scan for Authentication Tests vulnerabilities - Check #31 (OWASP-A2/CWE-131)
+- ✓ TC_SEC_AUTH_032 - Scan for Authentication Tests vulnerabilities - Check #32 (OWASP-A3/CWE-132)
+- ✓ TC_SEC_AUTH_033 - Scan for Authentication Tests vulnerabilities - Check #33 (OWASP-A4/CWE-133)
+- ✓ TC_SEC_AUTH_034 - Scan for Authentication Tests vulnerabilities - Check #34 (OWASP-A5/CWE-134)
+- ✓ TC_SEC_AUTH_035 - Scan for Authentication Tests vulnerabilities - Check #35 (OWASP-A6/CWE-135)
+- ✓ TC_SEC_AUTH_036 - Scan for Authentication Tests vulnerabilities - Check #36 (OWASP-A7/CWE-136)
+- ✓ TC_SEC_AUTH_037 - Scan for Authentication Tests vulnerabilities - Check #37 (OWASP-A8/CWE-137)
+- ✓ TC_SEC_AUTH_038 - Scan for Authentication Tests vulnerabilities - Check #38 (OWASP-A9/CWE-138)
+- ✓ TC_SEC_AUTH_039 - Scan for Authentication Tests vulnerabilities - Check #39 (OWASP-A10/CWE-139)
+- ✓ TC_SEC_AUTH_040 - Scan for Authentication Tests vulnerabilities - Check #40 (OWASP-A1/CWE-140)
+- ✓ TC_SEC_AUTH_041 - Scan for Authentication Tests vulnerabilities - Check #41 (OWASP-A2/CWE-141)
+- ✓ TC_SEC_AUTH_042 - Scan for Authentication Tests vulnerabilities - Check #42 (OWASP-A3/CWE-142)
+- ✓ TC_SEC_AUTH_043 - Scan for Authentication Tests vulnerabilities - Check #43 (OWASP-A4/CWE-143)
+- ✓ TC_SEC_AUTH_044 - Scan for Authentication Tests vulnerabilities - Check #44 (OWASP-A5/CWE-144)
+- ✓ TC_SEC_AUTH_045 - Scan for Authentication Tests vulnerabilities - Check #45 (OWASP-A6/CWE-145)
+- ✓ TC_SEC_AUTH_046 - Scan for Authentication Tests vulnerabilities - Check #46 (OWASP-A7/CWE-146)
+- ✓ TC_SEC_AUTH_047 - Scan for Authentication Tests vulnerabilities - Check #47 (OWASP-A8/CWE-147)
+- ✓ TC_SEC_AUTH_048 - Scan for Authentication Tests vulnerabilities - Check #48 (OWASP-A9/CWE-148)
+- ✓ TC_SEC_AUTH_049 - Scan for Authentication Tests vulnerabilities - Check #49 (OWASP-A10/CWE-149)
+- ✓ TC_SEC_AUTH_050 - Scan for Authentication Tests vulnerabilities - Check #50 (OWASP-A1/CWE-150)
+- ✓ TC_SEC_AUTH_051 - Scan for Authentication Tests vulnerabilities - Check #51 (OWASP-A2/CWE-151)
+- ✓ TC_SEC_AUTH_052 - Scan for Authentication Tests vulnerabilities - Check #52 (OWASP-A3/CWE-152)
+- ✓ TC_SEC_AUTH_053 - Scan for Authentication Tests vulnerabilities - Check #53 (OWASP-A4/CWE-153)
+- ✓ TC_SEC_AUTH_054 - Scan for Authentication Tests vulnerabilities - Check #54 (OWASP-A5/CWE-154)
+- ✓ TC_SEC_AUTH_055 - Scan for Authentication Tests vulnerabilities - Check #55 (OWASP-A6/CWE-155)
+- ✓ TC_SEC_AUTH_056 - Scan for Authentication Tests vulnerabilities - Check #56 (OWASP-A7/CWE-156)
+- ✓ TC_SEC_AUTH_057 - Scan for Authentication Tests vulnerabilities - Check #57 (OWASP-A8/CWE-157)
+- ✓ TC_SEC_AUTH_058 - Scan for Authentication Tests vulnerabilities - Check #58 (OWASP-A9/CWE-158)
+- ✓ TC_SEC_AUTH_059 - Scan for Authentication Tests vulnerabilities - Check #59 (OWASP-A10/CWE-159)
+- ✓ TC_SEC_AUTH_060 - Scan for Authentication Tests vulnerabilities - Check #60 (OWASP-A1/CWE-160)
+- ✓ TC_SEC_AUTH_001 - Scan for Authorization Tests vulnerabilities - Check #1 (OWASP-A2/CWE-101)
+- ✓ TC_SEC_AUTH_002 - Scan for Authorization Tests vulnerabilities - Check #2 (OWASP-A3/CWE-102)
+- ✓ TC_SEC_AUTH_003 - Scan for Authorization Tests vulnerabilities - Check #3 (OWASP-A4/CWE-103)
+- ✓ TC_SEC_AUTH_004 - Scan for Authorization Tests vulnerabilities - Check #4 (OWASP-A5/CWE-104)
+- ✓ TC_SEC_AUTH_005 - Scan for Authorization Tests vulnerabilities - Check #5 (OWASP-A6/CWE-105)
+- ✓ TC_SEC_AUTH_006 - Scan for Authorization Tests vulnerabilities - Check #6 (OWASP-A7/CWE-106)
+- ✓ TC_SEC_AUTH_007 - Scan for Authorization Tests vulnerabilities - Check #7 (OWASP-A8/CWE-107)
+- ✓ TC_SEC_AUTH_008 - Scan for Authorization Tests vulnerabilities - Check #8 (OWASP-A9/CWE-108)
+- ✓ TC_SEC_AUTH_009 - Scan for Authorization Tests vulnerabilities - Check #9 (OWASP-A10/CWE-109)
+- ✓ TC_SEC_AUTH_010 - Scan for Authorization Tests vulnerabilities - Check #10 (OWASP-A1/CWE-110)
+- ✓ TC_SEC_AUTH_011 - Scan for Authorization Tests vulnerabilities - Check #11 (OWASP-A2/CWE-111)
+- ✓ TC_SEC_AUTH_012 - Scan for Authorization Tests vulnerabilities - Check #12 (OWASP-A3/CWE-112)
+- ✓ TC_SEC_AUTH_013 - Scan for Authorization Tests vulnerabilities - Check #13 (OWASP-A4/CWE-113)
+- ✓ TC_SEC_AUTH_014 - Scan for Authorization Tests vulnerabilities - Check #14 (OWASP-A5/CWE-114)
+- ✓ TC_SEC_AUTH_015 - Scan for Authorization Tests vulnerabilities - Check #15 (OWASP-A6/CWE-115)
+- ✓ TC_SEC_AUTH_016 - Scan for Authorization Tests vulnerabilities - Check #16 (OWASP-A7/CWE-116)
+- ✓ TC_SEC_AUTH_017 - Scan for Authorization Tests vulnerabilities - Check #17 (OWASP-A8/CWE-117)
+- ✓ TC_SEC_AUTH_018 - Scan for Authorization Tests vulnerabilities - Check #18 (OWASP-A9/CWE-118)
+- ✓ TC_SEC_AUTH_019 - Scan for Authorization Tests vulnerabilities - Check #19 (OWASP-A10/CWE-119)
+- ✓ TC_SEC_AUTH_020 - Scan for Authorization Tests vulnerabilities - Check #20 (OWASP-A1/CWE-120)
+- ✓ TC_SEC_AUTH_021 - Scan for Authorization Tests vulnerabilities - Check #21 (OWASP-A2/CWE-121)
+- ✓ TC_SEC_AUTH_022 - Scan for Authorization Tests vulnerabilities - Check #22 (OWASP-A3/CWE-122)
+- ✓ TC_SEC_AUTH_023 - Scan for Authorization Tests vulnerabilities - Check #23 (OWASP-A4/CWE-123)
+- ✓ TC_SEC_AUTH_024 - Scan for Authorization Tests vulnerabilities - Check #24 (OWASP-A5/CWE-124)
+- ✓ TC_SEC_AUTH_025 - Scan for Authorization Tests vulnerabilities - Check #25 (OWASP-A6/CWE-125)
+- ✓ TC_SEC_AUTH_026 - Scan for Authorization Tests vulnerabilities - Check #26 (OWASP-A7/CWE-126)
+- ✓ TC_SEC_AUTH_027 - Scan for Authorization Tests vulnerabilities - Check #27 (OWASP-A8/CWE-127)
+- ✓ TC_SEC_AUTH_028 - Scan for Authorization Tests vulnerabilities - Check #28 (OWASP-A9/CWE-128)
+- ✓ TC_SEC_AUTH_029 - Scan for Authorization Tests vulnerabilities - Check #29 (OWASP-A10/CWE-129)
+- ✓ TC_SEC_AUTH_030 - Scan for Authorization Tests vulnerabilities - Check #30 (OWASP-A1/CWE-130)
+- ✓ TC_SEC_AUTH_031 - Scan for Authorization Tests vulnerabilities - Check #31 (OWASP-A2/CWE-131)
+- ✓ TC_SEC_AUTH_032 - Scan for Authorization Tests vulnerabilities - Check #32 (OWASP-A3/CWE-132)
+- ✓ TC_SEC_AUTH_033 - Scan for Authorization Tests vulnerabilities - Check #33 (OWASP-A4/CWE-133)
+- ✓ TC_SEC_AUTH_034 - Scan for Authorization Tests vulnerabilities - Check #34 (OWASP-A5/CWE-134)
+- ✓ TC_SEC_AUTH_035 - Scan for Authorization Tests vulnerabilities - Check #35 (OWASP-A6/CWE-135)
+- ✓ TC_SEC_AUTH_036 - Scan for Authorization Tests vulnerabilities - Check #36 (OWASP-A7/CWE-136)
+- ✓ TC_SEC_AUTH_037 - Scan for Authorization Tests vulnerabilities - Check #37 (OWASP-A8/CWE-137)
+- ✓ TC_SEC_AUTH_038 - Scan for Authorization Tests vulnerabilities - Check #38 (OWASP-A9/CWE-138)
+- ✓ TC_SEC_AUTH_039 - Scan for Authorization Tests vulnerabilities - Check #39 (OWASP-A10/CWE-139)
+- ✓ TC_SEC_AUTH_040 - Scan for Authorization Tests vulnerabilities - Check #40 (OWASP-A1/CWE-140)
+- ✓ TC_SEC_AUTH_041 - Scan for Authorization Tests vulnerabilities - Check #41 (OWASP-A2/CWE-141)
+- ✓ TC_SEC_AUTH_042 - Scan for Authorization Tests vulnerabilities - Check #42 (OWASP-A3/CWE-142)
+- ✓ TC_SEC_AUTH_043 - Scan for Authorization Tests vulnerabilities - Check #43 (OWASP-A4/CWE-143)
+- ✓ TC_SEC_AUTH_044 - Scan for Authorization Tests vulnerabilities - Check #44 (OWASP-A5/CWE-144)
+- ✓ TC_SEC_AUTH_045 - Scan for Authorization Tests vulnerabilities - Check #45 (OWASP-A6/CWE-145)
+- ✓ TC_SEC_AUTH_046 - Scan for Authorization Tests vulnerabilities - Check #46 (OWASP-A7/CWE-146)
+- ✓ TC_SEC_AUTH_047 - Scan for Authorization Tests vulnerabilities - Check #47 (OWASP-A8/CWE-147)
+- ✓ TC_SEC_AUTH_048 - Scan for Authorization Tests vulnerabilities - Check #48 (OWASP-A9/CWE-148)
+- ✓ TC_SEC_AUTH_049 - Scan for Authorization Tests vulnerabilities - Check #49 (OWASP-A10/CWE-149)
+- ✓ TC_SEC_AUTH_050 - Scan for Authorization Tests vulnerabilities - Check #50 (OWASP-A1/CWE-150)
+- ✓ TC_SEC_AUTH_051 - Scan for Authorization Tests vulnerabilities - Check #51 (OWASP-A2/CWE-151)
+- ✓ TC_SEC_AUTH_052 - Scan for Authorization Tests vulnerabilities - Check #52 (OWASP-A3/CWE-152)
+- ✓ TC_SEC_AUTH_053 - Scan for Authorization Tests vulnerabilities - Check #53 (OWASP-A4/CWE-153)
+- ✓ TC_SEC_AUTH_054 - Scan for Authorization Tests vulnerabilities - Check #54 (OWASP-A5/CWE-154)
+- ✓ TC_SEC_AUTH_055 - Scan for Authorization Tests vulnerabilities - Check #55 (OWASP-A6/CWE-155)
+- ✓ TC_SEC_AUTH_056 - Scan for Authorization Tests vulnerabilities - Check #56 (OWASP-A7/CWE-156)
+- ✓ TC_SEC_AUTH_057 - Scan for Authorization Tests vulnerabilities - Check #57 (OWASP-A8/CWE-157)
+- ✓ TC_SEC_AUTH_058 - Scan for Authorization Tests vulnerabilities - Check #58 (OWASP-A9/CWE-158)
+- ✓ TC_SEC_AUTH_059 - Scan for Authorization Tests vulnerabilities - Check #59 (OWASP-A10/CWE-159)
+- ✓ TC_SEC_AUTH_060 - Scan for Authorization Tests vulnerabilities - Check #60 (OWASP-A1/CWE-160)
+- ✓ TC_SEC_AUTH_061 - Scan for Authorization Tests vulnerabilities - Check #61 (OWASP-A2/CWE-161)
+- ✓ TC_SEC_AUTH_062 - Scan for Authorization Tests vulnerabilities - Check #62 (OWASP-A3/CWE-162)
+- ✓ TC_SEC_AUTH_063 - Scan for Authorization Tests vulnerabilities - Check #63 (OWASP-A4/CWE-163)
+- ✓ TC_SEC_AUTH_064 - Scan for Authorization Tests vulnerabilities - Check #64 (OWASP-A5/CWE-164)
+- ✓ TC_SEC_AUTH_065 - Scan for Authorization Tests vulnerabilities - Check #65 (OWASP-A6/CWE-165)
+- ✓ TC_SEC_AUTH_066 - Scan for Authorization Tests vulnerabilities - Check #66 (OWASP-A7/CWE-166)
+- ✓ TC_SEC_AUTH_067 - Scan for Authorization Tests vulnerabilities - Check #67 (OWASP-A8/CWE-167)
+- ✓ TC_SEC_AUTH_068 - Scan for Authorization Tests vulnerabilities - Check #68 (OWASP-A9/CWE-168)
+- ✓ TC_SEC_AUTH_069 - Scan for Authorization Tests vulnerabilities - Check #69 (OWASP-A10/CWE-169)
+- ✓ TC_SEC_AUTH_070 - Scan for Authorization Tests vulnerabilities - Check #70 (OWASP-A1/CWE-170)
+- ✓ TC_SEC_AUTH_071 - Scan for Authorization Tests vulnerabilities - Check #71 (OWASP-A2/CWE-171)
+- ✓ TC_SEC_AUTH_072 - Scan for Authorization Tests vulnerabilities - Check #72 (OWASP-A3/CWE-172)
+- ✓ TC_SEC_AUTH_073 - Scan for Authorization Tests vulnerabilities - Check #73 (OWASP-A4/CWE-173)
+- ✓ TC_SEC_AUTH_074 - Scan for Authorization Tests vulnerabilities - Check #74 (OWASP-A5/CWE-174)
+- ✓ TC_SEC_AUTH_075 - Scan for Authorization Tests vulnerabilities - Check #75 (OWASP-A6/CWE-175)
+- ✓ TC_SEC_AUTH_076 - Scan for Authorization Tests vulnerabilities - Check #76 (OWASP-A7/CWE-176)
+- ✓ TC_SEC_AUTH_077 - Scan for Authorization Tests vulnerabilities - Check #77 (OWASP-A8/CWE-177)
+- ✓ TC_SEC_AUTH_078 - Scan for Authorization Tests vulnerabilities - Check #78 (OWASP-A9/CWE-178)
+- ✓ TC_SEC_AUTH_079 - Scan for Authorization Tests vulnerabilities - Check #79 (OWASP-A10/CWE-179)
+- ✓ TC_SEC_AUTH_080 - Scan for Authorization Tests vulnerabilities - Check #80 (OWASP-A1/CWE-100)
+- ✓ TC_SEC_INPU_001 - Scan for Input Validation Tests vulnerabilities - Check #1 (OWASP-A2/CWE-101)
+- ✓ TC_SEC_INPU_002 - Scan for Input Validation Tests vulnerabilities - Check #2 (OWASP-A3/CWE-102)
+- ✓ TC_SEC_INPU_003 - Scan for Input Validation Tests vulnerabilities - Check #3 (OWASP-A4/CWE-103)
+- ✓ TC_SEC_INPU_004 - Scan for Input Validation Tests vulnerabilities - Check #4 (OWASP-A5/CWE-104)
+- ✓ TC_SEC_INPU_005 - Scan for Input Validation Tests vulnerabilities - Check #5 (OWASP-A6/CWE-105)
+- ✓ TC_SEC_INPU_006 - Scan for Input Validation Tests vulnerabilities - Check #6 (OWASP-A7/CWE-106)
+- ✓ TC_SEC_INPU_007 - Scan for Input Validation Tests vulnerabilities - Check #7 (OWASP-A8/CWE-107)
+- ✓ TC_SEC_INPU_008 - Scan for Input Validation Tests vulnerabilities - Check #8 (OWASP-A9/CWE-108)
+- ✓ TC_SEC_INPU_009 - Scan for Input Validation Tests vulnerabilities - Check #9 (OWASP-A10/CWE-109)
+- ✓ TC_SEC_INPU_010 - Scan for Input Validation Tests vulnerabilities - Check #10 (OWASP-A1/CWE-110)
+- ✓ TC_SEC_INPU_011 - Scan for Input Validation Tests vulnerabilities - Check #11 (OWASP-A2/CWE-111)
+- ✓ TC_SEC_INPU_012 - Scan for Input Validation Tests vulnerabilities - Check #12 (OWASP-A3/CWE-112)
+- ✓ TC_SEC_INPU_013 - Scan for Input Validation Tests vulnerabilities - Check #13 (OWASP-A4/CWE-113)
+- ✓ TC_SEC_INPU_014 - Scan for Input Validation Tests vulnerabilities - Check #14 (OWASP-A5/CWE-114)
+- ✓ TC_SEC_INPU_015 - Scan for Input Validation Tests vulnerabilities - Check #15 (OWASP-A6/CWE-115)
+- ✓ TC_SEC_INPU_016 - Scan for Input Validation Tests vulnerabilities - Check #16 (OWASP-A7/CWE-116)
+- ✓ TC_SEC_INPU_017 - Scan for Input Validation Tests vulnerabilities - Check #17 (OWASP-A8/CWE-117)
+- ✓ TC_SEC_INPU_018 - Scan for Input Validation Tests vulnerabilities - Check #18 (OWASP-A9/CWE-118)
+- ✓ TC_SEC_INPU_019 - Scan for Input Validation Tests vulnerabilities - Check #19 (OWASP-A10/CWE-119)
+- ✓ TC_SEC_INPU_020 - Scan for Input Validation Tests vulnerabilities - Check #20 (OWASP-A1/CWE-120)
+- ✓ TC_SEC_INPU_021 - Scan for Input Validation Tests vulnerabilities - Check #21 (OWASP-A2/CWE-121)
+- ✓ TC_SEC_INPU_022 - Scan for Input Validation Tests vulnerabilities - Check #22 (OWASP-A3/CWE-122)
+- ✓ TC_SEC_INPU_023 - Scan for Input Validation Tests vulnerabilities - Check #23 (OWASP-A4/CWE-123)
+- ✓ TC_SEC_INPU_024 - Scan for Input Validation Tests vulnerabilities - Check #24 (OWASP-A5/CWE-124)
+- ✓ TC_SEC_INPU_025 - Scan for Input Validation Tests vulnerabilities - Check #25 (OWASP-A6/CWE-125)
+- ✓ TC_SEC_INPU_026 - Scan for Input Validation Tests vulnerabilities - Check #26 (OWASP-A7/CWE-126)
+- ✓ TC_SEC_INPU_027 - Scan for Input Validation Tests vulnerabilities - Check #27 (OWASP-A8/CWE-127)
+- ✓ TC_SEC_INPU_028 - Scan for Input Validation Tests vulnerabilities - Check #28 (OWASP-A9/CWE-128)
+- ✓ TC_SEC_INPU_029 - Scan for Input Validation Tests vulnerabilities - Check #29 (OWASP-A10/CWE-129)
+- ✓ TC_SEC_INPU_030 - Scan for Input Validation Tests vulnerabilities - Check #30 (OWASP-A1/CWE-130)
+- ✓ TC_SEC_INPU_031 - Scan for Input Validation Tests vulnerabilities - Check #31 (OWASP-A2/CWE-131)
+- ✓ TC_SEC_INPU_032 - Scan for Input Validation Tests vulnerabilities - Check #32 (OWASP-A3/CWE-132)
+- ✓ TC_SEC_INPU_033 - Scan for Input Validation Tests vulnerabilities - Check #33 (OWASP-A4/CWE-133)
+- ✓ TC_SEC_INPU_034 - Scan for Input Validation Tests vulnerabilities - Check #34 (OWASP-A5/CWE-134)
+- ✓ TC_SEC_INPU_035 - Scan for Input Validation Tests vulnerabilities - Check #35 (OWASP-A6/CWE-135)
+- ✓ TC_SEC_INPU_036 - Scan for Input Validation Tests vulnerabilities - Check #36 (OWASP-A7/CWE-136)
+- ✓ TC_SEC_INPU_037 - Scan for Input Validation Tests vulnerabilities - Check #37 (OWASP-A8/CWE-137)
+- ✓ TC_SEC_INPU_038 - Scan for Input Validation Tests vulnerabilities - Check #38 (OWASP-A9/CWE-138)
+- ✓ TC_SEC_INPU_039 - Scan for Input Validation Tests vulnerabilities - Check #39 (OWASP-A10/CWE-139)
+- ✓ TC_SEC_INPU_040 - Scan for Input Validation Tests vulnerabilities - Check #40 (OWASP-A1/CWE-140)
+- ✓ TC_SEC_INPU_041 - Scan for Input Validation Tests vulnerabilities - Check #41 (OWASP-A2/CWE-141)
+- ✓ TC_SEC_INPU_042 - Scan for Input Validation Tests vulnerabilities - Check #42 (OWASP-A3/CWE-142)
+- ✓ TC_SEC_INPU_043 - Scan for Input Validation Tests vulnerabilities - Check #43 (OWASP-A4/CWE-143)
+- ✓ TC_SEC_INPU_044 - Scan for Input Validation Tests vulnerabilities - Check #44 (OWASP-A5/CWE-144)
+- ✓ TC_SEC_INPU_045 - Scan for Input Validation Tests vulnerabilities - Check #45 (OWASP-A6/CWE-145)
+- ✓ TC_SEC_INPU_046 - Scan for Input Validation Tests vulnerabilities - Check #46 (OWASP-A7/CWE-146)
+- ✓ TC_SEC_INPU_047 - Scan for Input Validation Tests vulnerabilities - Check #47 (OWASP-A8/CWE-147)
+- ✓ TC_SEC_INPU_048 - Scan for Input Validation Tests vulnerabilities - Check #48 (OWASP-A9/CWE-148)
+- ✓ TC_SEC_INPU_049 - Scan for Input Validation Tests vulnerabilities - Check #49 (OWASP-A10/CWE-149)
+- ✓ TC_SEC_INPU_050 - Scan for Input Validation Tests vulnerabilities - Check #50 (OWASP-A1/CWE-150)
+- ✓ TC_SEC_INJE_001 - Scan for Injection Tests vulnerabilities - Check #1 (OWASP-A2/CWE-101)
+- ✓ TC_SEC_INJE_002 - Scan for Injection Tests vulnerabilities - Check #2 (OWASP-A3/CWE-102)
+- ✓ TC_SEC_INJE_003 - Scan for Injection Tests vulnerabilities - Check #3 (OWASP-A4/CWE-103)
+- ✓ TC_SEC_INJE_004 - Scan for Injection Tests vulnerabilities - Check #4 (OWASP-A5/CWE-104)
+- ✓ TC_SEC_INJE_005 - Scan for Injection Tests vulnerabilities - Check #5 (OWASP-A6/CWE-105)
+- ✓ TC_SEC_INJE_006 - Scan for Injection Tests vulnerabilities - Check #6 (OWASP-A7/CWE-106)
+- ✓ TC_SEC_INJE_007 - Scan for Injection Tests vulnerabilities - Check #7 (OWASP-A8/CWE-107)
+- ✓ TC_SEC_INJE_008 - Scan for Injection Tests vulnerabilities - Check #8 (OWASP-A9/CWE-108)
+- ✓ TC_SEC_INJE_009 - Scan for Injection Tests vulnerabilities - Check #9 (OWASP-A10/CWE-109)
+- ✓ TC_SEC_INJE_010 - Scan for Injection Tests vulnerabilities - Check #10 (OWASP-A1/CWE-110)
+- ✓ TC_SEC_INJE_011 - Scan for Injection Tests vulnerabilities - Check #11 (OWASP-A2/CWE-111)
+- ✓ TC_SEC_INJE_012 - Scan for Injection Tests vulnerabilities - Check #12 (OWASP-A3/CWE-112)
+- ✓ TC_SEC_INJE_013 - Scan for Injection Tests vulnerabilities - Check #13 (OWASP-A4/CWE-113)
+- ✓ TC_SEC_INJE_014 - Scan for Injection Tests vulnerabilities - Check #14 (OWASP-A5/CWE-114)
+- ✓ TC_SEC_INJE_015 - Scan for Injection Tests vulnerabilities - Check #15 (OWASP-A6/CWE-115)
+- ✓ TC_SEC_INJE_016 - Scan for Injection Tests vulnerabilities - Check #16 (OWASP-A7/CWE-116)
+- ✓ TC_SEC_INJE_017 - Scan for Injection Tests vulnerabilities - Check #17 (OWASP-A8/CWE-117)
+- ✓ TC_SEC_INJE_018 - Scan for Injection Tests vulnerabilities - Check #18 (OWASP-A9/CWE-118)
+- ✓ TC_SEC_INJE_019 - Scan for Injection Tests vulnerabilities - Check #19 (OWASP-A10/CWE-119)
+- ✓ TC_SEC_INJE_020 - Scan for Injection Tests vulnerabilities - Check #20 (OWASP-A1/CWE-120)
+- ✓ TC_SEC_INJE_021 - Scan for Injection Tests vulnerabilities - Check #21 (OWASP-A2/CWE-121)
+- ✓ TC_SEC_INJE_022 - Scan for Injection Tests vulnerabilities - Check #22 (OWASP-A3/CWE-122)
+- ✓ TC_SEC_INJE_023 - Scan for Injection Tests vulnerabilities - Check #23 (OWASP-A4/CWE-123)
+- ✓ TC_SEC_INJE_024 - Scan for Injection Tests vulnerabilities - Check #24 (OWASP-A5/CWE-124)
+- ✓ TC_SEC_INJE_025 - Scan for Injection Tests vulnerabilities - Check #25 (OWASP-A6/CWE-125)
+- ✓ TC_SEC_INJE_026 - Scan for Injection Tests vulnerabilities - Check #26 (OWASP-A7/CWE-126)
+- ✓ TC_SEC_INJE_027 - Scan for Injection Tests vulnerabilities - Check #27 (OWASP-A8/CWE-127)
+- ✓ TC_SEC_INJE_028 - Scan for Injection Tests vulnerabilities - Check #28 (OWASP-A9/CWE-128)
+- ✓ TC_SEC_INJE_029 - Scan for Injection Tests vulnerabilities - Check #29 (OWASP-A10/CWE-129)
+- ✓ TC_SEC_INJE_030 - Scan for Injection Tests vulnerabilities - Check #30 (OWASP-A1/CWE-130)
+- ✓ TC_SEC_INJE_031 - Scan for Injection Tests vulnerabilities - Check #31 (OWASP-A2/CWE-131)
+- ✓ TC_SEC_INJE_032 - Scan for Injection Tests vulnerabilities - Check #32 (OWASP-A3/CWE-132)
+- ✓ TC_SEC_INJE_033 - Scan for Injection Tests vulnerabilities - Check #33 (OWASP-A4/CWE-133)
+- ✓ TC_SEC_INJE_034 - Scan for Injection Tests vulnerabilities - Check #34 (OWASP-A5/CWE-134)
+- ✓ TC_SEC_INJE_035 - Scan for Injection Tests vulnerabilities - Check #35 (OWASP-A6/CWE-135)
+- ✓ TC_SEC_INJE_036 - Scan for Injection Tests vulnerabilities - Check #36 (OWASP-A7/CWE-136)
+- ✓ TC_SEC_INJE_037 - Scan for Injection Tests vulnerabilities - Check #37 (OWASP-A8/CWE-137)
+- ✓ TC_SEC_INJE_038 - Scan for Injection Tests vulnerabilities - Check #38 (OWASP-A9/CWE-138)
+- ✓ TC_SEC_INJE_039 - Scan for Injection Tests vulnerabilities - Check #39 (OWASP-A10/CWE-139)
+- ✓ TC_SEC_INJE_040 - Scan for Injection Tests vulnerabilities - Check #40 (OWASP-A1/CWE-140)
+- ✓ TC_SEC_INJE_041 - Scan for Injection Tests vulnerabilities - Check #41 (OWASP-A2/CWE-141)
+- ✓ TC_SEC_INJE_042 - Scan for Injection Tests vulnerabilities - Check #42 (OWASP-A3/CWE-142)
+- ✓ TC_SEC_INJE_043 - Scan for Injection Tests vulnerabilities - Check #43 (OWASP-A4/CWE-143)
+- ✓ TC_SEC_INJE_044 - Scan for Injection Tests vulnerabilities - Check #44 (OWASP-A5/CWE-144)
+- ✓ TC_SEC_INJE_045 - Scan for Injection Tests vulnerabilities - Check #45 (OWASP-A6/CWE-145)
+- ✓ TC_SEC_INJE_046 - Scan for Injection Tests vulnerabilities - Check #46 (OWASP-A7/CWE-146)
+- ✓ TC_SEC_INJE_047 - Scan for Injection Tests vulnerabilities - Check #47 (OWASP-A8/CWE-147)
+- ✓ TC_SEC_INJE_048 - Scan for Injection Tests vulnerabilities - Check #48 (OWASP-A9/CWE-148)
+- ✓ TC_SEC_INJE_049 - Scan for Injection Tests vulnerabilities - Check #49 (OWASP-A10/CWE-149)
+- ✓ TC_SEC_INJE_050 - Scan for Injection Tests vulnerabilities - Check #50 (OWASP-A1/CWE-150)
+- ✓ TC_SEC_INJE_051 - Scan for Injection Tests vulnerabilities - Check #51 (OWASP-A2/CWE-151)
+- ✓ TC_SEC_INJE_052 - Scan for Injection Tests vulnerabilities - Check #52 (OWASP-A3/CWE-152)
+- ✓ TC_SEC_INJE_053 - Scan for Injection Tests vulnerabilities - Check #53 (OWASP-A4/CWE-153)
+- ✓ TC_SEC_INJE_054 - Scan for Injection Tests vulnerabilities - Check #54 (OWASP-A5/CWE-154)
+- ✓ TC_SEC_INJE_055 - Scan for Injection Tests vulnerabilities - Check #55 (OWASP-A6/CWE-155)
+- ✓ TC_SEC_INJE_056 - Scan for Injection Tests vulnerabilities - Check #56 (OWASP-A7/CWE-156)
+- ✓ TC_SEC_INJE_057 - Scan for Injection Tests vulnerabilities - Check #57 (OWASP-A8/CWE-157)
+- ✓ TC_SEC_INJE_058 - Scan for Injection Tests vulnerabilities - Check #58 (OWASP-A9/CWE-158)
+- ✓ TC_SEC_INJE_059 - Scan for Injection Tests vulnerabilities - Check #59 (OWASP-A10/CWE-159)
+- ✓ TC_SEC_INJE_060 - Scan for Injection Tests vulnerabilities - Check #60 (OWASP-A1/CWE-160)
+- ✓ TC_SEC_INJE_061 - Scan for Injection Tests vulnerabilities - Check #61 (OWASP-A2/CWE-161)
+- ✓ TC_SEC_INJE_062 - Scan for Injection Tests vulnerabilities - Check #62 (OWASP-A3/CWE-162)
+- ✓ TC_SEC_INJE_063 - Scan for Injection Tests vulnerabilities - Check #63 (OWASP-A4/CWE-163)
+- ✓ TC_SEC_INJE_064 - Scan for Injection Tests vulnerabilities - Check #64 (OWASP-A5/CWE-164)
+- ✓ TC_SEC_INJE_065 - Scan for Injection Tests vulnerabilities - Check #65 (OWASP-A6/CWE-165)
+- ✓ TC_SEC_INJE_066 - Scan for Injection Tests vulnerabilities - Check #66 (OWASP-A7/CWE-166)
+- ✓ TC_SEC_INJE_067 - Scan for Injection Tests vulnerabilities - Check #67 (OWASP-A8/CWE-167)
+- ✓ TC_SEC_INJE_068 - Scan for Injection Tests vulnerabilities - Check #68 (OWASP-A9/CWE-168)
+- ✓ TC_SEC_INJE_069 - Scan for Injection Tests vulnerabilities - Check #69 (OWASP-A10/CWE-169)
+- ✓ TC_SEC_INJE_070 - Scan for Injection Tests vulnerabilities - Check #70 (OWASP-A1/CWE-170)
+- ✓ TC_SEC_INJE_071 - Scan for Injection Tests vulnerabilities - Check #71 (OWASP-A2/CWE-171)
+- ✓ TC_SEC_INJE_072 - Scan for Injection Tests vulnerabilities - Check #72 (OWASP-A3/CWE-172)
+- ✓ TC_SEC_INJE_073 - Scan for Injection Tests vulnerabilities - Check #73 (OWASP-A4/CWE-173)
+- ✓ TC_SEC_INJE_074 - Scan for Injection Tests vulnerabilities - Check #74 (OWASP-A5/CWE-174)
+- ✓ TC_SEC_INJE_075 - Scan for Injection Tests vulnerabilities - Check #75 (OWASP-A6/CWE-175)
+- ✓ TC_SEC_INJE_076 - Scan for Injection Tests vulnerabilities - Check #76 (OWASP-A7/CWE-176)
+- ✓ TC_SEC_INJE_077 - Scan for Injection Tests vulnerabilities - Check #77 (OWASP-A8/CWE-177)
+- ✓ TC_SEC_INJE_078 - Scan for Injection Tests vulnerabilities - Check #78 (OWASP-A9/CWE-178)
+- ✓ TC_SEC_INJE_079 - Scan for Injection Tests vulnerabilities - Check #79 (OWASP-A10/CWE-179)
+- ✓ TC_SEC_INJE_080 - Scan for Injection Tests vulnerabilities - Check #80 (OWASP-A1/CWE-100)
+- ✓ TC_SEC_INJE_081 - Scan for Injection Tests vulnerabilities - Check #81 (OWASP-A2/CWE-101)
+- ✓ TC_SEC_INJE_082 - Scan for Injection Tests vulnerabilities - Check #82 (OWASP-A3/CWE-102)
+- ✓ TC_SEC_INJE_083 - Scan for Injection Tests vulnerabilities - Check #83 (OWASP-A4/CWE-103)
+- ✓ TC_SEC_INJE_084 - Scan for Injection Tests vulnerabilities - Check #84 (OWASP-A5/CWE-104)
+- ✓ TC_SEC_INJE_085 - Scan for Injection Tests vulnerabilities - Check #85 (OWASP-A6/CWE-105)
+- ✓ TC_SEC_INJE_086 - Scan for Injection Tests vulnerabilities - Check #86 (OWASP-A7/CWE-106)
+- ✓ TC_SEC_INJE_087 - Scan for Injection Tests vulnerabilities - Check #87 (OWASP-A8/CWE-107)
+- ✓ TC_SEC_INJE_088 - Scan for Injection Tests vulnerabilities - Check #88 (OWASP-A9/CWE-108)
+- ✓ TC_SEC_INJE_089 - Scan for Injection Tests vulnerabilities - Check #89 (OWASP-A10/CWE-109)
+- ✓ TC_SEC_INJE_090 - Scan for Injection Tests vulnerabilities - Check #90 (OWASP-A1/CWE-110)
+- ✓ TC_SEC_INJE_091 - Scan for Injection Tests vulnerabilities - Check #91 (OWASP-A2/CWE-111)
+- ✓ TC_SEC_INJE_092 - Scan for Injection Tests vulnerabilities - Check #92 (OWASP-A3/CWE-112)
+- ✓ TC_SEC_INJE_093 - Scan for Injection Tests vulnerabilities - Check #93 (OWASP-A4/CWE-113)
+- ✓ TC_SEC_INJE_094 - Scan for Injection Tests vulnerabilities - Check #94 (OWASP-A5/CWE-114)
+- ✓ TC_SEC_INJE_095 - Scan for Injection Tests vulnerabilities - Check #95 (OWASP-A6/CWE-115)
+- ✓ TC_SEC_INJE_096 - Scan for Injection Tests vulnerabilities - Check #96 (OWASP-A7/CWE-116)
+- ✓ TC_SEC_INJE_097 - Scan for Injection Tests vulnerabilities - Check #97 (OWASP-A8/CWE-117)
+- ✓ TC_SEC_INJE_098 - Scan for Injection Tests vulnerabilities - Check #98 (OWASP-A9/CWE-118)
+- ✓ TC_SEC_INJE_099 - Scan for Injection Tests vulnerabilities - Check #99 (OWASP-A10/CWE-119)
+- ✓ TC_SEC_INJE_100 - Scan for Injection Tests vulnerabilities - Check #100 (OWASP-A1/CWE-120)
+- ✓ TC_SEC_BUSI_001 - Scan for Business Logic Tests vulnerabilities - Check #1 (OWASP-A2/CWE-101)
+- ✓ TC_SEC_BUSI_002 - Scan for Business Logic Tests vulnerabilities - Check #2 (OWASP-A3/CWE-102)
+- ✓ TC_SEC_BUSI_003 - Scan for Business Logic Tests vulnerabilities - Check #3 (OWASP-A4/CWE-103)
+- ✓ TC_SEC_BUSI_004 - Scan for Business Logic Tests vulnerabilities - Check #4 (OWASP-A5/CWE-104)
+- ✓ TC_SEC_BUSI_005 - Scan for Business Logic Tests vulnerabilities - Check #5 (OWASP-A6/CWE-105)
+- ✓ TC_SEC_BUSI_006 - Scan for Business Logic Tests vulnerabilities - Check #6 (OWASP-A7/CWE-106)
+- ✓ TC_SEC_BUSI_007 - Scan for Business Logic Tests vulnerabilities - Check #7 (OWASP-A8/CWE-107)
+- ✓ TC_SEC_BUSI_008 - Scan for Business Logic Tests vulnerabilities - Check #8 (OWASP-A9/CWE-108)
+- ✓ TC_SEC_BUSI_009 - Scan for Business Logic Tests vulnerabilities - Check #9 (OWASP-A10/CWE-109)
+- ✓ TC_SEC_BUSI_010 - Scan for Business Logic Tests vulnerabilities - Check #10 (OWASP-A1/CWE-110)
+- ✓ TC_SEC_BUSI_011 - Scan for Business Logic Tests vulnerabilities - Check #11 (OWASP-A2/CWE-111)
+- ✓ TC_SEC_BUSI_012 - Scan for Business Logic Tests vulnerabilities - Check #12 (OWASP-A3/CWE-112)
+- ✓ TC_SEC_BUSI_013 - Scan for Business Logic Tests vulnerabilities - Check #13 (OWASP-A4/CWE-113)
+- ✓ TC_SEC_BUSI_014 - Scan for Business Logic Tests vulnerabilities - Check #14 (OWASP-A5/CWE-114)
+- ✓ TC_SEC_BUSI_015 - Scan for Business Logic Tests vulnerabilities - Check #15 (OWASP-A6/CWE-115)
+- ✓ TC_SEC_BUSI_016 - Scan for Business Logic Tests vulnerabilities - Check #16 (OWASP-A7/CWE-116)
+- ✓ TC_SEC_BUSI_017 - Scan for Business Logic Tests vulnerabilities - Check #17 (OWASP-A8/CWE-117)
+- ✓ TC_SEC_BUSI_018 - Scan for Business Logic Tests vulnerabilities - Check #18 (OWASP-A9/CWE-118)
+- ✓ TC_SEC_BUSI_019 - Scan for Business Logic Tests vulnerabilities - Check #19 (OWASP-A10/CWE-119)
+- ✓ TC_SEC_BUSI_020 - Scan for Business Logic Tests vulnerabilities - Check #20 (OWASP-A1/CWE-120)
+- ✓ TC_SEC_BUSI_021 - Scan for Business Logic Tests vulnerabilities - Check #21 (OWASP-A2/CWE-121)
+- ✓ TC_SEC_BUSI_022 - Scan for Business Logic Tests vulnerabilities - Check #22 (OWASP-A3/CWE-122)
+- ✓ TC_SEC_BUSI_023 - Scan for Business Logic Tests vulnerabilities - Check #23 (OWASP-A4/CWE-123)
+- ✓ TC_SEC_BUSI_024 - Scan for Business Logic Tests vulnerabilities - Check #24 (OWASP-A5/CWE-124)
+- ✓ TC_SEC_BUSI_025 - Scan for Business Logic Tests vulnerabilities - Check #25 (OWASP-A6/CWE-125)
+- ✓ TC_SEC_BUSI_026 - Scan for Business Logic Tests vulnerabilities - Check #26 (OWASP-A7/CWE-126)
+- ✓ TC_SEC_BUSI_027 - Scan for Business Logic Tests vulnerabilities - Check #27 (OWASP-A8/CWE-127)
+- ✓ TC_SEC_BUSI_028 - Scan for Business Logic Tests vulnerabilities - Check #28 (OWASP-A9/CWE-128)
+- ✓ TC_SEC_BUSI_029 - Scan for Business Logic Tests vulnerabilities - Check #29 (OWASP-A10/CWE-129)
+- ✓ TC_SEC_BUSI_030 - Scan for Business Logic Tests vulnerabilities - Check #30 (OWASP-A1/CWE-130)
+- ✓ TC_SEC_BUSI_031 - Scan for Business Logic Tests vulnerabilities - Check #31 (OWASP-A2/CWE-131)
+- ✓ TC_SEC_BUSI_032 - Scan for Business Logic Tests vulnerabilities - Check #32 (OWASP-A3/CWE-132)
+- ✓ TC_SEC_BUSI_033 - Scan for Business Logic Tests vulnerabilities - Check #33 (OWASP-A4/CWE-133)
+- ✓ TC_SEC_BUSI_034 - Scan for Business Logic Tests vulnerabilities - Check #34 (OWASP-A5/CWE-134)
+- ✓ TC_SEC_BUSI_035 - Scan for Business Logic Tests vulnerabilities - Check #35 (OWASP-A6/CWE-135)
+- ✓ TC_SEC_BUSI_036 - Scan for Business Logic Tests vulnerabilities - Check #36 (OWASP-A7/CWE-136)
+- ✓ TC_SEC_BUSI_037 - Scan for Business Logic Tests vulnerabilities - Check #37 (OWASP-A8/CWE-137)
+- ✓ TC_SEC_BUSI_038 - Scan for Business Logic Tests vulnerabilities - Check #38 (OWASP-A9/CWE-138)
+- ✓ TC_SEC_BUSI_039 - Scan for Business Logic Tests vulnerabilities - Check #39 (OWASP-A10/CWE-139)
+- ✓ TC_SEC_BUSI_040 - Scan for Business Logic Tests vulnerabilities - Check #40 (OWASP-A1/CWE-140)
+- ✓ TC_SEC_CONF_002 - Scan for Configuration Tests vulnerabilities - Check #2 (OWASP-A3/CWE-102)
+- ✓ TC_SEC_CONF_003 - Scan for Configuration Tests vulnerabilities - Check #3 (OWASP-A4/CWE-103)
+- ✓ TC_SEC_CONF_004 - Scan for Configuration Tests vulnerabilities - Check #4 (OWASP-A5/CWE-104)
+- ✓ TC_SEC_CONF_005 - Scan for Configuration Tests vulnerabilities - Check #5 (OWASP-A6/CWE-105)
+- ✓ TC_SEC_CONF_006 - Scan for Configuration Tests vulnerabilities - Check #6 (OWASP-A7/CWE-106)
+- ✓ TC_SEC_CONF_007 - Scan for Configuration Tests vulnerabilities - Check #7 (OWASP-A8/CWE-107)
+- ✓ TC_SEC_CONF_008 - Scan for Configuration Tests vulnerabilities - Check #8 (OWASP-A9/CWE-108)
+- ✓ TC_SEC_CONF_009 - Scan for Configuration Tests vulnerabilities - Check #9 (OWASP-A10/CWE-109)
+- ✓ TC_SEC_CONF_010 - Scan for Configuration Tests vulnerabilities - Check #10 (OWASP-A1/CWE-110)
+- ✓ TC_SEC_CONF_011 - Scan for Configuration Tests vulnerabilities - Check #11 (OWASP-A2/CWE-111)
+- ✓ TC_SEC_CONF_012 - Scan for Configuration Tests vulnerabilities - Check #12 (OWASP-A3/CWE-112)
+- ✓ TC_SEC_CONF_013 - Scan for Configuration Tests vulnerabilities - Check #13 (OWASP-A4/CWE-113)
+- ✓ TC_SEC_CONF_014 - Scan for Configuration Tests vulnerabilities - Check #14 (OWASP-A5/CWE-114)
+- ✓ TC_SEC_CONF_015 - Scan for Configuration Tests vulnerabilities - Check #15 (OWASP-A6/CWE-115)
+- ✓ TC_SEC_CONF_016 - Scan for Configuration Tests vulnerabilities - Check #16 (OWASP-A7/CWE-116)
+- ✓ TC_SEC_CONF_017 - Scan for Configuration Tests vulnerabilities - Check #17 (OWASP-A8/CWE-117)
+- ✓ TC_SEC_CONF_018 - Scan for Configuration Tests vulnerabilities - Check #18 (OWASP-A9/CWE-118)
+- ✓ TC_SEC_CONF_019 - Scan for Configuration Tests vulnerabilities - Check #19 (OWASP-A10/CWE-119)
+- ✓ TC_SEC_CONF_020 - Scan for Configuration Tests vulnerabilities - Check #20 (OWASP-A1/CWE-120)
+- ✓ TC_SEC_CONF_021 - Scan for Configuration Tests vulnerabilities - Check #21 (OWASP-A2/CWE-121)
+- ✓ TC_SEC_CONF_022 - Scan for Configuration Tests vulnerabilities - Check #22 (OWASP-A3/CWE-122)
+- ✓ TC_SEC_CONF_023 - Scan for Configuration Tests vulnerabilities - Check #23 (OWASP-A4/CWE-123)
+- ✓ TC_SEC_CONF_024 - Scan for Configuration Tests vulnerabilities - Check #24 (OWASP-A5/CWE-124)
+- ✓ TC_SEC_CONF_025 - Scan for Configuration Tests vulnerabilities - Check #25 (OWASP-A6/CWE-125)
+- ✓ TC_SEC_CONF_026 - Scan for Configuration Tests vulnerabilities - Check #26 (OWASP-A7/CWE-126)
+- ✓ TC_SEC_CONF_027 - Scan for Configuration Tests vulnerabilities - Check #27 (OWASP-A8/CWE-127)
+- ✓ TC_SEC_CONF_028 - Scan for Configuration Tests vulnerabilities - Check #28 (OWASP-A9/CWE-128)
+- ✓ TC_SEC_CONF_029 - Scan for Configuration Tests vulnerabilities - Check #29 (OWASP-A10/CWE-129)
+- ✓ TC_SEC_CONF_030 - Scan for Configuration Tests vulnerabilities - Check #30 (OWASP-A1/CWE-130)
+- ✓ TC_SEC_CONF_031 - Scan for Configuration Tests vulnerabilities - Check #31 (OWASP-A2/CWE-131)
+- ✓ TC_SEC_CONF_032 - Scan for Configuration Tests vulnerabilities - Check #32 (OWASP-A3/CWE-132)
+- ✓ TC_SEC_CONF_033 - Scan for Configuration Tests vulnerabilities - Check #33 (OWASP-A4/CWE-133)
+- ✓ TC_SEC_CONF_034 - Scan for Configuration Tests vulnerabilities - Check #34 (OWASP-A5/CWE-134)
+- ✓ TC_SEC_CONF_035 - Scan for Configuration Tests vulnerabilities - Check #35 (OWASP-A6/CWE-135)
+- ✓ TC_SEC_CONF_036 - Scan for Configuration Tests vulnerabilities - Check #36 (OWASP-A7/CWE-136)
+- ✓ TC_SEC_CONF_037 - Scan for Configuration Tests vulnerabilities - Check #37 (OWASP-A8/CWE-137)
+- ✓ TC_SEC_CONF_038 - Scan for Configuration Tests vulnerabilities - Check #38 (OWASP-A9/CWE-138)
+- ✓ TC_SEC_CONF_039 - Scan for Configuration Tests vulnerabilities - Check #39 (OWASP-A10/CWE-139)
+- ✓ TC_SEC_CONF_040 - Scan for Configuration Tests vulnerabilities - Check #40 (OWASP-A1/CWE-140)
+- ✓ TC_SEC_CRYP_001 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #1 (OWASP-A2/CWE-101)
+- ✓ TC_SEC_CRYP_002 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #2 (OWASP-A3/CWE-102)
+- ✓ TC_SEC_CRYP_003 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #3 (OWASP-A4/CWE-103)
+- ✓ TC_SEC_CRYP_004 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #4 (OWASP-A5/CWE-104)
+- ✓ TC_SEC_CRYP_005 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #5 (OWASP-A6/CWE-105)
+- ✓ TC_SEC_CRYP_006 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #6 (OWASP-A7/CWE-106)
+- ✓ TC_SEC_CRYP_007 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #7 (OWASP-A8/CWE-107)
+- ✓ TC_SEC_CRYP_008 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #8 (OWASP-A9/CWE-108)
+- ✓ TC_SEC_CRYP_009 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #9 (OWASP-A10/CWE-109)
+- ✓ TC_SEC_CRYP_010 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #10 (OWASP-A1/CWE-110)
+- ✓ TC_SEC_CRYP_011 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #11 (OWASP-A2/CWE-111)
+- ✓ TC_SEC_CRYP_012 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #12 (OWASP-A3/CWE-112)
+- ✓ TC_SEC_CRYP_013 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #13 (OWASP-A4/CWE-113)
+- ✓ TC_SEC_CRYP_014 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #14 (OWASP-A5/CWE-114)
+- ✓ TC_SEC_CRYP_015 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #15 (OWASP-A6/CWE-115)
+- ✓ TC_SEC_CRYP_016 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #16 (OWASP-A7/CWE-116)
+- ✓ TC_SEC_CRYP_017 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #17 (OWASP-A8/CWE-117)
+- ✓ TC_SEC_CRYP_018 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #18 (OWASP-A9/CWE-118)
+- ✓ TC_SEC_CRYP_019 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #19 (OWASP-A10/CWE-119)
+- ✓ TC_SEC_CRYP_020 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #20 (OWASP-A1/CWE-120)
+- ✓ TC_SEC_CRYP_021 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #21 (OWASP-A2/CWE-121)
+- ✓ TC_SEC_CRYP_022 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #22 (OWASP-A3/CWE-122)
+- ✓ TC_SEC_CRYP_023 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #23 (OWASP-A4/CWE-123)
+- ✓ TC_SEC_CRYP_024 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #24 (OWASP-A5/CWE-124)
+- ✓ TC_SEC_CRYP_025 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #25 (OWASP-A6/CWE-125)
+- ✓ TC_SEC_CRYP_026 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #26 (OWASP-A7/CWE-126)
+- ✓ TC_SEC_CRYP_027 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #27 (OWASP-A8/CWE-127)
+- ✓ TC_SEC_CRYP_028 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #28 (OWASP-A9/CWE-128)
+- ✓ TC_SEC_CRYP_029 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #29 (OWASP-A10/CWE-129)
+- ✓ TC_SEC_CRYP_030 - Scan for Cryptography & Cryptographic Failures vulnerabilities - Check #30 (OWASP-A1/CWE-130)
+- ✓ TC_API_FUN_001 - Verify API endpoint logic for test #1
+- ✓ TC_API_FUN_002 - Verify API endpoint logic for test #2
+- ✓ TC_API_FUN_003 - Verify API endpoint logic for test #3
+- ✓ TC_API_FUN_004 - Verify API endpoint logic for test #4
+- ✓ TC_API_FUN_005 - Verify API endpoint logic for test #5
+- ✓ TC_API_FUN_006 - Verify API endpoint logic for test #6
+- ✓ TC_API_FUN_007 - Verify API endpoint logic for test #7
+- ✓ TC_API_FUN_008 - Verify API endpoint logic for test #8
+- ✓ TC_API_FUN_009 - Verify API endpoint logic for test #9
+- ✓ TC_API_FUN_010 - Verify API endpoint logic for test #10
+- ✓ TC_API_FUN_011 - Verify API endpoint logic for test #11
+- ✓ TC_API_FUN_012 - Verify API endpoint logic for test #12
+- ✓ TC_API_FUN_013 - Verify API endpoint logic for test #13
+- ✓ TC_API_FUN_014 - Verify API endpoint logic for test #14
+- ✓ TC_API_FUN_015 - Verify API endpoint logic for test #15
+- ✓ TC_API_FUN_016 - Verify API endpoint logic for test #16
+- ✓ TC_API_FUN_017 - Verify API endpoint logic for test #17
+- ✓ TC_API_FUN_018 - Verify API endpoint logic for test #18
+- ✓ TC_API_FUN_019 - Verify API endpoint logic for test #19
+- ✓ TC_API_FUN_020 - Verify API endpoint logic for test #20
+- ✓ TC_API_FUN_021 - Verify API endpoint logic for test #21
+- ✓ TC_API_FUN_022 - Verify API endpoint logic for test #22
+- ✓ TC_API_FUN_023 - Verify API endpoint logic for test #23
+- ✓ TC_API_FUN_024 - Verify API endpoint logic for test #24
+- ✓ TC_API_FUN_025 - Verify API endpoint logic for test #25
+- ✓ TC_API_FUN_026 - Verify API endpoint logic for test #26
+- ✓ TC_API_FUN_027 - Verify API endpoint logic for test #27
+- ✓ TC_API_FUN_028 - Verify API endpoint logic for test #28
+- ✓ TC_API_FUN_029 - Verify API endpoint logic for test #29
+- ✓ TC_API_FUN_030 - Verify API endpoint logic for test #30
+- ✓ TC_API_FUN_031 - Verify API endpoint logic for test #31
+- ✓ TC_API_FUN_032 - Verify API endpoint logic for test #32
+- ✓ TC_API_FUN_033 - Verify API endpoint logic for test #33
+- ✓ TC_API_FUN_034 - Verify API endpoint logic for test #34
+- ✓ TC_API_FUN_035 - Verify API endpoint logic for test #35
+- ✓ TC_API_FUN_036 - Verify API endpoint logic for test #36
+- ✓ TC_API_FUN_037 - Verify API endpoint logic for test #37
+- ✓ TC_API_FUN_038 - Verify API endpoint logic for test #38
+- ✓ TC_API_FUN_039 - Verify API endpoint logic for test #39
+- ✓ TC_API_FUN_040 - Verify API endpoint logic for test #40
+- ✓ TC_API_FUN_041 - Verify API endpoint logic for test #41
+- ✓ TC_API_FUN_042 - Verify API endpoint logic for test #42
+- ✓ TC_API_FUN_043 - Verify API endpoint logic for test #43
+- ✓ TC_API_FUN_044 - Verify API endpoint logic for test #44
+- ✓ TC_API_FUN_045 - Verify API endpoint logic for test #45
+- ✓ TC_API_FUN_046 - Verify API endpoint logic for test #46
+- ✓ TC_API_FUN_047 - Verify API endpoint logic for test #47
+- ✓ TC_API_FUN_048 - Verify API endpoint logic for test #48
+- ✓ TC_API_FUN_049 - Verify API endpoint logic for test #49
+- ✓ TC_API_FUN_050 - Verify API endpoint logic for test #50
+- ✓ TC_API_FUN_051 - Verify API endpoint logic for test #51
+- ✓ TC_API_FUN_052 - Verify API endpoint logic for test #52
+- ✓ TC_API_FUN_053 - Verify API endpoint logic for test #53
+- ✓ TC_API_FUN_054 - Verify API endpoint logic for test #54
+- ✓ TC_API_FUN_055 - Verify API endpoint logic for test #55
+- ✓ TC_API_FUN_056 - Verify API endpoint logic for test #56
+- ✓ TC_API_FUN_057 - Verify API endpoint logic for test #57
+- ✓ TC_API_FUN_058 - Verify API endpoint logic for test #58
+- ✓ TC_API_FUN_059 - Verify API endpoint logic for test #59
+- ✓ TC_API_FUN_060 - Verify API endpoint logic for test #60
+- ✓ TC_API_FUN_061 - Verify API endpoint logic for test #61
+- ✓ TC_API_FUN_062 - Verify API endpoint logic for test #62
+- ✓ TC_API_FUN_063 - Verify API endpoint logic for test #63
+- ✓ TC_API_FUN_064 - Verify API endpoint logic for test #64
+- ✓ TC_API_FUN_065 - Verify API endpoint logic for test #65
+- ✓ TC_API_FUN_066 - Verify API endpoint logic for test #66
+- ✓ TC_API_FUN_067 - Verify API endpoint logic for test #67
+- ✓ TC_API_FUN_068 - Verify API endpoint logic for test #68
+- ✓ TC_API_FUN_069 - Verify API endpoint logic for test #69
+- ✓ TC_API_FUN_070 - Verify API endpoint logic for test #70
+- ✓ TC_API_FUN_071 - Verify API endpoint logic for test #71
+- ✓ TC_API_FUN_072 - Verify API endpoint logic for test #72
+- ✓ TC_API_FUN_073 - Verify API endpoint logic for test #73
+- ✓ TC_API_FUN_074 - Verify API endpoint logic for test #74
+- ✓ TC_API_FUN_075 - Verify API endpoint logic for test #75
+- ✓ TC_API_FUN_076 - Verify API endpoint logic for test #76
+- ✓ TC_API_FUN_077 - Verify API endpoint logic for test #77
+- ✓ TC_API_FUN_078 - Verify API endpoint logic for test #78
+- ✓ TC_API_FUN_079 - Verify API endpoint logic for test #79
+- ✓ TC_API_FUN_080 - Verify API endpoint logic for test #80
+- ✓ TC_API_FUN_081 - Verify API endpoint logic for test #81
+- ✓ TC_API_FUN_082 - Verify API endpoint logic for test #82
+- ✓ TC_API_FUN_083 - Verify API endpoint logic for test #83
+- ✓ TC_API_FUN_084 - Verify API endpoint logic for test #84
+- ✓ TC_API_FUN_085 - Verify API endpoint logic for test #85
+- ✓ TC_API_FUN_086 - Verify API endpoint logic for test #86
+- ✓ TC_API_FUN_087 - Verify API endpoint logic for test #87
+- ✓ TC_API_FUN_088 - Verify API endpoint logic for test #88
+- ✓ TC_API_FUN_089 - Verify API endpoint logic for test #89
+- ✓ TC_API_FUN_090 - Verify API endpoint logic for test #90
+- ✓ TC_API_FUN_091 - Verify API endpoint logic for test #91
+- ✓ TC_API_FUN_092 - Verify API endpoint logic for test #92
+- ✓ TC_API_FUN_093 - Verify API endpoint logic for test #93
+- ✓ TC_API_FUN_094 - Verify API endpoint logic for test #94
+- ✓ TC_API_FUN_095 - Verify API endpoint logic for test #95
+- ✓ TC_API_FUN_096 - Verify API endpoint logic for test #96
+- ✓ TC_API_FUN_097 - Verify API endpoint logic for test #97
+- ✓ TC_API_FUN_098 - Verify API endpoint logic for test #98
+- ✓ TC_API_FUN_099 - Verify API endpoint logic for test #99
+- ✓ TC_API_FUN_100 - Verify API endpoint logic for test #100
+
+### FAILED TESTS
+- ✗ TC_MOB_AUTH_010 - Validate Authentication action item #10 on Android client (Reason: OTP verification mismatch or debug config active)
+- ✗ TC_MOB_AUTH_010 - Validate Authorization action item #10 on Android client (Reason: OTP verification mismatch or debug config active)
+- ✗ TC_MOB_FORM_008 - Validate Forms action item #8 on Android client (Reason: OTP verification mismatch or debug config active)
+- ✗ TC_MOB_FILE_002 - Validate File Upload action item #2 on Android client (Reason: OTP verification mismatch or debug config active)
+- ✗ TC_WEB_AUTH_001 - Verify Authentication behavior #1 on Web browser portal (Reason: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff657e70d25+155a5]
+	chromedriver!GetHandleVerifier [0x7ff657e70d80+15600]
+	chromedriver!(No symbol) [0x7ff6579c594d]
+	chromedriver!(No symbol) [0x7ff657a208e9]
+	chromedriver!(No symbol) [0x7ff657a20bec]
+	chromedriver!(No symbol) [0x7ff657a71437]
+	chromedriver!(No symbol) [0x7ff657a6e01b]
+	chromedriver!(No symbol) [0x7ff657a12e6c]
+	chromedriver!(No symbol) [0x7ff657a13d93]
+	chromedriver!GetHandleVerifier [0x7ff658456431+5facb1]
+	chromedriver!GetHandleVerifier [0x7ff658450a9b+5f531b]
+	chromedriver!GetHandleVerifier [0x7ff658475865+61a0e5]
+	chromedriver!GetHandleVerifier [0x7ff657e8dace+3234e]
+	chromedriver!GetHandleVerifier [0x7ff657e9661c+3ae9c]
+	chromedriver!GetHandleVerifier [0x7ff657e7ab74+1f3f4]
+	chromedriver!GetHandleVerifier [0x7ff657e7ad04+1f584]
+	chromedriver!GetHandleVerifier [0x7ff657e5d9d7+2257]
+	KERNEL32!BaseThreadInitThunk [0x7ff9efd0e957+17]
+	ntdll!RtlUserThreadStart [0x7ff9f1c6ad6c+2c]
+)
+- ✗ TC_WEB_AUTH_001 - Verify Authorization behavior #1 on Web browser portal (Reason: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff657e70d25+155a5]
+	chromedriver!GetHandleVerifier [0x7ff657e70d80+15600]
+	chromedriver!(No symbol) [0x7ff6579c594d]
+	chromedriver!(No symbol) [0x7ff657a208e9]
+	chromedriver!(No symbol) [0x7ff657a20bec]
+	chromedriver!(No symbol) [0x7ff657a71437]
+	chromedriver!(No symbol) [0x7ff657a6e01b]
+	chromedriver!(No symbol) [0x7ff657a12e6c]
+	chromedriver!(No symbol) [0x7ff657a13d93]
+	chromedriver!GetHandleVerifier [0x7ff658456431+5facb1]
+	chromedriver!GetHandleVerifier [0x7ff658450a9b+5f531b]
+	chromedriver!GetHandleVerifier [0x7ff658475865+61a0e5]
+	chromedriver!GetHandleVerifier [0x7ff657e8dace+3234e]
+	chromedriver!GetHandleVerifier [0x7ff657e9661c+3ae9c]
+	chromedriver!GetHandleVerifier [0x7ff657e7ab74+1f3f4]
+	chromedriver!GetHandleVerifier [0x7ff657e7ad04+1f584]
+	chromedriver!GetHandleVerifier [0x7ff657e5d9d7+2257]
+	KERNEL32!BaseThreadInitThunk [0x7ff9efd0e957+17]
+	ntdll!RtlUserThreadStart [0x7ff9f1c6ad6c+2c]
+)
+- ✗ TC_WEB_FORM_012 - Verify Forms behavior #12 on Web browser portal (Reason: OTP verification mismatch or debug config active)
+- ✗ TC_WEB_INPU_005 - Verify Input Validation behavior #5 on Web browser portal (Reason: OTP verification mismatch or debug config active)
+- ✗ TC_SEC_CONF_001 - Scan for Configuration Tests vulnerabilities - Check #1 (OWASP-A2/CWE-101) (Reason: OTP verification mismatch or debug config active)
+
+### SKIPPED TESTS
+- - TC_MOB_NOTI_004 - Validate Notifications action item #4 on Android client (Reason: Feature Disabled)

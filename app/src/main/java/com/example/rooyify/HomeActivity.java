@@ -20,6 +20,22 @@ public class HomeActivity extends AppCompatActivity {
             tvUserName.setText(sessionManager.getUserName());
         }
 
+        // Streak & Compliance Dashboard
+        android.widget.ProgressBar pbCompliance = findViewById(R.id.pb_compliance);
+        TextView tvCompliancePct = findViewById(R.id.tv_compliance_pct);
+        TextView tvStreakCount = findViewById(R.id.tv_streak_count);
+        TextView tvDaysLogged = findViewById(R.id.tv_days_logged);
+
+        kotlin.Triple<Integer, Integer, Integer> stats = sessionManager.checkAndUpdateStreak();
+        int streak = stats.getFirst();
+        int loggedCount = stats.getSecond();
+        int compliance = stats.getThird();
+
+        if (pbCompliance != null) pbCompliance.setProgress(compliance);
+        if (tvCompliancePct != null) tvCompliancePct.setText(compliance + "%");
+        if (tvStreakCount != null) tvStreakCount.setText(String.valueOf(streak));
+        if (tvDaysLogged != null) tvDaysLogged.setText(loggedCount + "/7");
+
         // Feature Navigation
         findViewById(R.id.card_quiz).setOnClickListener(v -> startActivity(new Intent(this, QuizActivity.class)));
         findViewById(R.id.card_reports).setOnClickListener(v -> startActivity(new Intent(this, ReportsListActivity.class)));

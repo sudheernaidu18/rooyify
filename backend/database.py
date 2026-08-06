@@ -407,5 +407,43 @@ def delete_routine(routine_id):
     conn.close()
     return True
 
+def update_user_profile(user_id, name, phone, place, dob):
+    conn = get_db_connection()
+    cursor = get_cursor(conn)
+    try:
+        db_execute(cursor, '''
+            UPDATE users 
+            SET name = ?, phone = ?, place = ?, dob = ?
+            WHERE id = ?
+        ''', (name, phone, place, dob, user_id))
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error updating user profile: {e}")
+        return False
+    finally:
+        conn.close()
+
+def delete_user_account(user_id, password):
+    conn = get_db_connection()
+    cursor = get_cursor(conn)
+    try:
+        db_execute(cursor, 'SELECT password FROM users WHERE id = ?', (user_id,))
+        row = cursor.fetchone()
+        if not row:
+            return False, "User not found"
+        
+        if not check_password_hash(row['password'], password):
+            return False, "Incorrect password"
+        
+        db_execute(cursor, 'DELETE FROM users WHERE id = ?', (user_id,))
+        conn.commit()
+        return True, "Account deleted successfully"
+    except Exception as e:
+        print(f"Error deleting user account: {e}")
+        return False, f"Database error: {e}"
+    finally:
+        conn.close()
+
 if __name__ == '__main__':
     init_db()

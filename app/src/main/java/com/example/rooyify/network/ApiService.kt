@@ -21,6 +21,12 @@ interface ApiService {
     @POST("send_otp.php")
     fun sendOtp(@Body request: SendOtpRequest): Call<OtpResponse>
 
+    @POST("update_profile.php")
+    fun updateProfile(@Body request: UpdateProfileRequest): Call<BasicResponse>
+
+    @POST("delete_account.php")
+    fun deleteAccount(@Body request: DeleteAccountRequest): Call<BasicResponse>
+
     @POST("book_appointment.php")
     fun bookAppointment(@Body request: BookAppointmentRequest): Call<BasicResponse>
 

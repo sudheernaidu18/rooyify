@@ -60,21 +60,20 @@ public class DoctorLoginActivity extends AppCompatActivity {
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                         if (response.isSuccessful() && response.body() != null) {
                             if ("success".equals(response.body().getStatus())) {
-                                // Make sure role is actually "doctor"
-                                if ("doctor".equals(response.body().getUser().getRole())) {
-                                    User user = response.body().getUser();
-                                    if (user != null) {
-                                        SessionManager sm = new SessionManager(DoctorLoginActivity.this);
-                                        sm.saveUserSession(user.getId(), user.getName(), user.getEmail(), user.getRole());
+                                User user = response.body().getUser();
+                                if (user != null) {
+                                    if (!"doctor".equalsIgnoreCase(user.getRole())) {
+                                        Toast.makeText(DoctorLoginActivity.this, "This is a patient account. Please use Patient Login.", Toast.LENGTH_LONG).show();
+                                        return;
                                     }
-                                    
-                                    Toast.makeText(DoctorLoginActivity.this, "Doctor Login Successful!", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(DoctorLoginActivity.this, DoctorDashboardActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                } else {
-                                    Toast.makeText(DoctorLoginActivity.this, "This account is a patient account, not a doctor.", Toast.LENGTH_SHORT).show();
+                                    SessionManager sm = new SessionManager(DoctorLoginActivity.this);
+                                    sm.saveUserSession(user.getId(), user.getName(), user.getEmail(), user.getRole(), user.getPhone(), user.getPlace(), user.getDob());
                                 }
+                                
+                                Toast.makeText(DoctorLoginActivity.this, "Doctor Login Successful!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(DoctorLoginActivity.this, DoctorDashboardActivity.class);
+                                startActivity(intent);
+                                finish();
                             } else {
                                 Toast.makeText(DoctorLoginActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                             }

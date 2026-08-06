@@ -1,16 +1,15 @@
 @echo off
-title Rooyify Backend Server
+title Rooyify Backend Server & Tunnel
 echo ===================================================
-echo               ROOYIFY BACKEND SERVER
+echo          ROOYIFY BACKEND SERVER & TUNNEL
 echo ===================================================
 echo.
-echo Starting Flask backend...
+echo Starting Flask backend and Serveo SSH tunnel...
 echo.
 echo [INFO] Server is running on port 5000.
-echo [INFO] Emulator URL: http://10.0.2.2:5000/
-echo [INFO] Local network devices can connect via your PC's IP address on port 5000.
+echo [INFO] Syncing RetrofitClient.kt with public URL...
 echo.
 echo ===================================================
 echo.
-py app.py
+py -u run_server_and_tunnel.py
 pause

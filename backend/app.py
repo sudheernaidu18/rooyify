@@ -6,7 +6,8 @@ import database
 from dotenv import load_dotenv
 
 # Load local environment variables from .env file if it exists
-load_dotenv()
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 
 app = Flask(__name__)
 
@@ -71,6 +72,74 @@ def register():
     else:
         return make_basic_response("error", message)
 
+def send_sms_fast2sms(api_key, phone, otp):
+    import urllib.request
+    import json
+    url = "https://www.fast2sms.com/dev/bulkV2"
+    
+    # Strip non-digits and use last 10 digits (Standard Indian format for Fast2SMS)
+    clean_phone = "".join(c for c in str(phone) if c.isdigit())
+    if len(clean_phone) > 10:
+        clean_phone = clean_phone[-10:]
+
+    data = {
+        "sender_id": "FSTSMS",
+        "message": f"Your Rooyify verification code is: {otp}",
+        "language": "english",
+        "route": "q",
+        "numbers": clean_phone,
+    }
+    req = urllib.request.Request(
+        url,
+        data=json.dumps(data).encode("utf-8"),
+        headers={
+            "authorization": api_key,
+            "Content-Type": "application/json"
+        },
+        method="POST"
+    )
+    with urllib.request.urlopen(req, timeout=10) as response:
+        resp_data = json.loads(response.read().decode("utf-8"))
+        if not resp_data.get("return"):
+            raise Exception(resp_data.get("message", "Fast2SMS API failed"))
+        return resp_data
+
+def send_sms_twilio(account_sid, auth_token, from_number, to_number, otp):
+    import urllib.request
+    import urllib.parse
+    import base64
+    import json
+    
+    clean_phone = to_number.strip()
+    if not clean_phone.startswith("+"):
+        if len(clean_phone) == 10:
+            clean_phone = "+91" + clean_phone
+        else:
+            clean_phone = "+" + clean_phone
+
+    url = f"https://api.twilio.com/2010-04-01/Accounts/{account_sid}/Messages.json"
+    data = {
+        "Body": f"Your Rooyify verification code is: {otp}",
+        "From": from_number,
+        "To": clean_phone
+    }
+    payload = urllib.parse.urlencode(data).encode("utf-8")
+    
+    auth_str = f"{account_sid}:{auth_token}"
+    auth_b64 = base64.b64encode(auth_str.encode("utf-8")).decode("utf-8")
+    
+    req = urllib.request.Request(
+        url,
+        data=payload,
+        headers={
+            "Authorization": f"Basic {auth_b64}",
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        method="POST"
+    )
+    with urllib.request.urlopen(req, timeout=10) as response:
+        return json.loads(response.read().decode("utf-8"))
+
 @app.route('/send_otp.php', methods=['POST'])
 @app.route('/oct/spic_726/hairjourney/send_otp.php', methods=['POST'])
 def send_otp():
@@ -86,11 +155,47 @@ def send_otp():
     otp = str(random.randint(100000, 999999))
     print(f"[OTP LOG] Generated OTP {otp} for phone {phone}")
     
-    return jsonify({
+    # Read SMS Configuration
+    fast2sms_key = os.getenv("FAST2SMS_API_KEY")
+    twilio_sid = os.getenv("TWILIO_ACCOUNT_SID")
+    twilio_token = os.getenv("TWILIO_AUTH_TOKEN")
+    twilio_from = os.getenv("TWILIO_FROM_NUMBER")
+    
+    sms_sent = False
+    sms_provider = None
+    sms_error = None
+    
+    try:
+        if fast2sms_key:
+            sms_provider = "Fast2SMS"
+            print(f"[SMS LOG] Sending OTP via Fast2SMS to {phone}...")
+            send_sms_fast2sms(fast2sms_key, phone, otp)
+            sms_sent = True
+        elif twilio_sid and twilio_token and twilio_from:
+            sms_provider = "Twilio"
+            print(f"[SMS LOG] Sending OTP via Twilio to {phone}...")
+            send_sms_twilio(twilio_sid, twilio_token, twilio_from, phone, otp)
+            sms_sent = True
+        else:
+            print("[SMS LOG] No SMS provider credentials configured in environment variables. Falling back to local/simulation mode.")
+    except Exception as e:
+        sms_error = str(e)
+        print(f"[SMS LOG ERROR] Failed to send SMS via {sms_provider}: {e}")
+        
+    response_payload = {
         "status": "success",
         "otp": otp,
-        "message": f"OTP successfully generated and sent to {phone}"
-    })
+        "sms_sent": sms_sent
+    }
+    
+    if sms_sent:
+        response_payload["message"] = f"OTP successfully sent to {phone} via {sms_provider}."
+    elif sms_error:
+        response_payload["message"] = f"Failed to send SMS ({sms_error}). Using on-screen testing fallback."
+    else:
+        response_payload["message"] = f"OTP generated successfully. (Simulation mode active - no API keys set)."
+        
+    return jsonify(response_payload)
 
 @app.route('/login.php', methods=['POST'])
 @app.route('/oct/spic_726/hairjourney/login.php', methods=['POST'])
@@ -467,6 +572,47 @@ def get_patients():
         "status": "success",
         "patients": pats
     })
+
+@app.route('/update_profile.php', methods=['POST'])
+@app.route('/oct/spic_726/hairjourney/update_profile.php', methods=['POST'])
+def update_profile():
+    data = request.get_json(silent=True)
+    if not data:
+        return make_basic_response("error", "Invalid JSON")
+        
+    user_id = data.get("user_id")
+    name = data.get("name")
+    phone = data.get("phone")
+    place = data.get("place")
+    dob = data.get("dob")
+
+    if not all([user_id, name, phone, place, dob]):
+        return make_basic_response("error", "Missing required fields")
+
+    success = database.update_user_profile(int(user_id), name, phone, place, dob)
+    if success:
+        return make_basic_response("success", "Profile updated successfully")
+    else:
+        return make_basic_response("error", "Failed to update profile")
+
+@app.route('/delete_account.php', methods=['POST'])
+@app.route('/oct/spic_726/hairjourney/delete_account.php', methods=['POST'])
+def delete_account():
+    data = request.get_json(silent=True)
+    if not data:
+        return make_basic_response("error", "Invalid JSON")
+        
+    user_id = data.get("user_id")
+    password = data.get("password")
+
+    if not user_id or not password:
+        return make_basic_response("error", "Missing required fields")
+
+    success, message = database.delete_user_account(int(user_id), password)
+    if success:
+        return make_basic_response("success", message)
+    else:
+        return make_basic_response("error", message)
 
 
 if __name__ == '__main__':

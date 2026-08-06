@@ -1,0 +1,50 @@
+name: Selenium E2E Frontend Testing
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install Frontend Dependencies
+      working-directory: frontend
+      run: npm install
+
+    - name: Build Frontend Application
+      working-directory: frontend
+      run: npm run build
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: frontend/build
+        branch: gh-pages
+
+    - name: Install Selenium Test Runner Dependencies
+      working-directory: frontend/selenium-tests
+      run: npm install
+
+    - name: Execute Selenium E2E Login Tests
+      working-directory: frontend/selenium-tests
+      env:
+        BASE_URL: "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+      run: npm run login

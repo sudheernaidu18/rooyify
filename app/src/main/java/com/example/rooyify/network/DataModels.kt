@@ -30,6 +30,19 @@ data class User(
     val role: String
 )
 
+data class UpdateProfileRequest(
+    val user_id: String,
+    val name: String,
+    val phone: String,
+    val place: String,
+    val dob: String
+)
+
+data class DeleteAccountRequest(
+    val user_id: String,
+    val password: String
+)
+
 // Registration
 data class RegisterRequest(
     val name: String,
@@ -179,7 +192,8 @@ data class SendOtpRequest(
 data class OtpResponse(
     val status: String,
     val message: String? = null,
-    val otp: String? = null
+    val otp: String? = null,
+    val sms_sent: Boolean? = null
 )
 
 

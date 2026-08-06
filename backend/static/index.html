@@ -204,32 +204,39 @@
                 </div>
             </div>
 
-            <!-- SUB-PAGE: PATIENT PROFILE (activity_profile.xml) -->
+            <!-- SUB-PAGE: PATIENT PROFILE -->
             <div id="panel-patient-profile" class="sub-panel hidden">
                 <div class="app-back-btn" onclick="showPatientHome()"><i class="fa-solid fa-arrow-left"></i> Home</div>
                 <div class="app-header-area">
                     <h1 class="tv-user-title">My Profile</h1>
                 </div>
                 
-                <div class="glassmorphic-card details-table-card">
-                    <table class="profile-details-table">
-                        <tr>
-                            <td><i class="fa-solid fa-envelope icon-muted"></i> Email</td>
-                            <td id="patient-prof-email" class="text-bold">email@domain.com</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fa-solid fa-phone icon-muted"></i> Phone</td>
-                            <td id="patient-prof-phone" class="text-bold">1234567890</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fa-solid fa-location-dot"></i> Place</td>
-                            <td id="patient-prof-place" class="text-bold">City</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fa-solid fa-calendar-days"></i> DOB</td>
-                            <td id="patient-prof-dob" class="text-bold">YYYY-MM-DD</td>
-                        </tr>
-                    </table>
+                <div class="glassmorphic-card">
+                    <form id="form-patient-profile-update">
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Name</label>
+                            <input type="text" id="patient-prof-name" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Email (Read-only)</label>
+                            <input type="email" id="patient-prof-email" class="form-input" style="width: 100%; background: rgba(0,0,0,0.05); color: #888;" readonly>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Phone</label>
+                            <input type="text" id="patient-prof-phone" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Place</label>
+                            <input type="text" id="patient-prof-place" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Date of Birth</label>
+                            <input type="date" id="patient-prof-dob" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Update Profile</button>
+                    </form>
+                    
+                    <button id="btn-patient-delete-account" class="btn" style="width: 100%; margin-top: 12px; background-color: #EF4444; color: white;">Delete Account</button>
                 </div>
             </div>
 
@@ -405,21 +412,33 @@
                 <div class="app-header-area">
                     <h1 class="tv-user-title">Doctor Profile</h1>
                 </div>
-                <div class="glassmorphic-card details-table-card">
-                    <table class="profile-details-table">
-                        <tr>
-                            <td><i class="fa-solid fa-envelope icon-muted"></i> Email</td>
-                            <td id="doc-prof-email" class="text-bold">doctor@domain.com</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fa-solid fa-phone icon-muted"></i> Phone</td>
-                            <td id="doc-prof-phone" class="text-bold">N/A</td>
-                        </tr>
-                        <tr>
-                            <td><i class="fa-solid fa-user-doctor icon-muted"></i> Role</td>
-                            <td class="text-bold">Certified Hair Care Expert</td>
-                        </tr>
-                    </table>
+                
+                <div class="glassmorphic-card">
+                    <form id="form-doctor-profile-update">
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Name</label>
+                            <input type="text" id="doctor-prof-name" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Email (Read-only)</label>
+                            <input type="email" id="doctor-prof-email" class="form-input" style="width: 100%; background: rgba(0,0,0,0.05); color: #888;" readonly>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Phone</label>
+                            <input type="text" id="doctor-prof-phone" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Place</label>
+                            <input type="text" id="doctor-prof-place" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 4px; color: #4B5563; font-weight: 500;">Date of Birth</label>
+                            <input type="date" id="doctor-prof-dob" class="form-input" style="width: 100%;" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Update Profile</button>
+                    </form>
+                    
+                    <button id="btn-doctor-delete-account" class="btn" style="width: 100%; margin-top: 12px; background-color: #EF4444; color: white;">Delete Account</button>
                 </div>
             </div>
 
@@ -567,6 +586,30 @@
                         <input type="password" id="reg-password" class="auth-inner-input" placeholder="Password" required>
                     </div>
                     <button type="submit" class="btn btn-primary w-full margin-top-md auth-submit-btn">Register</button>
+                </form>
+
+                <!-- OTP Verification Form -->
+                <form id="form-otp-verify" class="auth-form hidden">
+                    <p class="verification-desc text-secondary" style="font-size: 14px; text-align: center; margin-bottom: 1.5rem;">
+                        An OTP code has been generated. Please enter the 6-digit verification code sent to your phone number.
+                    </p>
+                    <div class="otp-input-row">
+                        <input type="text" class="otp-digit-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                        <input type="text" class="otp-digit-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                        <input type="text" class="otp-digit-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                        <input type="text" class="otp-digit-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                        <input type="text" class="otp-digit-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                        <input type="text" class="otp-digit-input" maxlength="1" pattern="[0-9]" inputmode="numeric" required>
+                    </div>
+                    <div class="otp-timer-container">
+                        <span id="otp-timer-text">Resend code in 60s</span>
+                        <button type="button" id="btn-otp-resend" class="btn-text hidden">Resend Code</button>
+                    </div>
+                    <div class="otp-test-badge">
+                        <i class="fa-solid fa-flask"></i> Testing Code: <span id="test-otp-code" class="text-bold">######</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full margin-top-md auth-submit-btn">Verify & Create Account</button>
+                    <button type="button" id="btn-otp-back" class="btn btn-secondary w-full margin-top-md">Back to Register</button>
                 </form>
             </div>
         </div>

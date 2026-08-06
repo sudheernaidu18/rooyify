@@ -12,6 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.text.InputType;
 import android.widget.ImageView;
+import android.text.TextWatcher;
+import android.text.Editable;
+import android.view.KeyEvent;
+import android.os.CountDownTimer;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +33,21 @@ import retrofit2.Response;
 
 public class SignUpActivity extends AppCompatActivity {
 
+    private LinearLayout layoutRegisterForm;
+    private LinearLayout layoutOtpVerification;
+    
+    private EditText etOtp1, etOtp2, etOtp3, etOtp4, etOtp5, etOtp6;
+    private TextView tvOtpTimer;
+    private TextView tvOtpResend;
+    private TextView tvTestOtpBadge;
+    private View layoutTestOtpBadge;
+    private TextView btnOtpBackToEdit;
+    private Button btnVerifyOtp;
+    
+    private CountDownTimer countDownTimer;
+    private String currentCorrectOtp;
+    private RegisterRequest pendingRegisterRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +56,8 @@ public class SignUpActivity extends AppCompatActivity {
         TextView btnBack = findViewById(R.id.btn_back);
         btnBack.setOnClickListener(v -> finish());
 
+        // Registration form views
+        layoutRegisterForm = findViewById(R.id.layout_register_form);
         EditText etName = findViewById(R.id.et_full_name);
         EditText etEmail = findViewById(R.id.et_email);
         EditText etPhone = findViewById(R.id.et_phone);
@@ -94,13 +115,79 @@ public class SignUpActivity extends AppCompatActivity {
             String intentRole = getIntent().getStringExtra("role");
             String role = (intentRole != null) ? intentRole : "user";
 
-            RegisterRequest request = new RegisterRequest(name, email, phone, place, dob, role, password);
+            pendingRegisterRequest = new RegisterRequest(name, email, phone, place, dob, role, password);
+            executeFinalRegistration(pendingRegisterRequest);
+        });
 
-            sendOtpAndVerify(phone, request);
+        // OTP verification views
+        layoutOtpVerification = findViewById(R.id.layout_otp_verification);
+        etOtp1 = findViewById(R.id.et_otp_1);
+        etOtp2 = findViewById(R.id.et_otp_2);
+        etOtp3 = findViewById(R.id.et_otp_3);
+        etOtp4 = findViewById(R.id.et_otp_4);
+        etOtp5 = findViewById(R.id.et_otp_5);
+        etOtp6 = findViewById(R.id.et_otp_6);
+        tvOtpTimer = findViewById(R.id.tv_otp_timer);
+        tvOtpResend = findViewById(R.id.tv_otp_resend);
+        tvTestOtpBadge = findViewById(R.id.tv_test_otp_badge);
+        layoutTestOtpBadge = findViewById(R.id.layout_test_otp_badge);
+        btnVerifyOtp = findViewById(R.id.btn_verify_otp);
+        btnOtpBackToEdit = findViewById(R.id.btn_otp_back_to_edit);
+
+        setupOtpInputs();
+
+        btnVerifyOtp.setOnClickListener(v -> verifyOtpAndRegister());
+        btnOtpBackToEdit.setOnClickListener(v -> showRegisterFormView());
+        tvOtpResend.setOnClickListener(v -> resendOtpCode());
+    }
+
+    private void setupOtpInputs() {
+        setupOtpEditText(etOtp1, null, etOtp2);
+        setupOtpEditText(etOtp2, etOtp1, etOtp3);
+        setupOtpEditText(etOtp3, etOtp2, etOtp4);
+        setupOtpEditText(etOtp4, etOtp3, etOtp5);
+        setupOtpEditText(etOtp5, etOtp4, etOtp6);
+        setupOtpEditText(etOtp6, etOtp5, null);
+    }
+
+    private void setupOtpEditText(final EditText current, final EditText prev, final EditText next) {
+        current.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() == 1 && next != null) {
+                    next.requestFocus();
+                }
+            }
+        });
+
+        current.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DEL) {
+                    if (current.getText().length() == 0 && prev != null) {
+                        prev.requestFocus();
+                        prev.setText("");
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        current.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                current.selectAll();
+            }
         });
     }
 
-    private void sendOtpAndVerify(String phone, RegisterRequest registerRequest) {
+    private void sendOtpAndVerify(String phone) {
         Toast.makeText(SignUpActivity.this, "Sending OTP...", Toast.LENGTH_SHORT).show();
         
         com.example.rooyify.network.SendOtpRequest otpRequest = new com.example.rooyify.network.SendOtpRequest(phone);
@@ -110,7 +197,8 @@ public class SignUpActivity extends AppCompatActivity {
             public void onResponse(Call<com.example.rooyify.network.OtpResponse> call, Response<com.example.rooyify.network.OtpResponse> response) {
                 if (response.isSuccessful() && response.body() != null && "success".equals(response.body().getStatus())) {
                     String generatedOtp = response.body().getOtp();
-                    showOtpVerificationDialog(generatedOtp, registerRequest);
+                    Boolean smsSent = response.body().getSms_sent();
+                    showOtpVerificationView(generatedOtp, smsSent);
                 } else {
                     String msg = (response.body() != null) ? response.body().getMessage() : "Failed to send OTP";
                     Toast.makeText(SignUpActivity.this, msg, Toast.LENGTH_SHORT).show();
@@ -124,49 +212,121 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    private void showOtpVerificationDialog(String correctOtp, RegisterRequest registerRequest) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Verify Mobile Number");
-        builder.setMessage("An OTP code has been generated. For testing, use code: " + correctOtp);
-        builder.setCancelable(false);
-
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_NUMBER);
-        input.setHint("Enter 6-digit OTP");
+    private void showOtpVerificationView(String correctOtp, Boolean smsSent) {
+        currentCorrectOtp = correctOtp;
+        layoutRegisterForm.setVisibility(View.GONE);
+        layoutOtpVerification.setVisibility(View.VISIBLE);
+        tvTestOtpBadge.setText("Testing Code: " + correctOtp);
         
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        input.setLayoutParams(lp);
+        if (smsSent != null && smsSent) {
+            layoutTestOtpBadge.setVisibility(View.GONE);
+        } else {
+            layoutTestOtpBadge.setVisibility(View.VISIBLE);
+        }
         
-        LinearLayout container = new LinearLayout(this);
-        container.setOrientation(LinearLayout.VERTICAL);
-        int marginPx = (int) (16 * getResources().getDisplayMetrics().density);
-        container.setPadding(marginPx, marginPx, marginPx, marginPx);
-        container.addView(input);
-        
-        builder.setView(container);
+        // Reset OTP fields
+        etOtp1.setText("");
+        etOtp2.setText("");
+        etOtp3.setText("");
+        etOtp4.setText("");
+        etOtp5.setText("");
+        etOtp6.setText("");
+        etOtp1.requestFocus();
 
-        builder.setPositiveButton("Verify", null); 
-        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+        startResendTimer();
+    }
 
-        AlertDialog dialog = builder.create();
-        dialog.show();
+    private void showRegisterFormView() {
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+        layoutOtpVerification.setVisibility(View.GONE);
+        layoutRegisterForm.setVisibility(View.VISIBLE);
+    }
 
-        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
-            String enteredOtp = input.getText().toString().trim();
-            if (enteredOtp.isEmpty()) {
-                input.setError("OTP cannot be empty");
-                return;
+    private void startResendTimer() {
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+        tvOtpTimer.setVisibility(View.VISIBLE);
+        tvOtpResend.setVisibility(View.GONE);
+
+        countDownTimer = new CountDownTimer(60000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                tvOtpTimer.setText("Resend code in " + (millisUntilFinished / 1000) + "s");
             }
-            if (enteredOtp.equals(correctOtp)) {
-                dialog.dismiss();
-                Toast.makeText(SignUpActivity.this, "OTP Verified Successfully!", Toast.LENGTH_SHORT).show();
-                executeFinalRegistration(registerRequest);
-            } else {
-                input.setError("Invalid OTP. Please check the code.");
+
+            @Override
+            public void onFinish() {
+                tvOtpTimer.setVisibility(View.GONE);
+                tvOtpResend.setVisibility(View.VISIBLE);
+            }
+        }.start();
+    }
+
+    private void resendOtpCode() {
+        if (pendingRegisterRequest == null) return;
+        Toast.makeText(SignUpActivity.this, "Resending OTP...", Toast.LENGTH_SHORT).show();
+        
+        com.example.rooyify.network.SendOtpRequest otpRequest = new com.example.rooyify.network.SendOtpRequest(pendingRegisterRequest.getPhone());
+        
+        RetrofitClient.INSTANCE.getInstance().sendOtp(otpRequest).enqueue(new Callback<com.example.rooyify.network.OtpResponse>() {
+            @Override
+            public void onResponse(Call<com.example.rooyify.network.OtpResponse> call, Response<com.example.rooyify.network.OtpResponse> response) {
+                if (response.isSuccessful() && response.body() != null && "success".equals(response.body().getStatus())) {
+                    currentCorrectOtp = response.body().getOtp();
+                    tvTestOtpBadge.setText("Testing Code: " + currentCorrectOtp);
+                    
+                    Boolean smsSent = response.body().getSms_sent();
+                    if (smsSent != null && smsSent) {
+                        layoutTestOtpBadge.setVisibility(View.GONE);
+                    } else {
+                        layoutTestOtpBadge.setVisibility(View.VISIBLE);
+                    }
+                    
+                    Toast.makeText(SignUpActivity.this, "OTP Resent Successfully", Toast.LENGTH_SHORT).show();
+                    startResendTimer();
+                    
+                    etOtp1.setText("");
+                    etOtp2.setText("");
+                    etOtp3.setText("");
+                    etOtp4.setText("");
+                    etOtp5.setText("");
+                    etOtp6.setText("");
+                    etOtp1.requestFocus();
+                } else {
+                    String msg = (response.body() != null) ? response.body().getMessage() : "Failed to resend OTP";
+                    Toast.makeText(SignUpActivity.this, msg, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<com.example.rooyify.network.OtpResponse> call, Throwable t) {
+                Toast.makeText(SignUpActivity.this, "Failed to resend OTP: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void verifyOtpAndRegister() {
+        String enteredOtp = etOtp1.getText().toString().trim() +
+                etOtp2.getText().toString().trim() +
+                etOtp3.getText().toString().trim() +
+                etOtp4.getText().toString().trim() +
+                etOtp5.getText().toString().trim() +
+                etOtp6.getText().toString().trim();
+
+        if (enteredOtp.length() < 6) {
+            Toast.makeText(this, "Please enter 6-digit OTP", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (enteredOtp.equals(currentCorrectOtp)) {
+            Toast.makeText(SignUpActivity.this, "OTP Verified Successfully!", Toast.LENGTH_SHORT).show();
+            executeFinalRegistration(pendingRegisterRequest);
+        } else {
+            Toast.makeText(this, "Invalid OTP. Please check the code.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void executeFinalRegistration(RegisterRequest request) {
@@ -193,6 +353,9 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void showSuccessDialog() {
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
         new AlertDialog.Builder(this)
                 .setTitle("Success")
                 .setMessage("Registration successful! Please login.")
@@ -210,5 +373,13 @@ public class SignUpActivity extends AppCompatActivity {
             icon.setAlpha(0.5f);
         }
         editText.setSelection(editText.getText().length());
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+        super.onDestroy();
     }
 }

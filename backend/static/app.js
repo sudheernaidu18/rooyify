@@ -54,10 +54,13 @@ function renderAuthenticatedUI() {
         document.getElementById("section-patient").classList.add("hidden");
         document.getElementById("section-doctor").classList.remove("hidden");
         
-        // Populate doctor header
+        // Populate doctor header & profile
         document.getElementById("tv-doctor-name").textContent = currentUser.name;
-        document.getElementById("doc-prof-email").textContent = currentUser.email;
-        document.getElementById("doc-prof-phone").textContent = currentUser.phone || "N/A";
+        document.getElementById("doctor-prof-name").value = currentUser.name;
+        document.getElementById("doctor-prof-email").value = currentUser.email;
+        document.getElementById("doctor-prof-phone").value = currentUser.phone || "";
+        document.getElementById("doctor-prof-place").value = currentUser.place || "";
+        document.getElementById("doctor-prof-dob").value = currentUser.dob || "";
         
         initDoctorDashboard();
         showDoctorHome();
@@ -65,14 +68,13 @@ function renderAuthenticatedUI() {
         document.getElementById("section-patient").classList.remove("hidden");
         document.getElementById("section-doctor").classList.add("hidden");
         
-        // Populate patient header
+        // Populate patient header & profile
         document.getElementById("tv-user-name").textContent = currentUser.name;
-        
-        // Populate profile table
-        document.getElementById("patient-prof-email").textContent = currentUser.email;
-        document.getElementById("patient-prof-phone").textContent = currentUser.phone || "N/A";
-        document.getElementById("patient-prof-place").textContent = currentUser.place || "N/A";
-        document.getElementById("patient-prof-dob").textContent = currentUser.dob || "N/A";
+        document.getElementById("patient-prof-name").value = currentUser.name;
+        document.getElementById("patient-prof-email").value = currentUser.email;
+        document.getElementById("patient-prof-phone").value = currentUser.phone || "";
+        document.getElementById("patient-prof-place").value = currentUser.place || "";
+        document.getElementById("patient-prof-dob").value = currentUser.dob || "";
 
         initPatientDashboard();
         showPatientHome();
@@ -149,10 +151,72 @@ function initGlobalEvents() {
         }
     };
 
+    const formOtpVerify = document.getElementById("form-otp-verify");
+    const otpDigitInputs = document.querySelectorAll(".otp-digit-input");
+    const otpTimerText = document.getElementById("otp-timer-text");
+    const btnOtpResend = document.getElementById("btn-otp-resend");
+    const testOtpCode = document.getElementById("test-otp-code");
+    const btnOtpBack = document.getElementById("btn-otp-back");
+
+    let pendingRegPayload = null;
+    let correctOtp = null;
+    let otpInterval = null;
+
+    function startOtpTimer() {
+        clearInterval(otpInterval);
+        let timeRemaining = 60;
+        otpTimerText.classList.remove("hidden");
+        btnOtpResend.classList.add("hidden");
+        otpTimerText.textContent = `Resend code in ${timeRemaining}s`;
+
+        otpInterval = setInterval(() => {
+            timeRemaining--;
+            if (timeRemaining <= 0) {
+                clearInterval(otpInterval);
+                otpTimerText.classList.add("hidden");
+                btnOtpResend.classList.remove("hidden");
+            } else {
+                otpTimerText.textContent = `Resend code in ${timeRemaining}s`;
+            }
+        }, 1000);
+    }
+
+    // Auto-focus behavior for digit inputs
+    otpDigitInputs.forEach((input, idx) => {
+        // Move focus on input
+        input.addEventListener("input", (e) => {
+            const val = e.target.value;
+            // Ensure numeric only
+            e.target.value = val.replace(/[^0-9]/g, '');
+            if (e.target.value.length === 1) {
+                if (idx < otpDigitInputs.length - 1) {
+                    otpDigitInputs[idx + 1].focus();
+                }
+            }
+        });
+
+        // Handle backspace or focus shifting on keydown
+        input.addEventListener("keydown", (e) => {
+            if (e.key === "Backspace") {
+                if (input.value === "" && idx > 0) {
+                    otpDigitInputs[idx - 1].focus();
+                    otpDigitInputs[idx - 1].value = "";
+                } else {
+                    input.value = "";
+                }
+            }
+        });
+
+        // Clear input on focus to make entry smoother
+        input.addEventListener("focus", () => {
+            input.select();
+        });
+    });
+
     // Register submit
     formRegister.onsubmit = async (e) => {
         e.preventDefault();
-        const payload = {
+        pendingRegPayload = {
             name: document.getElementById("reg-name").value,
             email: document.getElementById("reg-email").value,
             phone: document.getElementById("reg-phone").value,
@@ -163,48 +227,119 @@ function initGlobalEvents() {
         };
 
         try {
-            // Step 1: Request OTP generation
-            const otpResp = await fetch(`${API_BASE}/send_otp.php`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ phone: payload.phone })
-            });
-            const otpData = await otpResp.json();
-            
-            if (otpData.status !== "success") {
-                alert(otpData.message || "Failed to generate OTP. Please try again.");
-                return;
-            }
-
-            // Step 2: Prompt user to enter verification OTP (displays testing code inline)
-            const enteredOtp = prompt(`Verify Mobile Number\nAn OTP has been sent to ${payload.phone}.\nEnter the verification code (For testing, use code: ${otpData.otp}):`);
-            
-            if (!enteredOtp) {
-                alert("Registration cancelled.");
-                return;
-            }
-
-            if (enteredOtp.trim() !== otpData.otp) {
-                alert("Invalid verification code. Registration aborted.");
-                return;
-            }
-
-            // Step 3: Proceed with final registration if verified
             const resp = await fetch(`${API_BASE}/register.php`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
+                body: JSON.stringify(pendingRegPayload)
             });
             const data = await resp.json();
             if (data.status === "success") {
-                alert("OTP Verified! Account created successfully! Please sign in.");
-                tabLogin.click();
+                alert("Account created successfully! Please sign in.");
+                formRegister.reset();
+                formRegister.classList.add("hidden");
+                formLogin.classList.remove("hidden");
+                
+                tabLogin.classList.add("active");
+                tabRegister.classList.remove("active");
+                authTitle.textContent = "Welcome Back";
+                authSubtitle.textContent = "Login to continue your hair journey";
             } else {
                 alert(data.message || "Registration failed");
             }
         } catch (err) {
             alert("Connection error: " + err);
         }
+    };
+
+    // OTP Verify submit
+    formOtpVerify.onsubmit = async (e) => {
+        e.preventDefault();
+        
+        // Assemble 6-digit OTP
+        let enteredOtp = "";
+        otpDigitInputs.forEach(inp => enteredOtp += inp.value);
+
+        if (enteredOtp.length < 6) {
+            alert("Please enter the full 6-digit code.");
+            return;
+        }
+
+        if (enteredOtp !== correctOtp) {
+            alert("Invalid verification code. Please check the code and try again.");
+            // Focus first input and select
+            otpDigitInputs[0].focus();
+            return;
+        }
+
+        // Proceed to final registration
+        try {
+            const resp = await fetch(`${API_BASE}/register.php`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(pendingRegPayload)
+            });
+            const data = await resp.json();
+            if (data.status === "success") {
+                alert("OTP Verified! Account created successfully! Please sign in.");
+                
+                // Reset states
+                clearInterval(otpInterval);
+                formOtpVerify.reset();
+                formOtpVerify.classList.add("hidden");
+                formLogin.classList.remove("hidden");
+                
+                tabLogin.classList.add("active");
+                tabRegister.classList.remove("active");
+                authTitle.textContent = "Welcome Back";
+                authSubtitle.textContent = "Login to continue your hair journey";
+            } else {
+                alert(data.message || "Registration failed");
+            }
+        } catch (err) {
+            alert("Connection error: " + err);
+        }
+    };
+
+    // Resend OTP
+    btnOtpResend.onclick = async () => {
+        if (!pendingRegPayload) return;
+        try {
+            btnOtpResend.disabled = true;
+            btnOtpResend.textContent = "Sending...";
+            const otpResp = await fetch(`${API_BASE}/send_otp.php`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ phone: pendingRegPayload.phone })
+            });
+            const otpData = await otpResp.json();
+            btnOtpResend.disabled = false;
+            btnOtpResend.textContent = "Resend Code";
+
+            if (otpData.status !== "success") {
+                alert(otpData.message || "Failed to resend OTP. Please try again.");
+                return;
+            }
+
+            correctOtp = otpData.otp;
+            testOtpCode.textContent = correctOtp;
+            alert("A new OTP has been generated.");
+            startOtpTimer();
+            otpDigitInputs.forEach(inp => inp.value = "");
+            otpDigitInputs[0].focus();
+        } catch (err) {
+            btnOtpResend.disabled = false;
+            btnOtpResend.textContent = "Resend Code";
+            alert("Connection error: " + err);
+        }
+    };
+
+    // Back to Register
+    btnOtpBack.onclick = () => {
+        clearInterval(otpInterval);
+        formOtpVerify.classList.add("hidden");
+        formRegister.classList.remove("hidden");
+        authTitle.textContent = "Create Account";
+        authSubtitle.textContent = "Join Rooyify to start tracking growth";
     };
 
     // Logout Button
@@ -271,6 +406,64 @@ function initPatientDashboard() {
     // Setup Patient Bottom Nav
     document.getElementById("btn-nav-patient-home").onclick = () => showPatientHome();
     document.getElementById("btn-nav-patient-profile").onclick = () => showPatientProfile();
+
+    // Patient Profile Update Form
+    document.getElementById("form-patient-profile-update").onsubmit = async (e) => {
+        e.preventDefault();
+        const payload = {
+            user_id: currentUser.id,
+            name: document.getElementById("patient-prof-name").value,
+            phone: document.getElementById("patient-prof-phone").value,
+            place: document.getElementById("patient-prof-place").value,
+            dob: document.getElementById("patient-prof-dob").value
+        };
+
+        try {
+            const resp = await fetch(`${API_BASE}/update_profile.php`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+            const data = await resp.json();
+            if (data.status === "success") {
+                alert("Profile updated successfully!");
+                currentUser.name = payload.name;
+                currentUser.phone = payload.phone;
+                currentUser.place = payload.place;
+                currentUser.dob = payload.dob;
+                localStorage.setItem("user", JSON.stringify(currentUser));
+                document.getElementById("tv-user-name").textContent = currentUser.name;
+            } else {
+                alert(data.message || "Failed to update profile");
+            }
+        } catch (err) {
+            alert("Error updating profile: " + err);
+        }
+    };
+
+    // Patient Delete Account Button
+    document.getElementById("btn-patient-delete-account").onclick = async () => {
+        const password = prompt("Are you sure you want to delete your account? This is permanent.\nPlease enter your password to confirm:");
+        if (!password) return;
+
+        try {
+            const resp = await fetch(`${API_BASE}/delete_account.php`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ user_id: currentUser.id, password: password })
+            });
+            const data = await resp.json();
+            if (data.status === "success") {
+                alert("Account deleted successfully.");
+                localStorage.removeItem("user");
+                renderGuestUI();
+            } else {
+                alert(data.message || "Failed to delete account");
+            }
+        } catch (err) {
+            alert("Error deleting account: " + err);
+        }
+    };
 
     // Setup Menu Cards redirection
     document.getElementById("menu-card-quiz").onclick = () => startHairQuiz();
@@ -730,6 +923,64 @@ function initDoctorDashboard() {
     // Doctor Bottom Nav Capsule Setup
     document.getElementById("btn-nav-doctor-home").onclick = () => showDoctorHome();
     document.getElementById("btn-nav-doctor-profile").onclick = () => showDoctorProfile();
+
+    // Doctor Profile Update Form
+    document.getElementById("form-doctor-profile-update").onsubmit = async (e) => {
+        e.preventDefault();
+        const payload = {
+            user_id: currentUser.id,
+            name: document.getElementById("doctor-prof-name").value,
+            phone: document.getElementById("doctor-prof-phone").value,
+            place: document.getElementById("doctor-prof-place").value,
+            dob: document.getElementById("doctor-prof-dob").value
+        };
+
+        try {
+            const resp = await fetch(`${API_BASE}/update_profile.php`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+            const data = await resp.json();
+            if (data.status === "success") {
+                alert("Profile updated successfully!");
+                currentUser.name = payload.name;
+                currentUser.phone = payload.phone;
+                currentUser.place = payload.place;
+                currentUser.dob = payload.dob;
+                localStorage.setItem("user", JSON.stringify(currentUser));
+                document.getElementById("tv-doctor-name").textContent = currentUser.name;
+            } else {
+                alert(data.message || "Failed to update profile");
+            }
+        } catch (err) {
+            alert("Error updating profile: " + err);
+        }
+    };
+
+    // Doctor Delete Account Button
+    document.getElementById("btn-doctor-delete-account").onclick = async () => {
+        const password = prompt("Are you sure you want to delete your account? This is permanent.\nPlease enter your password to confirm:");
+        if (!password) return;
+
+        try {
+            const resp = await fetch(`${API_BASE}/delete_account.php`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ user_id: currentUser.id, password: password })
+            });
+            const data = await resp.json();
+            if (data.status === "success") {
+                alert("Account deleted successfully.");
+                localStorage.removeItem("user");
+                renderGuestUI();
+            } else {
+                alert(data.message || "Failed to delete account");
+            }
+        } catch (err) {
+            alert("Error deleting account: " + err);
+        }
+    };
 
     // Menu redirection setups
     document.getElementById("menu-card-doc-patients").onclick = () => {
